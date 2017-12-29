@@ -1,5 +1,5 @@
 main:
     - title: "Publications"
-      url: /publications/
+      url: /publications
     - title: "CV"
       url: cv/cv.pdf
