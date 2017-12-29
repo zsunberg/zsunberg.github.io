@@ -17,8 +17,8 @@ title: Zachary Sunberg
 email: sunbergzach@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
     I research and teach about artificial intelligence applied to control vehicles in the physical world.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "zachary.sunberg.net" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: zsunberg
 github_username:  zsunberg
 
