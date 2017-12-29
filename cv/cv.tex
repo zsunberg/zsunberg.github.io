@@ -1,0 +1,162 @@
+\documentclass[10pt,roman]{moderncv}
+
+%% ModernCV themes
+\moderncvstyle{banking}
+\moderncvcolor{black}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+
+
+\renewcommand*{\addresssymbol}       {}
+\renewcommand*{\mobilephonesymbol}   {}
+\renewcommand*{\fixedphonesymbol}    {}
+\renewcommand*{\faxphonesymbol}      {}
+\renewcommand*{\emailsymbol}         {}
+\renewcommand*{\homepagesymbol}      {}
+\renewcommand*{\linkedinsocialsymbol}{}
+\renewcommand*{\twittersocialsymbol} {}
+\renewcommand*{\githubsocialsymbol}  {}
+
+
+% \renewcommand\refname{Selected Publications}
+
+%% Character encoding
+\usepackage[utf8]{inputenc}
+
+%% Adjust the page margins
+\usepackage[scale=0.77]{geometry}
+
+\usepackage[style=numeric, maxbibnames=20, defernumbers=true, sorting=none]{biblatex}
+\addbibresource{mypubs.bib}
+
+\AtEveryBibitem{
+    \clearlist{address}
+    \clearlist{publisher}
+    \clearname{editor}
+    \clearlist{organization}
+    \clearfield{url}  
+    \clearfield{pages}  
+    \clearlist{location}
+    \clearfield{issn}
+}
+\newcommand{\mycventry}[4]{
+    % \cventry{}{#3}{#2}{\mdseries{\textit{#1}}}{}{#4}
+    \cventry{}{#3}{#2}{\mdseries{[#1]}}{}{#4}
+}
+
+%% Personal data
+\firstname{Zachary Nolan}
+\familyname{Sunberg}
+\address{Department of Aeronautics and Astronautics}{496 Lomita Mall, Durand Building, Room 250, Stanford, California} 
+\mobile{720-933-7799}
+\email{sunbergzach@gmail.com}
+
+%%------------------------------------------------------------------------------
+%% Content
+%%------------------------------------------------------------------------------
+\begin{document}
+
+% to get the correct ordering
+\nocite{sunberg2018pomcpow,
+sunberg2017value,
+slade2017simultaneous,
+egorov2017pomdps,
+sunberg2016trusted,
+sunberg2016information,
+sunberg2015real,
+sunberg2014space,
+sunberg2014real,
+sunberg2013information,
+sunberg2013belief,
+sunberg2013fuzzy,
+sunberg2012information}
+
+\makecvtitle
+
+\vspace{-2em}
+\section{Education}
+
+\mycventry{May 2018 (expected)}{Doctor of Philosophy in Aeronautics and Astronautics}{Stanford University, Stanford, CA}{Advisor: Mykel Kochenderfer \textbar{} Thesis: ``Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty''}
+
+\mycventry{2013}{Master of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Advisor: Jonathan Rogers \textbar{} Thesis: ``A Real Time Expert Control System for Helicopter Autorotation''}
+
+\mycventry{2011}{Bachelor of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Summa cum Laude, Minor in Mathematics}
+
+\section{Research}
+
+\mycventry{2015 -- present}{Stanford Intelligent Systems Laboratory (SISL)}{Stanford University, Stanford, CA}{
+    \vspace{2pt}
+    \cvline{POMCPOW}{Proved analytically that leading online POMDP solvers converge to suboptimal solutions for problems with continuous observation spaces and proposed a new algorithm, partially observable Monte Carlo planning with observation widening (POMCPOW) as a solution \cite{sunberg2018pomcpow}. Currently pursuing an analytical proof for the algorithm's optimality.}
+    \cvline{Behavior-aware decision making in self-driving cars}{Showed that modeling the internal states of other human drivers and approximately solving the resulting POMDP can simultaneously improve both safety and efficiency. In particular, a multiple-lane-change maneuver on a highway can be accomplished in about half the time while still maintaining the same levels of safety and comfort \cite{sunberg2017value}. Currently exploring better models of human behavior.}
+    \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results compared to a conventional approach in cases with large uncertainty \cite{slade2017simultaneous}. Currently testing different approximations to speed up the algorithm (it already operates in realtime for small problems) and comparing to more advanced alternatives.}
+    \vspace{6pt}
+}
+
+\mycventry{2014 -- 2016}{Autonomous Systems Lab (ASL)}{Stanford University, Stanford, CA}{
+    \vspace{2pt}
+    \cvline{UAV collision avoidance}{Developed a method to dynamically optimize the performance a trusted collision avoidance system without sacrificing certifiability \cite{sunberg2016trusted}.}
+    \vspace{6pt}
+}
+
+\mycventry{2013 -- 2014}{Hansen Experimental Physics Lab}{Stanford University, Stanford, CA}{
+    \vspace{2pt}
+    \cvline{Geostationary LISA}{Investigated gravitational coupling between a drag free test mass and a communications satellite carrying it for a laser interferometer gravity wave experiment.}
+    \vspace{6pt}
+}
+
+\mycventry{2011 -- 2013}{Helicopters and Unmanned Systems Laboratory (HUSL)}{Texas A\&M University, College Station, TX}{
+    \vspace{2pt}
+    \cvline{Autonomus autorotation}{Created a control system for autonomous autorotation of manned and unmanned helicopters, and successfully flight tested it on a small RC helicopter \cite{sunberg2015real}. Currently advising a team at the Air Force Research Lab on an autorotation-based delivery system.}
+    \cvline{Distance metrics for Dempster Shafer theory}{Developed a distance metric for Dempster-Shafer theory that applies to orderable and continuous sets like those encountered in the real world \cite{sunberg2013belief}.}
+    \vspace{6pt}
+}
+
+\mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program \mdseries{(Research Assistant)}}{Kirtland AFB, Albuquerque, NM}{
+    \vspace{2pt}
+    \cvline{Space situational awareness}{Developed an online algorithm for managing uncertainty about orbital vehicles and debris with a network of sensors \cite{sunberg2016information}.}
+    \vspace{6pt}
+}
+
+
+\section{Teaching and Talks}
+\mycventry{June 2017}{Army High Performance Computing Summer Institute}{Stanford University, Stanford, CA}{
+Developed and taught a 5 lecture course about decision making under uncertainty for college students.
+}
+
+\mycventry{2015-2017}{Stanford Artificial Intelligence Lab OutReach Summer (SAILORS, now AI4ALL)}{Stanford University, Stanford, CA}{
+    Developed and taught a 2 week course and project for high school students that included programming robots for optical line following and using Dijkstra's algorithm to find the shortest path on a road network; only project mentor to serve all three years of the program. \url{http://ai-4-all.org/}
+}
+    
+\mycventry{Autumn 2016}{AA-228/CS-238 Decision Making Under Uncertainty}{Stanford University, Stanford, CA}{
+    Head course assistant for a class of around 200; developed problems for midterm project; gave guest lectures on the POMDPs.jl framework and autonomous driving research; project software was reused in a course at Iowa State University.
+}
+
+\mycventry{May 2017}{Julia in Controls Workshop}{American Control Conference, Seattle, WA}{Taught a tutorial of the POMDPs.jl software package at a workshop at the American Control Conference.}
+
+\mycventry{March 2017}{POMDPs.jl - Challenges and Lessons Learned}{Open Source Software for Decision Making (OSS4DM), Stanford, CA}{Presented and discussed the challenges that we faced and lessons that we learned in creating POMDPs.jl.}
+
+\section{Industry Experience}
+
+\mycventry{Summer 2014}{Google, Inc.\mdseries{, Mountain View, CA}}{Software Engineering Intern}{
+Wrote software to evaluate and optimize a NASA collision avoidance program for use with Google self-piloted air vehicles.
+}
+
+\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Intern}{
+Helped in testing of autonomous SMSS all­terrain military transport vehicle navigation system; wrote rough terrain navigation program in C++ based on the A* search algorithm; wrote software in C++ for analyzing the performance of an advanced video analysis tool.
+}
+
+\section{Open Source Software}
+
+\mycventry{2015 -- present}{POMDPs.jl}{\normalfont{\url{https://github.com/JuliaPOMDP/POMDPs.jl}}}{
+    Interface for defining continuous and discrete, fully and partially observable Markov decision processes along with a suite of state-of-the art solvers written in Julia and C++.
+}
+
+\section{Review Experience}
+
+I have reviewed or am currently reviewing submissions for the following venues: Journal of Artificial Intelligence Research, IEEE Transations on Cybernetics, Journal of Aerospace Information Systems, International Symposium on Robotics Research, American Control Conference, International Conference on Robotics and Automation.
+
+% \bibliographystyle{unsrt}
+% \bibliography{mypubs} % a bibtex file containing the list of publications
+\printbibliography[title={Publications}, resetnumbers=true]
+
+\end{document}
