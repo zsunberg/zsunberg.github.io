@@ -34,8 +34,6 @@ plugins:
 
 remote_theme: "mmistakes/minimal-mistakes"
 
-include: ["_generated"]
-
 exclude:
     - _scripts/
 
