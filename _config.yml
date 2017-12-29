@@ -17,11 +17,8 @@ title: Zachary Sunberg
 email: sunbergzach@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
     I research and teach about artificial intelligence applied to control vehicles in the physical world.
-    # Write an awesome description for your new site here. You can edit this
-    # line in _config.yml. It will appear in your document head meta (for
-    # Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "zachary.sunberg.net" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: zsunberg
 github_username:  zsunberg
 
@@ -36,6 +33,15 @@ remote_theme: "mmistakes/minimal-mistakes"
 
 exclude:
     - _scripts/
+
+minimal_mistakes_skin: "default"
+
+author:
+    name: "Zachary Sunberg"
+    avatar: "/assets/images/faroe_selfie.jpg"
+    bio: "Artificial intelligence for the physical world."
+    url: "zachary.sunberg.net"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
