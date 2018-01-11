@@ -39,8 +39,8 @@ In computational tests in a highway driving scenario, internal state modeling al
 
 # Autonomous Autorotation
 
-In 2013, we used autorotation to successfully land a small autonomous helicopter without power.
-The video below contains footage from a nose-mounted camera.
+In 2013, we used autorotation to repeatedly successfully land a small autonomous helicopter without power.
+The video below contains footage of one of the landings from a nose-mounted camera.
 Note that the pilot releases control as he turns off the motor.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mAFeDq9ZdH4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
