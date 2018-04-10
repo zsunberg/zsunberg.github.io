@@ -34,6 +34,10 @@ But the performance also depends on the model.
 We showed that by modeling the latent internal states of the other drivers on the road, safety and efficiency can both be *simultaneously* improved (this corresponds to moving the Pareto curve).
 In computational tests in a highway driving scenario, internal state modeling allowed the autonomous vehicle to perform a multiple-lane change maneuver nearly twice as fast with the same level of safety.
 
+<video autoplay="autoplay" loop="loop" width="100%">
+  <source src="/assets/videos/highway_planning.webm" type="video/webm">
+</video>
+
 ![Safety-Efficiency Tradeoff](assets/images/pareto.png)
 
 - Paper: [https://arxiv.org/abs/1702.00858 ](https://arxiv.org/abs/1702.00858)
