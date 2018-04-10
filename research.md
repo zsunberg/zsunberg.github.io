@@ -35,8 +35,9 @@ We showed that by modeling the latent internal states of the other drivers on th
 In computational tests in a highway driving scenario, internal state modeling allowed the autonomous vehicle to perform a multiple-lane change maneuver nearly twice as fast with the same level of safety.
 
 <video autoplay="autoplay" loop="loop" width="100%" controls>
-  <source src="/assets/videos/highway_planning.webm" type="video/webm">
   <source src="/assets/videos/highway_planning.mp4" type="video/mp4">
+  <source src="/assets/videos/highway_planning.webm" type="video/webm">
+  <source src="/assets/videos/highway_planning.ogv" type="video/ogg">
   ![Highway Lane Change Planning](assets/images/highway_planning.png)
 </video>
 
