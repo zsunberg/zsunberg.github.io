@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Talks
+title: Defense
 author_profile: true
 
 ---
