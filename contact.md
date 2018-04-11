@@ -7,7 +7,7 @@ author_profile: true
 
 # Online
 
-The easiest way to contact me is through email: sunbergzach at gmail dot com
+The easiest way to contact me is through email: [sunbergzach@gmail.com](mailto:sunbergzach@gmail.com)
 
 # In Person
 
