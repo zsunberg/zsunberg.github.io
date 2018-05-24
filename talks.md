@@ -7,7 +7,7 @@ author_profile: true
 
 # Defense
 
-The live video of my defense should play below (you can also [watch directly on youtube](https://www.youtube.com/watch?v=MBAtxhaNXGc)). If there are any problems, check the youtube page or the [facebook event](https://www.facebook.com/events/380795625731958/)for more info.
+The live video of my defense should play below. If there are any problems, check the [youtube page](https://www.youtube.com/watch?v=MBAtxhaNXGc) or the [facebook event](https://www.facebook.com/events/380795625731958/) for more info.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MBAtxhaNXGc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
