@@ -9,4 +9,11 @@ author_profile: true
 
 [Announcement PDF](assets/documents/flyer.pdf)
 
-My thesis defense will be on May 25, 2018 at 9 am. A livestream (or a link to one) will be here on that day.
+The video of my defense should play below (you can also [watch directly on youtube](https://www.youtube.com/watch?v=MBAtxhaNXGc))
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MBAtxhaNXGc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<br/>
+The *slides* can be found [here](https://slides.com/zacharysunberg/defense-4#/), and you can follow along live [here](https://slides.com/zacharysunberg/defense-4/live).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ROqytlSvQx4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
