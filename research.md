@@ -7,6 +7,29 @@ author_profile: true
 
 These are my most interesting projects, for broader coverage, please see the [publications](/publications) section and my [CV](/cv/cv.pdf).
 
+# Behavior-Aware Autonomous Driving
+
+<video autoplay="autoplay" loop="loop" width="100%" controls>
+  <source src="/assets/videos/highway_planning.mp4" type="video/mp4">
+  <source src="/assets/videos/highway_planning.webm" type="video/webm">
+  <source src="/assets/videos/highway_planning.ogv" type="video/ogg">
+  ![Highway Lane Change Planning](assets/images/highway_planning.png)
+</video>
+
+![Internal States](assets/images/states.svg.png)
+
+In autonomous driving, there is an inherent tradeoff between safety and efficiency, especially time-efficiency.
+If a self-driving car is to be perfectly safe, it cannot enter the road, and it can be the fastest if there are no safety constraints.
+This tradeoff results in the Pareto curves shown in the figure below.
+But the performance also depends on the model.
+We showed that by modeling the latent internal states of the other drivers on the road, safety and efficiency can both be *simultaneously* improved (this corresponds to moving the Pareto curve).
+In computational tests in a highway driving scenario, internal state modeling allowed the autonomous vehicle to perform a multiple-lane change maneuver nearly twice as fast with the same level of safety.
+
+![Safety-Efficiency Tradeoff](assets/images/pareto.png)
+
+- Paper: [https://arxiv.org/abs/1702.00858 ](https://arxiv.org/abs/1702.00858)
+
+
 # POMCPOW: An online algorithm for Continuous POMDPs
 
 ![POMCPOW Tree](assets/images/pomcpow.png)
@@ -22,28 +45,6 @@ For example, in the light-dark example shown below, POMCP (top) cannot decide to
 - Paper: [https://arxiv.org/abs/1709.06196 ](https://arxiv.org/abs/1709.06196)
 - Code: [https://github.com/JuliaPOMDP/POMCPOW.jl ](https://github.com/JuliaPOMDP/POMCPOW.jl)
 
-
-# Behavior-Aware Autonomous Driving
-
-![Internal States](assets/images/states.svg.png)
-
-In autonomous driving, there is an inherent tradeoff between safety and efficiency, especially time-efficiency.
-If a self-driving car is to be perfectly safe, it cannot enter the road, and it can be the fastest if there are no safety constraints.
-This tradeoff results in the Pareto curves shown in the figure below.
-But the performance also depends on the model.
-We showed that by modeling the latent internal states of the other drivers on the road, safety and efficiency can both be *simultaneously* improved (this corresponds to moving the Pareto curve).
-In computational tests in a highway driving scenario, internal state modeling allowed the autonomous vehicle to perform a multiple-lane change maneuver nearly twice as fast with the same level of safety.
-
-<video autoplay="autoplay" loop="loop" width="100%" controls>
-  <source src="/assets/videos/highway_planning.mp4" type="video/mp4">
-  <source src="/assets/videos/highway_planning.webm" type="video/webm">
-  <source src="/assets/videos/highway_planning.ogv" type="video/ogg">
-  ![Highway Lane Change Planning](assets/images/highway_planning.png)
-</video>
-
-![Safety-Efficiency Tradeoff](assets/images/pareto.png)
-
-- Paper: [https://arxiv.org/abs/1702.00858 ](https://arxiv.org/abs/1702.00858)
 
 # Autonomous Autorotation
 
