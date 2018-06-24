@@ -40,7 +40,7 @@ ai4all:
 pomdps:
     - image_path: "/assets/images/lasertag.gif"
       title: "POMDPs.jl"
-      excerpt: "POMDPs.jl is a Julia interface for working with discrete and continuous, fully and partially observable Markov decision processes."
+      excerpt: "POMDPs.jl is a Julia interface for working with discrete and continuous, fully and partially observable Markov decision processes (See an example [here](https://nbviewer.jupyter.org/url/zachary.sunberg.net/assets/notebooks/pomdps_lightdark_demo.ipynb))."
       url: "https://github.com/JuliaPOMDP/POMDPs.jl"
       btn_class: "btn--primary"
 
