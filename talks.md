@@ -15,3 +15,5 @@ The live video of my defense should play below. If there are any problems, check
 The **slides** can be found [here](https://slides.com/zacharysunberg/defense-4#/), and you can follow along live [here](https://slides.com/zacharysunberg/defense-4/live).
 
 [Announcement PDF](assets/documents/flyer.pdf)
+
+My thesis can be found [here](thesis.pdf).
