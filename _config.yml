@@ -29,10 +29,11 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
 
-remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: "mmistakes/minimal-mistakes@4.13.0"
 
 exclude:
     - _scripts/
+    - vendor/
 
 minimal_mistakes_skin: "default"
 
