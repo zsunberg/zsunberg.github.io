@@ -17,4 +17,4 @@ I'm doing a Post Doc at Berkeley right now. If you're in the area, shoot me an e
 
 For coordinating meetings, this calendar shows times when I will be busy.
 
-<iframe src="https://calendar.google.com/calendar/embed?src=sunbergzach%40gmail.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=sunbergzach%40gmail.com&mode=WEEK" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
