@@ -1,8 +1,11 @@
 ---
-layout: single
+layout: splash
+classes: wide
 title: Curriculum Vitae
 author_profile: true
 
 ---
 
-<embed src="cv/cv.pdf" type="application/pdf" width="8.5in"/>
+# Curriculum Vitae
+
+<embed src="cv/cv.pdf" type="application/pdf" width="100%"/>
