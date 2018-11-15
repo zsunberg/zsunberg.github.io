@@ -27,6 +27,8 @@
 \usepackage[scale=0.77]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{enumitem}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -49,9 +51,13 @@
     \clearfield{issn}
 }
 \newcommand{\mycventry}[4]{
+    \begin{samepage}
     % \cventry{}{#3}{#2}{\mdseries{\textit{#1}}}{}{#4}
-    \cventry{}{#3}{#2}{\mdseries{[#1]}}{}{#4}
+        \cventry{}{#3}{#2}{\mdseries{[#1]}}{}{#4}
+        \vspace{2pt}
+    \end{samepage}
 }
+
 \newcommand{\mycvitem}[2]{
     \textbf{#2}\hfill [#1]\break
 }
@@ -59,7 +65,7 @@
 %% Personal data
 \firstname{Zachary Nolan}
 \familyname{Sunberg}
-\address{Department of Aeronautics and Astronautics}{496 Lomita Mall, Durand Building, Room 250, Stanford, California} 
+\address{Electrical Engineering and Computer Science Department, University of California}{Cory Hall, 2626 Hearst Ave, Berkeley, CA 94720} 
 \mobile{720-933-7799}
 \email{sunbergzach@gmail.com}
 \homepage{zachary.sunberg.net}
@@ -83,14 +89,20 @@ sunberg2014real,
 sunberg2013information,
 sunberg2013belief,
 sunberg2013fuzzy,
-sunberg2012information}
+sunberg2012information,
+slade2018estimation,
+jou2018partially}
 
 \makecvtitle
 
 \vspace{-2em}
+\section{Academic Appointments}
+
+\mycventry{October 2018 -- Present}{Postdoctoral Research Scholar}{University of California, Berkeley, CA}{Supervisor: Claire Tomlin, Hybrid Systems Laboratory}
+
 \section{Education}
 
-\mycventry{August 2018}{Doctor of Philosophy in Aeronautics and Astronautics}{Stanford University, Stanford, CA}{Advisor: Mykel Kochenderfer \textbar{} Thesis: ``Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty''}
+\mycventry{2018}{Doctor of Philosophy in Aeronautics and Astronautics}{Stanford University, Stanford, CA}{Advisor: Mykel Kochenderfer \textbar{} Thesis: ``Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty''}
 
 \mycventry{2013}{Master of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Advisor: Jonathan Rogers \textbar{} Thesis: ``A Real Time Expert Control System for Helicopter Autorotation''}
 
@@ -98,15 +110,29 @@ sunberg2012information}
 
 \section{Research}
 
-\mycventry{2015 -- present}{Stanford Intelligent Systems Laboratory (SISL)}{Stanford University, Stanford, CA}{
+\mycventry{October 2018 -- Present}{Hybrid Systems Laboratory}{University of California, Berkeley, CA}{
     \vspace{2pt}
-    \cvline{POMCPOW}{Proved analytically that leading online POMDP solvers converge to suboptimal solutions for problems with continuous observation spaces and proposed a new algorithm, partially observable Monte Carlo planning with observation widening (POMCPOW) as a solution \cite{sunberg2018pomcpow}. Currently pursuing an analytical proof for the algorithm's optimality.}
-    \cvline{Behavior-aware decision making in self-driving cars}{Showed that modeling the internal states of other human drivers and approximately solving the resulting POMDP can simultaneously improve both safety and efficiency. In particular, a multiple-lane-change maneuver on a highway can be accomplished in about half the time while still maintaining the same levels of safety and comfort \cite{sunberg2017value}. Currently exploring better models of human behavior.}
-    \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results compared to a conventional approach in cases with large uncertainty \cite{slade2017simultaneous}. Currently testing different approximations to speed up the algorithm (it already operates in realtime for small problems) and comparing to more advanced alternatives.}
+    \cvline{Safety verification of control systems with visual sensors (DARPA Assured Autonomy)}{
+        Developing techniques for guaranteeing the safety of a vehicle that uses a camera as a sensor, possibly with a convolutional-neural-network processing step. We hope to overcome some of the challenges of incorporating the visual sensor through careful design of the control and information filtering systems.
+    }
+    \cvline{Advanced algorithms for continuous POMDPs}{
+        Developing algorithms based on DESPOT for problems with continuous observation spaces to overcome the shortcomings of POMCPOW (see below, \cite{sunberg2018pomcpow}) including a tendency to create shallow search trees and challenges with theoretical guarantees.
+    }
+    \cvline{Reachability-based safety constraints in partially observable domains}{
+        Combining Hamilton-Jacobi reachability analysis with partial observability, focused on problems with human interaction; using POMDP planners to find optimized feedback policies that are aware of the reachability-based safety constraints.
+    }
     \vspace{6pt}
 }
 
-\mycventry{2014 -- 2016}{Autonomous Systems Lab (ASL)}{Stanford University, Stanford, CA}{
+\mycventry{2015 -- 2018}{Stanford Intelligent Systems Laboratory (SISL)}{Stanford University, Stanford, CA}{
+    \vspace{2pt}
+    \cvline{POMCPOW}{Proved analytically that leading online POMDP solvers converge to suboptimal solutions for problems with continuous observation spaces and proposed a new algorithm, partially observable Monte Carlo planning with observation widening (POMCPOW) as a solution \cite{sunberg2018pomcpow}.}
+    \cvline{Behavior-aware decision making in self-driving cars}{Showed that modeling the internal states of other human drivers and approximately solving the resulting POMDP can simultaneously improve both safety and efficiency. In particular, a multiple-lane-change maneuver on a highway can be accomplished in about half the time while still maintaining the same levels of safety and comfort \cite{sunberg2017value}. Other students are currently collaborating with me to .}
+    \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results compared to a conventional approach in cases with large uncertainty \cite{slade2017simultaneous,slade2018estimation}.}
+    \vspace{6pt}
+}
+
+\mycventry{2014 -- 2016}{Autonomous Systems Laboratory (ASL)}{Stanford University, Stanford, CA}{
     \vspace{2pt}
     \cvline{UAV collision avoidance}{Developed a method to dynamically optimize the performance a trusted collision avoidance system without sacrificing certifiability \cite{sunberg2016trusted}.}
     \vspace{6pt}
@@ -132,7 +158,7 @@ sunberg2012information}
 }
 
 
-\section{Teaching and Talks}
+\section{Teaching}
 \mycventry{June 2017}{Army High Performance Computing Summer Institute}{Stanford University, Stanford, CA}{
 Developed and taught a 5 lecture course about decision making under uncertainty for college students.
 }
@@ -144,6 +170,21 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycventry{Autumn 2016}{AA-228/CS-238 Decision Making Under Uncertainty}{Stanford University, Stanford, CA}{
     Head course assistant for a class of around 200; developed problems for midterm project; gave guest lectures on the POMDPs.jl framework and autonomous driving research; project software was reused in a course at Iowa State University.
 }
+
+\section{Talks}
+
+\mycventry{2018}{Invited Industry Talks}{
+\vspace{-1em}
+}{
+\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning}
+\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
+\cvline{Makani (Google X), \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World}
+\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
+}
+
+% \mycventry{2018}{Invited Industry Talks}{Lyft Level 5, Makani (Google X), Renault-Nissan Research Alliance, Indeed}{
+% Presented research on solving POMDPs to several Silicon Valley automotive and technology companies at their request.
+% }
 
 \mycventry{May 2017}{Julia in Controls Workshop}{American Control Conference, Seattle, WA}{Taught a tutorial of the POMDPs.jl software package at a workshop at the American Control Conference.}
 
@@ -173,10 +214,26 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 
 \section{Review Experience}
 
-I have reviewed or am currently reviewing submissions for the following venues: Journal of Artificial Intelligence Research, IEEE Transations on Cybernetics, Journal of Aerospace Information Systems, International Symposium on Robotics Research, American Control Conference, International Conference on Robotics and Automation.
+I have reviewed submissions for the following journals and conferences:
+\vspace{-1ex}
+\begin{multicols}{2}
+\small
+Journal of Artificial Intelligence Research\\
+IEEE Transations on Cybernetics\\
+Journal of Aerospace Information Systems\\
+International Symposium on Robotics Research\\
+American Control Conference\\
+International Conference on Robotics and Automation
+\end{multicols}
 
 % \bibliographystyle{unsrt}
 % \bibliography{mypubs} % a bibtex file containing the list of publications
-\printbibliography[title={Publications}, resetnumbers=true]
+% \printbibliography[title={Publications}, resetnumbers=true]
+\printbibliography[title={Peer Reviewed Journal Publications},
+                   type=article]
+\printbibliography[title={Peer Reviewed Conference Publications},
+                   type=inproceedings]
+\printbibliography[title={Forthcoming Publications},
+                   type=unpublished]
 
 \end{document}

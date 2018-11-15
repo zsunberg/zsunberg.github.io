@@ -48,7 +48,7 @@ pomdps:
 me:
     - image_path: "assets/images/faroe_selfie.jpg"
       title: "About me"
-      excerpt: "I am a PhD Candidate at Stanford University researching and teaching about artificial intelligence applied to control autonomous vehicles. I'm currently seeking a faculty position in the western United States. If you are interested in the research I do, please [contact me](/contact)."
+      excerpt: "I am a Postdoctoral Scholar at the University of California researching artificial intelligence applied to control autonomous vehicles. I'm currently seeking a faculty position in the western United States. If you are interested in the research I do, please [contact me](/contact)."
 
 ---
 
