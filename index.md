@@ -8,11 +8,11 @@ header:
     overlay_color: "#000"
     overlay_filter: "0.3"
     caption: POMCP Tree from POMDPs.jl [PC Tomer Arnon]
-excerpt: I research and teach about artificial intelligence applied to control autonomous vehicles safely and efficiently in the physical world.
+excerpt: I research and teach about artificial intelligence for autonomous vehicles.
 
 
 feature_row:
-    - image_path: "/assets/images/highway_planning.png"
+    - image_path: "/assets/images/states_and_road.svg"
       title: "Behavior-aware planning"
       excerpt: "Self-driving cars can be safer and more efficient when they reason about latent states related to behavior."
       url: "/research#behavior-aware-autonomous-driving"
