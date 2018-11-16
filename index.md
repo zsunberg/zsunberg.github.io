@@ -1,17 +1,18 @@
 ---
-title: "Algorithms for the Physical World"
+title: "Algorithms for Safe and Efficient Autonomy"
 
 layout: splash
 
 header:
-    overlay_image: "assets/images/mykines_back.jpg"
+    overlay_image: "assets/images/pomcp.png"
     overlay_color: "#000"
-    overlay_filter: "0.7"
-excerpt: I research and teach about artificial intelligence applied to control autonomous vehicles in the physical world.
+    overlay_filter: "0.3"
+    caption: POMCP Tree from POMDPs.jl [PC Tomer Arnon]
+excerpt: I research and teach about artificial intelligence applied to control autonomous vehicles safely and efficiently in the physical world.
 
 
 feature_row:
-    - image_path: "/assets/images/states.svg.png"
+    - image_path: "/assets/images/highway_planning.png"
       title: "Behavior-aware planning"
       excerpt: "Self-driving cars can be safer and more efficient when they reason about latent states related to behavior."
       url: "/research#behavior-aware-autonomous-driving"
