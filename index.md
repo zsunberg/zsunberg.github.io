@@ -49,7 +49,7 @@ pomdps:
 me:
     - image_path: "assets/images/faroe_selfie.jpg"
       title: "About me"
-      excerpt: "I am a Postdoctoral Scholar at the University of California, Berkeley researching artificial intelligence applied to control autonomous vehicles. I'm currently seeking a faculty position in the western United States. If you are interested in the research I do, please [contact me](/contact)."
+      excerpt: "I am a Postdoctoral Scholar at the University of California, Berkeley researching artificial intelligence applied to control autonomous vehicles. In January 2020, I will be starting as an assistant professor in the Aerospace Engineering Sciences department at the University of Colorado, Boulder. If you are interested in the research I do, please [contact me](/contact)."
 
 ---
 
