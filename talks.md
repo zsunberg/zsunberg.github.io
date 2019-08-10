@@ -12,7 +12,7 @@ The live video of my defense should play below. If there are any problems, check
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MBAtxhaNXGc?start=1960" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <br/>
-The **slides** can be found [here](https://slides.com/zacharysunberg/defense-4#/), and you can follow along live [here](https://slides.com/zacharysunberg/defense-4/live).
+The **slides** can be found [here](https://slides.com/zacharysunberg/defense-4#/).
 
 [Announcement PDF](assets/documents/flyer.pdf)
 
