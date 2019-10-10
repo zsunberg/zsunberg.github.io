@@ -7,7 +7,7 @@ author_profile: true
 
 # Online
 
-The easiest way to contact me is through email: [sunbergzach@gmail.com](mailto:sunbergzach@gmail.com)
+The easiest way to contact me is through email: [zachary.sunberg@colorado.edu](mailto:zachary.sunberg@colorado.edu)
 
 # In Person
 
