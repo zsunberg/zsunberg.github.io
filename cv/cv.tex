@@ -29,6 +29,10 @@
 \usepackage{lastpage}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{comment}
+
+% \includecomment{references}
+\excludecomment{references}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -62,12 +66,14 @@
     \textbf{#2}\hfill [#1]\break
 }
 
+\newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
+
 %% Personal data
 \firstname{Zachary Nolan}
 \familyname{Sunberg}
 \address{Electrical Engineering and Computer Science Department, University of California}{Cory Hall, 2626 Hearst Ave, Berkeley, CA 94720} 
 \mobile{720-933-7799}
-\email{sunbergzach@gmail.com}
+\email{zachary.sunberg@colorado.edu}
 \homepage{zachary.sunberg.net}
 
 %%------------------------------------------------------------------------------
@@ -203,6 +209,7 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 
 \mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 \mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
+\mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
 \mycvitem{May 2017}{American Control Conference Student Travel Award}
 
 \section{Open Source Software}
@@ -222,7 +229,9 @@ IEEE Transations on Cybernetics\\
 Journal of Aerospace Information Systems\\
 International Symposium on Robotics Research\\
 American Control Conference\\
-International Conference on Robotics and Automation
+International Conference on Robotics and Automation\\
+International Joint Conference on Artificial Intelligence\\
+Robotics, Science and Systems
 \end{multicols}
 
 % \bibliographystyle{unsrt}
@@ -234,5 +243,26 @@ International Conference on Robotics and Automation
                    type=inproceedings]
 \printbibliography[title={Forthcoming Publications},
                    type=unpublished]
+
+
+\begin{references}
+
+\section{References}
+
+The following people have agreed to write letters of recommendation on my behalf:\\
+\begin{itemize}
+    \item[] Mykel Kochenderfer, Assistant Professor of Aeronautics and Astronautics at Stanford University\\(\mailto{mykel@stanford.edu})
+
+    \item[] Claire Tomlin, Professor of Electrical Engineering and Computer Science at the University of California, Berkeley (\mailto{tomlin@eecs.berkeley.edu})
+
+    \item[] Marco Pavone, Assistant Professor of Aeronautics and Astronautics at Stanford University\\ (\mailto{pavone@stanford.edu})
+
+    \item[] Suman Chakravorty, Associate Professor of Aerospace Engineering at Texas A\&M University\\ (\mailto{schakrav@tamu.edu})
+
+    \item[] Olga Russakovsky, Assistant Professor of Computer Science at Princeton University, and Fei-Fei Li, Associate Professor of Computer Science at Stanford University and Chief Scientist of AI/ML at Google Cloud (Fei-Fei and Olga agreed to write a joint letter; please contact Olga at \mailto{olgarus@cs.princeton.edu})
+
+\end{itemize}
+
+\end{references}
 
 \end{document}
