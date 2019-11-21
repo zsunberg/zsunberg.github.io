@@ -71,7 +71,7 @@
 %% Personal data
 \firstname{Zachary Nolan}
 \familyname{Sunberg}
-\address{Electrical Engineering and Computer Science Department, University of California}{Cory Hall, 2626 Hearst Ave, Berkeley, CA 94720} 
+\address{Ann and H.\ J.\ Smead Aerospace Engineering Sciences}{University of Colorado Boulder} 
 \mobile{720-933-7799}
 \email{zachary.sunberg@colorado.edu}
 \homepage{zachary.sunberg.net}
@@ -86,6 +86,7 @@
     sunberg2018pomcpow,
 sunberg2017value,
 slade2017simultaneous,
+slade2019estimation,
 egorov2017pomdps,
 sunberg2016trusted,
 sunberg2016information,
@@ -96,16 +97,19 @@ sunberg2013information,
 sunberg2013belief,
 sunberg2013fuzzy,
 sunberg2012information,
-slade2018estimation,
 jou2018partially}
 
 \makecvtitle
 
 \vspace{-2em}
 
-\section{Education}
+\section{Academic Appointments}
 
-\mycventry{October 2018 -- Present}{Postdoctoral Research Scholar}{University of California, Berkeley, CA}{Supervisor: Claire Tomlin, Hybrid Systems Laboratory}
+\mycventry{January 2020 -- Present}{Assistant Professor}{University of Colorado, Boulder, CO}{Ann and H.\ J.\ Smead Aerospace Engineering Sciences}
+
+\mycventry{October 2018 -- October 2019}{Postdoctoral Research Scholar}{University of California, Berkeley, CA}{Supervisor: Claire Tomlin, Hybrid Systems Laboratory}
+
+\section{Education}
 
 \mycventry{2018}{Doctor of Philosophy in Aeronautics and Astronautics}{Stanford University, Stanford, CA}{Advisor: Mykel Kochenderfer \textbar{} Thesis: ``Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty''}
 
@@ -115,13 +119,13 @@ jou2018partially}
 
 \section{Research}
 
-\mycventry{October 2018 -- Present}{Hybrid Systems Laboratory}{University of California, Berkeley, CA}{
+\mycventry{October 2018 -- October 2019}{Hybrid Systems Laboratory}{University of California, Berkeley, CA}{
     \vspace{2pt}
-    \cvline{Safety verification of control systems with visual sensors (DARPA Assured Autonomy)}{
-        Developing techniques for guaranteeing the safety of a vehicle that uses a camera as a sensor, possibly with a convolutional-neural-network processing step. We hope to overcome some of the challenges of incorporating the visual sensor through careful design of the control and information filtering systems.
+    \cvline{Strategy alignment in differential games}{
+        Developed particle filtering techniques to deal with the presence of multiple Nash equilibria in differential games and coordinate strategies with humans that robots interact with~\cite{peters2020alignment}.
     }
-    \cvline{Advanced algorithms for continuous POMDPs}{
-        Developing algorithms based on DESPOT for problems with continuous observation spaces to overcome the shortcomings of POMCPOW (see below, \cite{sunberg2018pomcpow}) including a tendency to create shallow search trees and challenges with theoretical guarantees.
+    \cvline{Analysis of online algorithms for continuous POMDPs}{
+        Developed the first proof of convergence to optimality for an online sampling-based POMDP algorithm in continuous observation spaces~\cite{lim2020sparse}.
     }
     \cvline{Reachability-based safety constraints in partially observable domains}{
         Combining Hamilton-Jacobi reachability analysis with partial observability, focused on problems with human interaction; using POMDP planners to find optimized feedback policies that are aware of the reachability-based safety constraints.
@@ -133,7 +137,7 @@ jou2018partially}
     \vspace{2pt}
     \cvline{POMCPOW}{Proved analytically that leading online POMDP solvers converge to suboptimal solutions for problems with continuous observation spaces and proposed a new algorithm, partially observable Monte Carlo planning with observation widening (POMCPOW) as a solution \cite{sunberg2018pomcpow}.}
     \cvline{Behavior-aware decision making in self-driving cars}{Showed that modeling the internal states of other human drivers and approximately solving the resulting POMDP can simultaneously improve both safety and efficiency. In particular, a multiple-lane-change maneuver on a highway can be accomplished in about half the time while still maintaining the same levels of safety and comfort \cite{sunberg2017value}. Other students are currently collaborating with me to .}
-    \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results compared to a conventional approach in cases with large uncertainty \cite{slade2017simultaneous,slade2018estimation}.}
+    \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results compared to a conventional approach in cases with large uncertainty \cite{slade2017simultaneous,slade2019estimation}.}
     \vspace{6pt}
 }
 
