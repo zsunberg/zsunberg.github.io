@@ -27,15 +27,24 @@ markdown: kramdown
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
   - jekyll-remote-theme
 
-remote_theme: "mmistakes/minimal-mistakes@4.13.0"
+remote_theme: "mmistakes/minimal-mistakes@4.17.2"
 
 exclude:
     - _scripts/
     - vendor/
 
 minimal_mistakes_skin: "default"
+
+logo: "/assets/images/cu.png"
+# logo: "/assets/images/faroe_selfie.jpg"
 
 author:
     name: "Zachary Sunberg"
