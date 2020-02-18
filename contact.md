@@ -11,7 +11,7 @@ The easiest way to contact me is through email: [zachary.sunberg@colorado.edu](m
 
 # In Person
 
-My office is on the second floor of the Aerospace Engineering Sciences Building on the east campus of the University of Colorado Boulder. Shoot me an email or send me a google calendar invite to set up a meeting.
+My office is room 263 of the Aerospace Engineering Sciences Building on the east campus of the University of Colorado Boulder. Shoot me an email or send me a google calendar invite to set up a meeting.
 
 # Calendar
 
