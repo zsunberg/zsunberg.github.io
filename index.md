@@ -49,7 +49,7 @@ pomdps:
 me:
     - image_path: "assets/images/faroe_selfie.jpg"
       title: "About me"
-      excerpt: "I am an Assistant Professor in the Ann and H.J. Smead Aerospace Engineering Sciences department at the University of Colorado Boulder. I will be accepting PhD students in the fall of 2020. If you are a prospective student with an demonstrated outstanding academic record who is passionate about learning, engineering, and research in artificial intelligence or aerospace vehicle control,  please [reach out](/contact)."
+      excerpt: "I am an Assistant Professor in the Ann and H.J. Smead Aerospace Engineering Sciences department at the University of Colorado Boulder. If you are interested in my research in artificial intelligence or aerospace vehicle control,  please [reach out](/contact)."
 
 ---
 
