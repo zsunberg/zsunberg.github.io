@@ -33,6 +33,7 @@
 
 % \includecomment{references}
 \excludecomment{references}
+\includecomment{research}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -43,6 +44,19 @@
 
 \usepackage[style=numeric, maxbibnames=20, defernumbers=true, sorting=none]{biblatex}
 \addbibresource{mypubs.bib}
+
+% Bold my name
+% https://tex.stackexchange.com/questions/73136/make-specific-author-bold-using-biblatex?noredirect=1&lq=1
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{me}
+    {\textbf{#1}}
+    {#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{me}
+    {\textbf{#1}}
+    {#1}}
+
 
 \DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
 \AtEveryBibitem{
@@ -83,8 +97,9 @@
 
 % to get the correct ordering
 \nocite{
-    ahmad2021probabilistic,
     lim2021voronoi,
+    ahmad2021probabilistic,
+    mern2021bayesian,
     sunberg2020improving,
     lim2020sparse,
 peters2020alignment,
@@ -122,6 +137,8 @@ sunberg2012information,
 \mycventry{2013}{Master of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Advisor: Jonathan Rogers \textbar{} Thesis: ``A Real Time Expert Control System for Helicopter Autorotation''}
 
 \mycventry{2011}{Bachelor of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Summa cum Laude, Minor in Mathematics}
+
+\begin{research}
 
 \section{Research}
 
@@ -171,9 +188,10 @@ sunberg2012information,
     \cvline{Space situational awareness}{Developed an online algorithm for managing uncertainty about orbital vehicles and debris with a network of sensors \cite{sunberg2016information}.}
     \vspace{6pt}
 }
-
+\end{research}
 
 \section{Teaching}
+
 \mycventry{June 2017}{Army High Performance Computing Summer Institute}{Stanford University, Stanford, CA}{
 Developed and taught a 5 lecture course about decision making under uncertainty for college students.
 }
