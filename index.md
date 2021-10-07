@@ -30,14 +30,6 @@ feature_row:
       url: "/research#pomcpow-an-online-algorithm-for-continuous-pomdps"
       btn_class: "btn--primary"
 
-ai4all:
-    - image_path: "/assets/images/sailors_robotics.jpg"
-      title: "AI4ALL"
-      excerpt: "AI4ALL is an organization I've worked with for the past three years to increase diversity and inclusion in artificial intelligence. [Photo credit: Lauren Yang]"
-      url: "/teaching#sailors"
-      btn_class: "btn--primary"
-      caption: "Photo credit: Lauren Yang"
-
 pomdps:
     - image_path: "/assets/images/lasertag.gif"
       title: "POMDPs.jl"

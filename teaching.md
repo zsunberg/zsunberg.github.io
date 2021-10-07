@@ -8,7 +8,7 @@ author_profile: true
 
 # SAILORS
 
-I have served for the past three years as a project mentor for the Stanford Artificial Intelligence Lab Outreach Summer (SAILORS) program, now known as AI4ALL Stanford (website: [ai-4-all.org](http://ai-4-all.org)).
+I served for four years as a project mentor for the Stanford Artificial Intelligence Lab Outreach Summer (SAILORS) program, now known as AI4ALL Stanford (website: [ai-4-all.org](http://ai-4-all.org)).
 This is a two week camp for 10th grade girls that exposes them to AI and its potential benefits.
 
 Projects form the core of the AI4ALL curriculum.
@@ -17,6 +17,7 @@ In this project, there are two core technical concepts that the girls learn and 
 We also engage the students in discussions and lectures about the challenges associated with self-driving cars along with potential societal benefits and social justice impacts, such as providing mobility to people who can't drive and reducing the environmental and time cost of transportation.
 
 Here is a [blog post](https://medium.com/ai4allorg/bringing-inclusive-ai-into-my-community-df845386b83f) from one of my students that shares her experience from the camp.
+
 
 The final project video from the first year of the program is shown below:
 
