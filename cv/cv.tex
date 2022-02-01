@@ -97,6 +97,9 @@
 
 % to get the correct ordering
 \nocite{
+    deglurkar2022visual,
+    gupta2022intention,
+    sunberg2021fair,
     lim2021voronoi,
     ahmad2021probabilistic,
     mern2021bayesian,
@@ -138,64 +141,76 @@ sunberg2012information,
 
 \mycventry{2011}{Bachelor of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Summa cum Laude, Minor in Mathematics}
 
-\section{Research}
-
-\mycventry{January 2020 -- Present}{Sunberg Research Group}{University of Colorado Boulder}{
-    \vspace{2pt}
-    \cvline{Tree Search for Continuous-Space POMDPs}{Developing improved online algorithms for POMDPs with continuous state, action, and observation spaces~\cite{lim2021voronoi}.}
-    \cvline{Hazard Mitigation for Self-Piloted Aerial Vehicles}{Developing POMDP approaches for responding to in-flight emergencies in unmanned aerial vehicles and personal mobility aircraft.}
-    \cvline{Optimal COVID-19 Testing Strategies}{Exploring model predictive control and POMDP approaches for planning COVID-19 testing.}
-    \vspace{6pt}
-}
-
-\mycventry{October 2018 -- October 2019}{Hybrid Systems Laboratory}{University of California, Berkeley, CA}{
-    \vspace{2pt}
-    \cvline{Strategy alignment in differential games}{
-        Developed particle filtering techniques to deal with the presence of multiple Nash equilibria in differential games and coordinate strategies with humans that robots interact with~\cite{peters2020alignment}.
-    }
-    \cvline{Analysis of online algorithms for continuous POMDPs}{
-        Developed the first proof of convergence to optimality for an online sampling-based POMDP algorithm in continuous observation spaces~\cite{lim2020sparse}.
-    }
-    % \cvline{Reachability-based safety constraints in partially observable domains}{
-    %     Combining Hamilton-Jacobi reachability analysis with partial observability, focused on problems with human interaction; using POMDP planners to find optimized feedback policies that are aware of the reachability-based safety constraints.
-    % }
-    \vspace{6pt}
-}
-
-\mycventry{2015 -- 2018}{Stanford Intelligent Systems Laboratory (SISL)}{Stanford University, Stanford, CA}{
-    \vspace{2pt}
-    \cvline{POMCPOW}{Proved analytically that leading online POMDP solvers converge to suboptimal solutions for problems with continuous observation spaces and proposed a new algorithm, partially observable Monte Carlo planning with observation widening (POMCPOW) as a solution \cite{sunberg2018pomcpow}.}
-    \cvline{Behavior-aware decision making in self-driving cars}{Showed that modeling the internal states of other human drivers and approximately solving the resulting POMDP can simultaneously improve both safety and efficiency. In particular, a multiple-lane-change maneuver on a highway can be accomplished in about half the time while still maintaining the same levels of safety and comfort \cite{sunberg2017value}. Other students are currently collaborating with me to .}
-    \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results in cases with large uncertainty \cite{slade2017simultaneous,slade2020estimation}.}
-    \vspace{6pt}
-}
-
-\mycventry{2014 -- 2016}{Autonomous Systems Laboratory (ASL)}{Stanford University, Stanford, CA}{
-    \vspace{2pt}
-    \cvline{UAV collision avoidance}{Developed a method to dynamically optimize the performance a trusted collision avoidance system without sacrificing certifiability \cite{sunberg2016trusted}.}
-    \vspace{6pt}
-}
-
-\mycventry{2013 -- 2014}{Hansen Experimental Physics Lab}{Stanford University, Stanford, CA}{
-    \vspace{2pt}
-    \cvline{Geostationary LISA}{Investigated gravitational coupling between a drag free test mass and a communications satellite carrying it for a laser interferometer gravity wave experiment.}
-    \vspace{6pt}
-}
-
-\mycventry{2011 -- 2013}{Helicopters and Unmanned Systems Laboratory (HUSL)}{Texas A\&M University, College Station, TX}{
-    \vspace{2pt}
-    \cvline{Autonomus autorotation}{Created a control system for autonomous autorotation of manned and unmanned helicopters, and successfully flight tested it on a small RC helicopter \cite{sunberg2015real,sunberg2013fuzzy}.}
-    \cvline{Distance metrics for Dempster Shafer theory}{Developed a distance metric for Dempster-Shafer theory that applies to orderable and continuous sets like those encountered in the real world \cite{sunberg2013belief}.}
-    \vspace{6pt}
-}
-
-\mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program \mdseries{(Research Assistant)}}{Kirtland AFB, Albuquerque, NM}{
-    \vspace{2pt}
-    \cvline{Space situational awareness}{Developed an online algorithm for managing uncertainty about orbital vehicles and debris with a network of sensors \cite{sunberg2016information,sunberg2013information,sunberg2012information,sunberg2014space}.}
-    \vspace{6pt}
-}
+% \section{Research}
+% 
+% \mycventry{January 2020 -- Present}{Director, Autonomous Decision and Control Laboratory}{University of Colorado Boulder}{
+%     \vspace{2pt}
+%     % storms
+%     % tyler
+%     % belief-space planning
+%     %
+%     \cvline{Robot Navigation under Human-induced Uncertainty}{Combining online POMDP tree search with motion planning to improve navigation among pedestrians and other challenges~\cite{gupta2022intention}.}
+%     \cvline{Tree Search for Continuous-Space POMDPs}{Developing improved online algorithms for POMDPs with continuous state, action, and observation spaces including visual observations~\cite{lim2021voronoi,deglurkar2022visual}.}
+%     \cvline{Hazard Mitigation for Self-Piloted Aerial Vehicles}{Developing POMDP approaches for responding to in-flight emergencies in unmanned aerial vehicles and personal mobility aircraft.}
+%     \cvline{Optimal COVID-19 Testing Strategies}{Exploring model predictive control and POMDP approaches for planning COVID-19 testing.}
+%     \vspace{6pt}
+% }
+% 
+% \mycventry{October 2018 -- October 2019}{Hybrid Systems Laboratory}{University of California, Berkeley, CA}{
+%     \vspace{2pt}
+%     \cvline{Strategy alignment in differential games}{
+%         Developed particle filtering techniques to deal with the presence of multiple Nash equilibria in differential games and coordinate strategies with humans that robots interact with~\cite{peters2020alignment}.
+%     }
+%     \cvline{Analysis of online algorithms for continuous POMDPs}{
+%         Developed the first proof of convergence to optimality for an online sampling-based POMDP algorithm in continuous observation spaces~\cite{lim2020sparse}.
+%     }
+%     % \cvline{Reachability-based safety constraints in partially observable domains}{
+%     %     Combining Hamilton-Jacobi reachability analysis with partial observability, focused on problems with human interaction; using POMDP planners to find optimized feedback policies that are aware of the reachability-based safety constraints.
+%     % }
+%     \vspace{6pt}
+% }
+% 
+% \mycventry{2015 -- 2018}{Stanford Intelligent Systems Laboratory (SISL)}{Stanford University, Stanford, CA}{
+%     \vspace{2pt}
+%     \cvline{POMCPOW}{Proved analytically that leading online POMDP solvers converge to suboptimal solutions for problems with continuous observation spaces and proposed a new algorithm, partially observable Monte Carlo planning with observation widening (POMCPOW) as a solution \cite{sunberg2018pomcpow}.}
+%     \cvline{Behavior-aware decision making in self-driving cars}{Showed that modeling the internal states of other human drivers and approximately solving the resulting POMDP can simultaneously improve both safety and efficiency. In particular, a multiple-lane-change maneuver on a highway can be accomplished in about half the time while still maintaining the same levels of safety and comfort \cite{sunberg2017value}. Other students are currently collaborating with me to .}
+%     \cvline{Adaptive control with belief space MCTS}{Solved adaptive control problems (i.e. problems where some dynamics parameters are unknown) by modeling them as POMDPs and using Monte Carlo tree search (MCTS) in the belief space. This approach achieved superior results in cases with large uncertainty \cite{slade2017simultaneous,slade2020estimation}.}
+%     \vspace{6pt}
+% }
+% 
+% \mycventry{2014 -- 2016}{Autonomous Systems Laboratory (ASL)}{Stanford University, Stanford, CA}{
+%     \vspace{2pt}
+%     \cvline{UAV collision avoidance}{Developed a method to dynamically optimize the performance a trusted collision avoidance system without sacrificing certifiability \cite{sunberg2016trusted}.}
+%     \vspace{6pt}
+% }
+% 
+% \mycventry{2013 -- 2014}{Hansen Experimental Physics Lab}{Stanford University, Stanford, CA}{
+%     \vspace{2pt}
+%     \cvline{Geostationary LISA}{Investigated gravitational coupling between a drag free test mass and a communications satellite carrying it for a laser interferometer gravity wave experiment.}
+%     \vspace{6pt}
+% }
+% 
+% \mycventry{2011 -- 2013}{Helicopters and Unmanned Systems Laboratory (HUSL)}{Texas A\&M University, College Station, TX}{
+%     \vspace{2pt}
+%     \cvline{Autonomus autorotation}{Created a control system for autonomous autorotation of manned and unmanned helicopters, and successfully flight tested it on a small RC helicopter \cite{sunberg2015real,sunberg2013fuzzy}.}
+%     \cvline{Distance metrics for Dempster Shafer theory}{Developed a distance metric for Dempster-Shafer theory that applies to orderable and continuous sets like those encountered in the real world \cite{sunberg2013belief}.}
+%     \vspace{6pt}
+% }
+% 
+% \mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program \mdseries{(Research Assistant)}}{Kirtland AFB, Albuquerque, NM}{
+%     \vspace{2pt}
+%     \cvline{Space situational awareness}{Developed an online algorithm for managing uncertainty about orbital vehicles and debris with a network of sensors \cite{sunberg2016information,sunberg2013information,sunberg2012information,sunberg2014space}.}
+%     \vspace{6pt}
+% }
 
 \section{Research Funding}
+
+\mycventry{2022 -- Present}{PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{
+    \$169,805
+    PI Share: full amount
+}
+
+\mycventry{L3 Harris}{}{}
 
 \mycventry{2020 -- 2021}{PI: POMDP Algorithms for In-flight Learning in Emergencies}{NSF Center for Unmanned Aircraft Systems (C-UAS)}{
     Year 1 Amount: \$60,000 (Sep. 2020 -- Aug. 2021)\\
@@ -204,7 +219,11 @@ sunberg2012information,
 
 \section{Teaching}
 
-\mycventry{2020 -- 2021}{ASEN 5519 Decision Making under Uncertainty}{University of Colorado Boulder}{
+\mycventry{2021}{ASEN 6519 Advanced Survey of Sequential Decision Making}{University of Colorado Boulder}{
+    Developed new advanced graduate course that surveys recent advances in decision making under uncertainty. 
+}
+
+\mycventry{2020 -- present}{ASEN 5519 Decision Making under Uncertainty}{University of Colorado Boulder}{
     Developed new entry-level graduate course about decision making under uncertainty.
 }
 
@@ -232,40 +251,41 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycvitem{Fall 2020 -- Present}{Tyler Becker}
 \mycvitem{Fall 2020 -- Present}{Qi Heng Ho}
 \mycvitem{Fall 2020 -- Present}{Ben Kraske}
+\mycvitem{Fall 2020 -- Present}{Himanshu Gupta}
 
 \subsection{M.S. Thesis Advisees}
 
 \mycvitem{Fall 2020 -- Present}{Zakariya Laouar}
-\mycvitem{Fall 2020 -- Present}{Himanshu Gupta}
+\mycvitem{Fall 2020 -- Present}{Johnathan Tucker}
+\mycvitem{Spring 2022 -- Present}{William Pope}
 
 \subsection{Independent Study Advisees}
 
-\mycvitem{Fall 2020 -- Present}{Johnathan Tucker}
 \mycvitem{Spring 2020}{Saurabh Mishra}
 
-\subsection{Ph.D. Comprehensive Exam and Defense Committees}
-\begin{multicols}{2}
-    \small
-    \textbf{2020 Defenses}\\
-    Sangwoo Moon\\
-    Charles (Luke) Burks\\
-    Neha Garg (Nat. Univ. of Singapore, External Examiner)\\
-    \vfill\null
-    \columnbreak
-    \textbf{2020 Comprehensive Exams}\\
-    Ramya Kanlapuli\\
-    Katherine Glasheen\\
-    Andrew Mills\\
-    Chandrakanth Venigalla
-\end{multicols}
-\subsection{M.S. Thesis Committees}
-\begin{multicols}{2}
-    \small
-    Lasse Peters (TU Hamburg)\\
-    Wyatt Raich\\
-    Cody Charland\\
-    Akash Ratheesh
-\end{multicols}
+% \subsection{Ph.D. Comprehensive Exam and Defense Committees}
+% \begin{multicols}{2}
+%     \small
+%     \textbf{2020 Defenses}\\
+%     Sangwoo Moon\\
+%     Charles (Luke) Burks\\
+%     Neha Garg (Nat. Univ. of Singapore, External Examiner)\\
+%     \vfill\null
+%     \columnbreak
+%     \textbf{2020 Comprehensive Exams}\\
+%     Ramya Kanlapuli\\
+%     Katherine Glasheen\\
+%     Andrew Mills\\
+%     Chandrakanth Venigalla
+% \end{multicols}
+% \subsection{M.S. Thesis Committees}
+% \begin{multicols}{2}
+%     \small
+%     Lasse Peters (TU Hamburg)\\
+%     Wyatt Raich\\
+%     Cody Charland\\
+%     Akash Ratheesh
+% \end{multicols}
 
 
 
@@ -274,6 +294,8 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycventry{2020--present}{Graduate Program Committee}{Autonomous Systems Lead}{Served on Preliminary Exam Subcommittee}
 
 \section{Invited Talks}
+
+\textbf{2021}
 
 \textbf{2020}
 
