@@ -5,6 +5,12 @@ author_profile: true
 
 ---
 
+# Decision Making under Uncertainty
+
+I created the Decision Making under Uncertainty course at CU Boulder, which features interactive programming assignments that teach students how to implement performant algorithms in Julia:
+
+https://www.youtube.com/watch?v=v7XhdLkLMEg
+
 
 # SAILORS
 
