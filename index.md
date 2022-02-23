@@ -37,6 +37,13 @@ pomdps:
       url: "https://github.com/JuliaPOMDP/POMDPs.jl"
       btn_class: "btn--primary"
 
+ai4all:
+    - image_path: "/assets/images/sailors_robotics.jpg"
+      title: "AI4ALL"
+      excerpt: "AI4ALL is an organization I worked with for four years to increase diversity and inclusion in artificial intelligence. [Photo credit: Lauren Yang]"
+      url: "/teaching#sailors"
+      btn_class: "btn--primary"
+      caption: "Photo credit: Lauren Yang"
 
 me:
     - image_path: "assets/images/faroe_selfie.jpg"
