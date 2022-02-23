@@ -25,8 +25,8 @@ feature_row:
       btn_class: "btn--primary"
 
     - image_path: "/assets/images/pomcpow.png"
-      title: "POMCPOW"
-      excerpt: "The POMCPOW algorithm uses progressive widening and weighted particle filtering to approximately solve continuous POMDPs."
+      title: "Tree search algorithms for POMDPs"
+      excerpt: "A primary contribution area is in tree search for POMDPs. In particular, we have pioneered the application of these algorithms to problems with continuous domains."
       url: "/research#pomcpow-an-online-algorithm-for-continuous-pomdps"
       btn_class: "btn--primary"
 
