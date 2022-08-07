@@ -29,3 +29,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
 gem "github-pages", group: :jekyll_plugins
 gem "jekyll-remote-theme"
+
+gem "faraday-retry", "~> 2.0"
