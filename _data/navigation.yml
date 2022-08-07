@@ -1,6 +1,6 @@
 main:
     - title: "Publications"
-      url: /https://www.cu-adcl.org/publications/
+      url: https://www.cu-adcl.org/publications/
     - title: "CV"
       url: /cv_page
     - title: "Research"
