@@ -34,6 +34,7 @@
 % \includecomment{references}
 \excludecomment{references}
 \includecomment{research}
+\includecomment{funding}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -43,20 +44,17 @@
 \addtolength{\textheight}{0.2in}
 
 \usepackage[style=numeric, maxbibnames=20, defernumbers=true, sorting=none]{biblatex}
-\addbibresource{mypubs.bib}
+\addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
+\addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
+
+
 
 % Bold my name
 % https://tex.stackexchange.com/questions/73136/make-specific-author-bold-using-biblatex?noredirect=1&lq=1
 \renewcommand*{\mkbibnamegiven}[1]{%
-  \ifitemannotation{me}
-    {\textbf{#1}}
-    {#1}}
-
+\ifitemannotation{zach} {\textbf{#1}} {\ifitemannotation{student} {\textbf{#1}} {#1}}}
 \renewcommand*{\mkbibnamefamily}[1]{%
-  \ifitemannotation{me}
-    {\textbf{#1}}
-    {#1}}
-
+\ifitemannotation{zach} {\textbf{#1}} {\ifitemannotation{student} {\textbf{#1}} {#1}}}
 
 \DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
 \AtEveryBibitem{
@@ -97,15 +95,21 @@
 
 % to get the correct ordering
 \nocite{
+    lim2022fast,
+    tucker2022adaptive,
+    becker2022imperfect,
+    sharma2022investigation,
     deglurkar2022visual,
+    ho2022automaton,
     ho2022gaussian,
     gupta2022intention,
+    ray2022user,
+    sunberg2022improving,
     ahmad2021end,
     sunberg2021fair,
     lim2021voronoi,
     ahmad2021probabilistic,
     mern2021bayesian,
-    sunberg2020improving,
     lim2020sparse,
 peters2020alignment,
 slade2020estimation,
@@ -143,6 +147,49 @@ sunberg2012information,
 
 \mycventry{2011}{Bachelor of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Summa cum Laude, Minor in Mathematics}
 
+\begin{funding}
+
+\section{Research Funding}
+
+\subsection{Awarded}
+
+\mycventry{2022 -- 2027}{Co-I: IUCRC Phase I: Center for Autonomous Air Mobility and Sensing (CAAMS)}{National Science Foundation}{\$2,210,225 (PI: Eric Frew) \textbar{} This grant establishes the IUCRC and pays for administrative costs; sub-awards funded through industry contributions will be listed separately.}
+
+\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$1,045,429 (PI: Eric Frew) \textbar{} My share: \$300,000 (approx.)}
+
+\mycventry{2022-2023}{PI: HIPPO (Human-Informed Planning with Probabilistic Observations)}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$68,000 \textbar{} PI share: full amount}
+
+\mycventry{2022-2023}{Co-I: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$60,000 (PI: Federico Rossi, JPL) \textbar{} My share: \$50,000}
+
+\mycventry{2021 -- 2023}{PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{ \$169,805 PI share: full amount}
+
+\mycventry{2021-2023}{Co-I: L3Harris Modern Analytics for Mission Applications (LMA2)}{L3-Harris}{\$1,495,048 (PI: Marcus Holzinger) \textbar{} My share: \$350,000 (approx.)}
+
+\mycventry{2021 -- 2022}{Co-PI: Full Stack Planning and Control under Uncertainty}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$130,000 (with Co-PI Ella Atkins, Univ. of Michigan) \textbar{} My share: \$65,000}
+
+\mycventry{2020 -- 2021}{PI: POMDP Algorithms for In-flight Learning in Emergencies}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$60,000 PI share: full amount}
+
+\subsection{Pending}
+
+\mycventry{2022}{In the moment (ITM): Aligned Algorithmic Aide (ALAI)}{Defence Advanced Research Projects Agency}{\$6,200,000 (approx., PI: Brett Israelson, Raytheon) \textbar{} My share: \$450,000 (approx.)}
+
+\subsection{Declined}
+
+\mycventry{2021}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$5,000,000 (approx.) \textbar{} My share: \$500,000 (approx.) \textbar{} Full title: Multi-Phenomenological, Autonomous, and Understandable SDA and XDA Decision Support}
+
+\mycventry{2021}{PI: CAREER: Active competence through online Bayesian reasoning}{National Science Foundation}{\$599,341 \textbar{} PI share: \$599,341 \textbar{} Full title: CAREER: Towards reliable autonomy in open environments: active competence through online Bayesian reasoning}
+
+\mycventry{2021}{Co-I: RACER-Sim}{Defence Advanced Research Projects Agency}{Details are controlled unclassified information (CUI)}
+
+\mycventry{2020}{PI: Hazard mitigation for self-piloted vehicles...}{National Aeronautics and Space Administration}{\$806,411 \textbar{} PI share: \$400,000 (approx.) \textbar{} Full title: Hazard mitigation for self-piloted vehicles through POMDP planning and formal controller synthesis}
+
+\mycventry{2020}{PI: Enabling rapid and flexible medical planning research with POMDPs.jl}{Chan Zuckerberg Initiative}{\$91,053 \textbar{} PI share: full amount}
+
+\mycventry{2020}{Co-I: AVATAR-ACE (AViator-Agent Trusted AI for Real-time Air Combat Engagements)}{Defence Advanced Research Projects Agency}{\$5,000,000 (approx., PI: Krishna Kalyanam, Palo Alto Research Center) \textbar{} My share: \$660,000 (approx.)}
+
+
+\end{funding}
+
 \section{Research Positions}
 
 \mycventry{January 2020 -- Present}{Autonomous Decision and Control Laboratory (ADCL)}{Director}{University of Colorado, Boulder, CO}
@@ -159,27 +206,13 @@ sunberg2012information,
 
 \mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program}{Research Assistant}{Kirtland AFB, Albuquerque, NM}
 
-% \section{Research Funding}
-% 
-% \mycventry{2022 -- Present}{PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{
-%     \$169,805
-%     PI Share: full amount
-% }
-% 
-% \mycventry{L3 Harris}{}{}
-% 
-% \mycventry{2020 -- 2021}{PI: POMDP Algorithms for In-flight Learning in Emergencies}{NSF Center for Unmanned Aircraft Systems (C-UAS)}{
-%     Year 1 Amount: \$60,000 (Sep. 2020 -- Aug. 2021)\\
-%     PI Share: full amount
-% }
-
 \section{Teaching}
 
 \mycventry{2021}{ASEN 6519 Advanced Survey of Sequential Decision Making}{University of Colorado Boulder}{
     Developed new advanced graduate course that surveys recent advances in decision making under uncertainty. 
 }
 
-\mycventry{2020 -- present}{ASEN 5519 Decision Making under Uncertainty}{University of Colorado Boulder}{
+\mycventry{2020 -- present}{ASEN 5264 Decision Making under Uncertainty}{University of Colorado Boulder}{
     Developed new entry-level graduate course about decision making under uncertainty.
 }
 
@@ -206,17 +239,16 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycvitem{Spring 2020 -- Present}{Hyun Jae (Michael) Lim {\normalfont(Co-advised with Claire Tomlin at U.C. Berkeley)}}
 \mycvitem{Fall 2020 -- Present}{Tyler Becker}
 \mycvitem{Fall 2020 -- Present}{Qi Heng Ho}
-\mycvitem{Fall 2020 -- Present}{Ben Kraske}
+\mycvitem{Fall 2020 -- Present}{Ben Kraske {\normalfont(Received NSF GRFP under my direction)}}
 \mycvitem{Fall 2020 -- Present}{Himanshu Gupta}
+\mycvitem{Fall 2020 -- Present}{Zakariya Laouar}
 
 \subsection{M.S. Thesis Advisees}
-
-\mycvitem{Fall 2020 -- Present}{Zakariya Laouar}
-\mycvitem{Fall 2020 -- Present}{Johnathan Tucker}
 \mycvitem{Spring 2022 -- Present}{William Pope}
+\mycvitem{Summer 2022 -- Present}{Jackson Wagner}
 
 \subsection{Independent Study Advisees}
-
+\mycvitem{Fall 2020 -- Summer 2022}{Johnathan Tucker {\normalfont(Received NSF GRFP under my direction)}}
 \mycvitem{Spring 2020}{Saurabh Mishra}
 
 % \subsection{Ph.D. Comprehensive Exam and Defense Committees}
@@ -250,6 +282,12 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycventry{2020--present}{Graduate Program Committee}{Autonomous Systems Lead}{Served on Preliminary Exam Subcommittee}
 
 \section{Invited and Contributed Talks}
+
+\textbf{2022}
+
+{\small
+    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.}
+}
 
 \textbf{2021}
 
