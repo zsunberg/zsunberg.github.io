@@ -149,6 +149,33 @@ sunberg2012information,
 
 \mycventry{2011}{Bachelor of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Summa cum Laude, Minor in Mathematics}
 
+\defbibcheck{jec}{\iffieldequalstr{annotation}{journal-equivalent}{}{\skipentry}}
+\defbibcheck{pr}{\iffieldequalstr{annotation}{journal-equivalent}{\skipentry}{}\iffieldequalstr{annotation}{abstract-review}{\skipentry}{}}
+\defbibcheck{ao}{\iffieldequalstr{annotation}{abstract-review}{}{\skipentry}}
+
+\printbibliography[title={Peer Reviewed Journal Publications},
+                   type=article]
+\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
+                   type=inproceedings,
+                   check=jec]
+\printbibliography[title={Peer Reviewed Conference Publications},
+                   type=inproceedings,
+                   check=pr]
+\printbibliography[title={Conference Publications with Abstract-only Review},
+                   type=inproceedings,
+                   check=ao]
+\printbibliography[title={Forthcoming Publications},
+                   type=unpublished]
+
+\section{Open Source Software} \label{sec:software}
+
+\mycventry{2015 -- present}{POMDPs.jl}{\normalfont{\url{https://github.com/JuliaPOMDP/POMDPs.jl}}}{
+    Interface for defining continuous and discrete, fully and partially observable Markov decision processes along with a suite of state-of-the art solvers written in Julia and C++.
+}
+\mycventry{2020}{ProjectAssigner.jl}{\normalfont{\url{https://github.com/zsunberg/ProjectAssigner.jl}}}{
+    Software for optimally assigning student teams to projects based on preferences, friend groups, and skills~\cite{sunberg2021fair}.
+}
+
 \begin{funding}
 
 \section{Research Funding}
@@ -181,7 +208,7 @@ sunberg2012information,
 
 \mycventry{2021}{PI: CAREER: Active competence through online Bayesian reasoning}{National Science Foundation}{\$599,341 \textbar{} PI share: full amount \textbar{} Full title: CAREER: Towards reliable autonomy in open environments: active competence through online Bayesian reasoning}
 
-\mycventry{2021}{Co-I: RACER-Sim}{Defence Advanced Research Projects Agency}{Budget details are controlled unclassified information (CUI) \textbar{} PI: Christoffer Heckman; Co-I Zachary Manchester (CMU)}
+\mycventry{2021}{Co-I: RACER-Sim}{Defence Advanced Research Projects Agency}{Budget details are controlled unclassified information (CUI) \textbar{} PI: Christoffer Heckman; Co-I: Zachary Manchester (CMU)}
 
 \mycventry{2020}{PI: Hazard mitigation for self-piloted vehicles...}{National Aeronautics and Space Administration}{\$806,411 \textbar{} PI share: \$400,000 (approx.) \textbar{} Full title: Hazard mitigation for self-piloted vehicles through POMDP planning and formal controller synthesis \textbar{} Co-I: Majid Zamani}
 
@@ -207,6 +234,61 @@ sunberg2012information,
 \mycventry{2011 -- 2013}{Helicopters and Unmanned Systems Laboratory (HUSL)}{Graduate Research Assistant}{Texas A\&M University, College Station, TX}
 
 \mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program}{Research Assistant}{Kirtland AFB, Albuquerque, NM}
+
+\section{Industry Experience}
+
+\mycventry{Summer 2014}{Google, Inc.\mdseries{, Mountain View, CA}}{Software Engineering Intern}{
+Wrote software to evaluate and optimize a NASA collision avoidance program for use with Google self-piloted air vehicles.
+}
+
+\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Intern}{
+Helped in testing of autonomous SMSS all­terrain military transport vehicle navigation system; wrote rough terrain navigation program in C++ based on the A* search algorithm; wrote software in C++ for analyzing the performance of an advanced video analysis tool.
+}
+
+\section{Invited and Contributed Talks and Panels}
+
+\textbf{2022}
+
+{\small
+    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.}
+}
+
+\textbf{2021}
+
+{\small
+    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)}
+    \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia}
+    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy}
+    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms}
+}
+
+\textbf{2019}
+
+{\small
+\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
+\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
+\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
+}
+
+\textbf{2018}
+
+{\small
+\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning}
+\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
+\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World}
+\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
+}
+
+\begin{minipage}{\textwidth}
+\textbf{2017}
+
+{\small
+\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{POMDPs.jl}
+\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{POMDPs.jl - Challenges and Lessons Learned}
+}
+\end{minipage}\\
+
+\section{Conference and Workshop Organization}
 
 \section{Teaching}
 
@@ -255,29 +337,39 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycvitem{Fall 2020 -- Summer 2022}{Johnathan Tucker {\normalfont(Received NSF GRFP under my direction)}}
 \mycvitem{Spring 2020}{Saurabh Mishra}
 
-% \subsection{Ph.D. Comprehensive Exam and Defense Committees}
-% \begin{multicols}{2}
-%     \small
-%     \textbf{2020 Defenses}\\
-%     Sangwoo Moon\\
-%     Charles (Luke) Burks\\
-%     Neha Garg (Nat. Univ. of Singapore, External Examiner)\\
-%     \vfill\null
-%     \columnbreak
-%     \textbf{2020 Comprehensive Exams}\\
-%     Ramya Kanlapuli\\
-%     Katherine Glasheen\\
-%     Andrew Mills\\
-%     Chandrakanth Venigalla
-% \end{multicols}
-% \subsection{M.S. Thesis Committees}
-% \begin{multicols}{2}
-%     \small
-%     Lasse Peters (TU Hamburg)\\
-%     Wyatt Raich\\
-%     Cody Charland\\
-%     Akash Ratheesh
-% \end{multicols}
+\begin{minipage}{\textwidth}
+\subsection{Ph.D. Comprehensive Exam and Defense Committees}
+\begin{multicols}{2}
+    \small
+    Sangwoo Moon\\
+    Charles (Luke) Burks\\
+    Neha Garg (Nat. Univ. of Singapore, External Examiner)\\
+    Ramya Kanlapuli\\
+    Katherine Glasheen\\
+    Andrew Mills\\
+    Chandrakanth Venigalla\\
+    Sam Fedeler\\
+    John Jackson\\
+    Prashin Sharma (Univ. of Michigan)\\
+    Shakeeb Ahmad\\
+    John Mern (Stanford Univ.)\\
+    Aastha Acharya\\
+    Shohei Wakayama
+\end{multicols}
+\end{minipage}\\
+\\
+
+\subsection{M.S. Thesis Committees}
+\begin{multicols}{2}
+    \small
+    Lasse Peters (TU Hamburg)\\
+    Wyatt Raich\\
+    Cody Charland\\
+    Akash Ratheesh\\
+    Jamison Mcginley\\
+    Rio McMahon
+
+\end{multicols}
 
 \section{Department Service and Outreach}
 
@@ -286,75 +378,7 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycvitem{2021, 2022}{Speaker for Tuskegee Airmen outreach event at CU}
 \mycvitem{2021}{Invited Speaker for AIAA Movie Night \& Technical Discussion: 2001: A Space Odyssey}
 
-\section{Invited and Contributed Talks and Panel Memberships}
-
-\textbf{2022}
-
-{\small
-    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.}
-}
-
-\textbf{2021}
-
-{\small
-    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)}
-    \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia}
-    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy}
-    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms}
-}
-
-\textbf{2019}
-
-{\small
-\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
-\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
-\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
-}
-
-\textbf{2018}
-
-{\small
-\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning}
-\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
-\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World}
-\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
-}
-
-\textbf{2017}
-
-{\small
-\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{POMDPs.jl}
-\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{POMDPs.jl - Challenges and Lessons Learned}
-}
-
-\section{Industry Experience}
-
-\mycventry{Summer 2014}{Google, Inc.\mdseries{, Mountain View, CA}}{Software Engineering Intern}{
-Wrote software to evaluate and optimize a NASA collision avoidance program for use with Google self-piloted air vehicles.
-}
-
-\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Intern}{
-Helped in testing of autonomous SMSS all­terrain military transport vehicle navigation system; wrote rough terrain navigation program in C++ based on the A* search algorithm; wrote software in C++ for analyzing the performance of an advanced video analysis tool.
-}
-
-\section{Fellowships and Awards}
-
-\mycvitem{2021}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
-\mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
-\mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
-\mycvitem{May 2017}{American Control Conference Student Travel Award}
-\mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
-
-\section{Open Source Software} \label{sec:software}
-
-\mycventry{2015 -- present}{POMDPs.jl}{\normalfont{\url{https://github.com/JuliaPOMDP/POMDPs.jl}}}{
-    Interface for defining continuous and discrete, fully and partially observable Markov decision processes along with a suite of state-of-the art solvers written in Julia and C++.
-}
-\mycventry{2020}{ProjectAssigner.jl}{\normalfont{\url{https://github.com/zsunberg/ProjectAssigner.jl}}}{
-    Software for optimally assigning student teams to projects based on preferences, friend groups, and skills~\cite{sunberg2021fair}.
-}
-
-\section{Peer Review and Editing}
+\section{Academic Peer Review and Editing}
 
 \mycvitem{2020 -- 2022}{Guest editor for the AIAA Journal of Aerospace Information Systems}
 
@@ -379,49 +403,15 @@ AAAI Conference on Artificial Intelligence\\
 American Control Conference (ACC)\\
 Intelligent Transportation Systems Conference (ITSC)\\
 Robotics, Science and Systems (RSS)\\
+Learning for Decision and Control Conference (L4DC)\\
 \end{multicols}
 
-% \bibliographystyle{unsrt}
-% \bibliography{mypubs} % a bibtex file containing the list of publications
-% \printbibliography[title={Publications}, resetnumbers=true]
+\section{Fellowships and Awards}
 
-\defbibcheck{jec}{\iffieldequalstr{annotation}{journal-equivalent}{}{\skipentry}}
-\defbibcheck{pr}{\iffieldequalstr{annotation}{journal-equivalent}{\skipentry}{}\iffieldequalstr{annotation}{abstract-review}{\skipentry}{}}
-\defbibcheck{ao}{\iffieldequalstr{annotation}{abstract-review}{}{\skipentry}}
-
-\printbibliography[title={Peer Reviewed Journal Publications},
-                   type=article]
-\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-                   type=inproceedings,
-                   check=jec]
-\printbibliography[title={Peer Reviewed Conference Publications},
-                   type=inproceedings,
-                   check=pr]
-\printbibliography[title={Conference Publications with Abstract-only Review},
-                   type=inproceedings,
-                   check=ao]
-\printbibliography[title={Forthcoming Publications},
-                   type=unpublished]
-
-
-\begin{references}
-
-\section{References}
-
-The following people have agreed to write letters of recommendation on my behalf:\\
-\begin{itemize}
-    \item[] Mykel Kochenderfer, Assistant Professor of Aeronautics and Astronautics at Stanford University\\(\mailto{mykel@stanford.edu})
-
-    \item[] Claire Tomlin, Professor of Electrical Engineering and Computer Science at the University of California, Berkeley (\mailto{tomlin@eecs.berkeley.edu})
-
-    \item[] Marco Pavone, Assistant Professor of Aeronautics and Astronautics at Stanford University\\ (\mailto{pavone@stanford.edu})
-
-    \item[] Suman Chakravorty, Associate Professor of Aerospace Engineering at Texas A\&M University\\ (\mailto{schakrav@tamu.edu})
-
-    \item[] Olga Russakovsky, Assistant Professor of Computer Science at Princeton University, and Fei-Fei Li, Associate Professor of Computer Science at Stanford University and Chief Scientist of AI/ML at Google Cloud (Fei-Fei and Olga agreed to write a joint letter; please contact Olga at \mailto{olgarus@cs.princeton.edu})
-
-\end{itemize}
-
-\end{references}
+\mycvitem{2021}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
+\mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
+\mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
+\mycvitem{May 2017}{American Control Conference Student Travel Award}
+\mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 
 \end{document}
