@@ -32,8 +32,9 @@ feature_row:
 adcl:
     - image_path: "https://www.cu-adcl.org/assets/logos/ADCL.svg"
       title: Autonomous Decision and Control Lab
-      excerpt: This is my personal webpage, which mostly contains older work that I did as a student. Please see my research group webpage at [https://www.cu-adcl.org]() for more up-to-date information!
+      excerpt: The page you're viewing is my personal webpage, which mostly contains older work that I did as a student. Please see my research group webpage at [https://www.cu-adcl.org]() for more up-to-date information!
       url: "https://www.cu-adcl.org"
+      btn_class: "btn--primary"
 
 pomdps:
     - image_path: "/assets/images/lasertag.gif"
