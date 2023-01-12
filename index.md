@@ -29,6 +29,11 @@ feature_row:
       url: "/research#pomcpow-an-online-algorithm-for-continuous-pomdps"
       btn_class: "btn--primary"
 
+adcl:
+    - image_path: "https://www.cu-adcl.org/assets/logos/ADCL.svg"
+      title: Autonomous Decision and Control Lab
+      excerpt: This is my personal webpage, which mostly contains older work that I did as a student. Please see my research group webpage at [https://www.cu-adcl.org]() for more up-to-date information!
+
 pomdps:
     - image_path: "/assets/images/lasertag.gif"
       title: "POMDPs.jl"
@@ -51,7 +56,6 @@ me:
 
 ---
 
-This is my personal webpage, which mostly contains older work that I did as a student. Please see my research group webpage at [https://www.cu-adcl.org]() for more up-to-date information!
 
 {% include feature_row %}
 
