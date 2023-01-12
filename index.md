@@ -10,7 +10,6 @@ header:
     caption: POMCP Tree from POMDPs.jl [PC Tomer Arnon]
 excerpt: I research and teach about artificial intelligence for autonomous vehicles.
 
-
 feature_row:
     - image_path: "/assets/images/states_and_road.svg"
       title: "Behavior-aware planning"
@@ -51,6 +50,8 @@ me:
       excerpt: "I am an Assistant Professor in the Ann and H.J. Smead Aerospace Engineering Sciences department at the University of Colorado Boulder. If you are interested in my research in artificial intelligence or aerospace vehicle control,  please [reach out](/contact)."
 
 ---
+
+This is my personal webpage, which mostly contains older work that I did as a student. Please see my research group webpage at [https://www.cu-adcl.org]() for more up-to-date information!
 
 {% include feature_row %}
 
