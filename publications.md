@@ -7,6 +7,4 @@ author_profile: true
 
 # Publications
 
-<script src="https://bibbase.org/show?bib=http%3A%2F%2Fzsunberg.github.io%2Fcv%2Fmypubs.bib&jsonp=1"></script> 
-
-(if publications do not appear, please see the list in [my cv](cv/cv.pdf))
+Please see the publications list at [the ADCL website](www.cu-adcl.org/publications) or in [my cv](cv/cv.pdf)
