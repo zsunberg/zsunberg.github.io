@@ -35,7 +35,8 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
 
-remote_theme: "mmistakes/minimal-mistakes@4.17.2"
+# remote_theme: "mmistakes/minimal-mistakes@4.17.2"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 exclude:
     - _scripts/
