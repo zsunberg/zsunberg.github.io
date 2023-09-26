@@ -15,9 +15,9 @@ My office is room 263 of the Aerospace Engineering Sciences Building on the east
 
 # Calendar
 
-For coordinating meetings, you can view my free/busy calendar at [this link](https://outlook.office365.com/owa/calendar/5e4124a72c7a47c389d4cd4539bdfffe@colorado.edu/697ff15ee65b4c22b9826fbc5d2c007b8042255640283035907/calendar.html) or below. Note: the time zone is your browser's unless it is shown at bottom left.
+For coordinating meetings, you can view my free/busy calendar at [this link](https://outlook.office365.com/owa/calendar/5e4124a72c7a47c389d4cd4539bdfffe@colorado.edu/697ff15ee65b4c22b9826fbc5d2c007b8042255640283035907/calendar.html) or below (I apologize for Microsoft's terrible layout [-1 for Microsoft and CU OIT], and I think the time zone will be your browser's).
 
-You can also import this ics link into your calendar application: [outlook.office365.com/.../calendar.ics](https://outlook.office365.com/owa/calendar/5e4124a72c7a47c389d4cd4539bdfffe@colorado.edu/697ff15ee65b4c22b9826fbc5d2c007b8042255640283035907/calendar.ics)
+You can also import this ics link into your calendar application: [outlook.office365.com/.../calendar.ics](https://outlook.office365.com/owa/calendar/5e4124a72c7a47c389d4cd4539bdfffe@colorado.edu/697ff15ee65b4c22b9826fbc5d2c007b8042255640283035907/calendar.ics) (However, note that Google calendar will not automatically update it [-1 for Google].)
 
 <!--
 <iframe src="https://calendar.google.com/calendar/embed?src=b6975fng9j4qu52l29uc4po20jqhvva6%40import.calendar.google.com&ctz=America%2FDenver&mode=WEEK" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
