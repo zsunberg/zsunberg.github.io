@@ -98,9 +98,14 @@
 
 % to get the correct ordering
 \nocite{
-    lim2023optimal,
+    ho2024recursivelyconstrained,
+    ho2024samplingbased,
+    hong2024cieran,
+    deglurkar2023compositional,
+    ho2023simba,
+    lim2023optimality,
     sharma2023investigation,
-    deglurkar2023visual,
+    kraske2023explanation,
     blonder2023navigation,
     tucker2022adaptive,
     becker2022imperfect,
@@ -155,11 +160,23 @@ sunberg2012information,
 \defbibcheck{pr}{\iffieldequalstr{annotation}{journal-equivalent}{\skipentry}{}\iffieldequalstr{annotation}{abstract-review}{\skipentry}{}}
 \defbibcheck{ao}{\iffieldequalstr{annotation}{abstract-review}{}{\skipentry}}
 
-\printbibliography[title={Peer Reviewed Journal Publications},
-                   type=article]
-\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-                   type=inproceedings,
-                   check=jec]
+\defbibcheck{jorjec}{
+  \ifentrytype{article}
+    {}
+    {\ifentrytype{inproceedings}
+      {\iffieldequalstr{annotation}{journal-equivalent}
+        {}
+        {\skipentry}}
+      {\skipentry}}
+}
+
+\printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
+                   check=jorjec]
+% \printbibliography[title={Peer Reviewed Journal Publications},
+%                    type=article]
+% \printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
+%                    type=inproceedings,
+%                    check=jec]
 \printbibliography[title={Peer Reviewed Conference Publications},
                    type=inproceedings,
                    check=pr]
@@ -327,16 +344,16 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 
 \subsection{Ph.D. Thesis Advisees}
 
-\mycvitem{Spring 2020 -- Present}{Hyun Jae (Michael) Lim {\normalfont(Co-advised with Claire Tomlin at U.C. Berkeley)}}
+\mycvitem{Spring 2020 -- Spring 2023}{Hyun Jae (Michael) Lim {\normalfont(Co-advised with Claire Tomlin at U.C. Berkeley)}}
 \mycvitem{Fall 2020 -- Present}{Tyler Becker}
 \mycvitem{Fall 2020 -- Present}{Qi Heng Ho}
 \mycvitem{Fall 2020 -- Present}{Ben Kraske {\normalfont(Received NSF GRFP under my direction)}}
 \mycvitem{Fall 2020 -- Present}{Himanshu Gupta}
 \mycvitem{Fall 2021 -- Present}{Zakariya Laouar}
+\mycvitem{Summer 2022 -- Present}{Jackson Wagner}
 
 \subsection{M.S. Thesis Advisees}
 \mycvitem{Spring 2022 -- Fall 2022}{William Pope}
-\mycvitem{Summer 2022 -- Present}{Jackson Wagner}
 
 \subsection{Independent Study Advisees}
 \mycvitem{Fall 2020 -- Summer 2022}{Johnathan Tucker {\normalfont(Received NSF GRFP under my direction)}}
@@ -359,8 +376,10 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
     Shakeeb Ahmad\\
     John Mern (Stanford Univ.)\\
     Aastha Acharya\\
-    Shohei Wakayama \\
+    Shohei Wakayama\\
     Marcus Lapeyrolerie (Univ. of California, Berkeley, Quals)
+    John R. Martin\\
+    Adam Herrmann
 \end{multicols}
 \end{minipage}\\
 \\
@@ -378,14 +397,18 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 
 \section{Department Service and Outreach}
 
-\mycventry{2020--present}{Graduate Program Committee}{Autonomous Systems Lead}{Served on Preliminary Exam Subcommittee}
+\mycvitem{2023--present}{Undergraduate Operations Committee}
+\mycventry{2020--2023}{Graduate Program Committee}{Autonomous Systems Lead}{Served on Preliminary Exam Subcommittee, Revised MS Admissions Criteria}
+\mycvitem{2023}{Smead aerospace career panelist}
 \mycvitem{2022}{Rising Stars in Aerospace organizing committee member}
 \mycvitem{2021, 2022}{Speaker for Tuskegee Airmen outreach event at CU}
 \mycvitem{2021}{Invited Speaker for AIAA Movie Night \& Technical Discussion: 2001: A Space Odyssey}
 
 \section{Conference and Workshop Organization}
 
-\mycventry{2022}{Strategic multi-agent interactions: game theory for robot learning and decision making}{Workshop at the Conference on Robotic Learning (CoRL)}{Co-organizer with David Fridovich-Keil (Univ. of Texas) and Negar Mehr (Univ. of Illinois)}
+\mycventry{2022}{Strategic multi-agent interactions: game theory for robot learning and decision making}{Workshop at the Conference on Robotic Learning (CoRL)}{Co-organizer with David Fridovich-Keil (Univ. of Texas), Negar Mehr (Univ. of Illinois), and Forrest Laine (Vanderbilt)}
+
+\mycventry{2023}{Inference and Decision Making for Autonomous Vehicles (IDMAV)}{Workshop at Robotics: Science and Systems (RSS)}{Co-organizer with Christoffer Heckman, Han-Lim Choi (KAIST), and students}
 
 \section{Academic Peer Review and Editing}
 
@@ -415,11 +438,13 @@ Robotics, Science and Systems (RSS)\\
 Learning for Decision and Control Conference (L4DC)\\
 \end{multicols}
 
+% Proposal reviewer for ARO
+
 \section{Fellowships and Awards}
 
 \mycvitem{2021,2022}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
-\mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
 \mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
+\mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
 \mycvitem{May 2017}{American Control Conference Student Travel Award}
 \mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 
