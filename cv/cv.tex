@@ -59,7 +59,7 @@
 \renewcommand*{\mkbibnamefamily}[1]{%
 \ifitemannotation{zach} {\textbf{#1}} {\ifitemannotation{student} {\textbf{#1}} {#1}}}
 
-\DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
+\DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faLink}}
 \AtEveryBibitem{
     \clearlist{address}
     \clearlist{publisher}
