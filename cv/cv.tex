@@ -110,13 +110,13 @@
     % above are planned
     laouar2023feasibility,
     ray2023human,
+    sharma2024investigation,
     ho2024recursivelyconstrained,
     ho2024samplingbased,
     hong2024cieran,
     deglurkar2023compositional,
     ho2023simba,
     lim2023optimality,
-    sharma2023investigation,
     kraske2023explanation,
     blonder2023navigation,
     tucker2022adaptive,
@@ -168,6 +168,18 @@ sunberg2012information,
 
 \mycventry{2011}{Bachelor of Science in Aerospace Engineering}{Texas A\&M University, College Station, TX}{Summa cum Laude, Minor in Mathematics}
 
+\section{Industry Experience}
+
+\mycventry{Summer 2014}{Google, Inc.\mdseries{, Mountain View, CA}}{Software Engineering Intern}{
+Evaluated and optimized a NASA collision avoidance program for use with Google self-piloted air vehicles.
+}
+
+\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Intern}{
+Helped in testing of autonomous SMSS all­terrain military transport vehicle navigation system; wrote rough terrain navigation program in C++ based on the A* search algorithm; wrote software in C++ for analyzing the performance of an advanced video analysis tool.
+}
+
+
+
 \defbibcheck{jec}{\iffieldequalstr{annotation}{journal-equivalent}{}{\skipentry}}
 \defbibcheck{pr}{\iffieldequalstr{annotation}{journal-equivalent}{\skipentry}{}\iffieldequalstr{annotation}{abstract-review}{\skipentry}{}}
 \defbibcheck{ao}{\iffieldequalstr{annotation}{abstract-review}{}{\skipentry}}
@@ -182,21 +194,21 @@ sunberg2012information,
       {\skipentry}}
 }
 
-\printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
-                   check=jorjec]
-% \printbibliography[title={Peer Reviewed Journal Publications},
-%                    type=article]
-% \printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-%                    type=inproceedings,
-%                    check=jec]
+% \printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
+%                    check=jorjec]
+\printbibliography[title={Peer Reviewed Journal Publications},
+                   type=article]
+\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
+                   type=inproceedings,
+                   check=jec]
 \printbibliography[title={Peer Reviewed Conference Publications},
                    type=inproceedings,
                    check=pr]
 \printbibliography[title={Conference Publications with Abstract-only Review},
                    type=inproceedings,
                    check=ao]
-\printbibliography[title={Planned Publications},
-                   type=unpublished]
+% \printbibliography[title={Planned Publications},
+%                    type=unpublished]
 
 \section{Open Source Software} \label{sec:software}
 
@@ -255,33 +267,28 @@ sunberg2012information,
 
 \end{declined}
 
-\section{Research Positions}
-
-\mycventry{January 2020 -- Present}{Autonomous Decision and Control Laboratory (ADCL)}{Director}{University of Colorado, Boulder, CO}
-
-\mycventry{October 2018 -- October 2019}{Hybrid Systems Laboratory}{Postdoctoral Research Scholar}{University of California, Berkeley, CA}
-
-\mycventry{2015 -- 2018}{Stanford Intelligent Systems Laboratory (SISL)}{Graduate Research Assistant}{Stanford University, Stanford, CA}
-
-\mycventry{2014 -- 2016}{Autonomous Systems Laboratory (ASL)}{Graduate Research Assistant}{Stanford University, Stanford, CA}
-
-\mycventry{2013 -- 2014}{Hansen Experimental Physics Lab}{Graduate Research Assistant}{Stanford University, Stanford, CA}
-
-\mycventry{2011 -- 2013}{Helicopters and Unmanned Systems Laboratory (HUSL)}{Graduate Research Assistant}{Texas A\&M University, College Station, TX}
-
-\mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program}{Research Assistant}{Kirtland AFB, Albuquerque, NM}
-
-\section{Industry Experience}
-
-\mycventry{Summer 2014}{Google, Inc.\mdseries{, Mountain View, CA}}{Software Engineering Intern}{
-Evaluated and optimized a NASA collision avoidance program for use with Google self-piloted air vehicles.
-}
-
-\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Intern}{
-Helped in testing of autonomous SMSS all­terrain military transport vehicle navigation system; wrote rough terrain navigation program in C++ based on the A* search algorithm; wrote software in C++ for analyzing the performance of an advanced video analysis tool.
-}
+% \section{Research Positions}
+% 
+% \mycventry{January 2020 -- Present}{Autonomous Decision and Control Laboratory (ADCL)}{Director}{University of Colorado, Boulder, CO}
+% 
+% \mycventry{October 2018 -- October 2019}{Hybrid Systems Laboratory}{Postdoctoral Research Scholar}{University of California, Berkeley, CA}
+% 
+% \mycventry{2015 -- 2018}{Stanford Intelligent Systems Laboratory (SISL)}{Graduate Research Assistant}{Stanford University, Stanford, CA}
+% 
+% \mycventry{2014 -- 2016}{Autonomous Systems Laboratory (ASL)}{Graduate Research Assistant}{Stanford University, Stanford, CA}
+% 
+% \mycventry{2013 -- 2014}{Hansen Experimental Physics Lab}{Graduate Research Assistant}{Stanford University, Stanford, CA}
+% 
+% \mycventry{2011 -- 2013}{Helicopters and Unmanned Systems Laboratory (HUSL)}{Graduate Research Assistant}{Texas A\&M University, College Station, TX}
+% 
+% \mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program}{Research Assistant}{Kirtland AFB, Albuquerque, NM}
 
 \section{Invited and Contributed Talks and Panels}
+\textbf{2024}
+
+{\small
+    \cvline{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning.}
+}
 
 \textbf{2022}
 
@@ -327,8 +334,8 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 \end{minipage}\\
 
 \section{Teaching}
-
-\mycventry{2022 -- Present}{ASEN 3128 Aircraft Dynamics}{University of Colorado Boulder}{}
+\subsection{At CU Boulder}
+\mycventry{2022 -- Present}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder}{}
 
 \mycventry{2020 -- present}{ASEN 5264 Decision Making under Uncertainty}{University of Colorado Boulder}{
     Developed new entry-level graduate course about decision making under uncertainty.\\
@@ -343,6 +350,8 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 \mycventry{2020 -- 2021}{ASEN 4018/4028 Senior Design Project}{University of Colorado Boulder}{
     Advised senior design project teams, created new optimization-based approach (see Open Source Software) for fairly creating teams based on student preferences~\cite{sunberg2021fair}.
 }
+
+\subsection{Prior to CU Boulder}
 
 \mycventry{June 2017}{Army High Performance Computing Summer Institute}{Stanford University, Stanford, CA}{
 Developed and taught a 5 lecture course about decision making under uncertainty for college students.
@@ -409,7 +418,8 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
     Cody Charland\\
     Akash Ratheesh\\
     Jamison Mcginley\\
-    Rio McMahon
+    Rio McMahon\\
+    Eli Kravitz
 \end{multicols}
 
 \section{Department Service and Outreach}
@@ -423,9 +433,9 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 
 \section{Conference and Workshop Organization}
 
-\mycventry{2022}{Strategic multi-agent interactions: game theory for robot learning and decision making}{Workshop at the Conference on Robotic Learning (CoRL)}{Co-organizer with David Fridovich-Keil (Univ. of Texas), Negar Mehr (Univ. of Illinois), and Forrest Laine (Vanderbilt)}
-
 \mycventry{2023}{Inference and Decision Making for Autonomous Vehicles (IDMAV)}{Workshop at Robotics: Science and Systems (RSS)}{Co-organizer with Christoffer Heckman, Han-Lim Choi (KAIST), and students}
+
+\mycventry{2022}{Strategic multi-agent interactions: game theory for robot learning and decision making}{Workshop at the Conference on Robotic Learning (CoRL)}{Co-organizer with David Fridovich-Keil (Univ. of Texas), Negar Mehr (Univ. of Illinois), and Forrest Laine (Vanderbilt)}
 
 \section{Academic Peer Review and Editing}
 
@@ -437,14 +447,16 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \small
 Journal of Artificial Intelligence Research\\
 AIAA Journal of Guidance, Control, and Dynamics\\
+AIAA Journal of Aerospace Information Systems\\
 IEEE Robotics and Automation Letters\\
 IEEE Transations on Cybernetics\\
 IEEE Transactions on Intelligent Transportation Systems\\
 IEEE Transactions on Intelligent Vehicles\\
-Journal of Aerospace Information Systems\\
 Autonomous Robots\\
-Intl. Journal of Robotics Research\\
+Intl. Journal of Robotics Research (IJRR)\\
 Journal of the American Helicopter Society\\
+Field Robotics\\
+R (programming language) Journal\\
 International Symposium on Robotics Research\\
 Intl. Conference on Robotics and Automation (ICRA)\\
 Intl. Joint Conference on Artificial Intelligence (IJCAI)\\
@@ -453,12 +465,16 @@ American Control Conference (ACC)\\
 Intelligent Transportation Systems Conference (ITSC)\\
 Robotics, Science and Systems (RSS)\\
 Learning for Decision and Control Conference (L4DC)\\
+IEEE Conference on Decision and Control (CDC)\\
 \end{multicols}
 
-% Proposal reviewer for ARO
+\section{Proposal Review}
+\mycvitem{2023}{NSF CISE Small Proposal Review Panelist}
+\mycvitem{2023}{Army Research Office (ARO) Proposal Reviewer}
 
 \section{Fellowships and Awards}
 
+\mycvitem{2023}{IET Cyberphysical Systems Journal Premium Paper Award}
 \mycvitem{2021,2022}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
 \mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
 \mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
