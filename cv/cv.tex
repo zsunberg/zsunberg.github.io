@@ -31,7 +31,6 @@
 \usepackage{enumitem}
 \usepackage{comment}
 \usepackage{nameref}
-% \usepackage{cleveref}
 
 % \includecomment{references}
 \excludecomment{references}
@@ -46,11 +45,9 @@
 
 \addtolength{\textheight}{0.2in}
 
-\usepackage[style=numeric, maxbibnames=20, defernumbers=true, sorting=none]{biblatex}
+\usepackage[style=numeric,maxbibnames=20,maxcitenames=20,defernumbers=true,sorting=none]{biblatex}
 \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
 \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
-
-
 
 % Bold my name
 % https://tex.stackexchange.com/questions/73136/make-specific-author-bold-using-biblatex?noredirect=1&lq=1
@@ -69,6 +66,10 @@
     \clearlist{location}
     \clearfield{issn}
 }
+
+\newcounter{jnum}
+\newcommand{\journal}[1]{\stepcounter{jnum}\item[{[J\thejnum]}] \fullcite{#1}\par}
+
 \newcommand{\mycventry}[4]{
     \begin{samepage}
     % \cventry{}{#3}{#2}{\mdseries{\textit{#1}}}{}{#4}
@@ -194,19 +195,37 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
       {\skipentry}}
 }
 
+\section{Peer Reviewed Journal and Highly Selective Conference Publications}
+
+Items marked with J are journal publications; items marked with JE are journal-equivalent conference publications.
+
+\begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+\journal{sharma2024investigation}
+\journal{ho2024samplingbased}
+\journal{lim2023optimality}
+\journal{blonder2023navigation}
+\journal{sunberg2022improving}
+\journal{ahmad2021end}
+\journal{slade2020estimation}
+\journal{egorov2017pomdps}
+\journal{sunberg2016information}
+\journal{sunberg2015real}
+\end{itemize}
+
+
 % \printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
 %                    check=jorjec]
 \printbibliography[title={Peer Reviewed Journal Publications},
-                   type=article]
-\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-                   type=inproceedings,
-                   check=jec]
-\printbibliography[title={Peer Reviewed Conference Publications},
-                   type=inproceedings,
-                   check=pr]
-\printbibliography[title={Conference Publications with Abstract-only Review},
-                   type=inproceedings,
-                   check=ao]
+                    type=article]
+% \printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
+%                    type=inproceedings,
+%                    check=jec]
+% \printbibliography[title={Peer Reviewed Conference Publications},
+%                    type=inproceedings,
+%                    check=pr]
+% \printbibliography[title={Conference Publications with Abstract-only Review},
+%                    type=inproceedings,
+%                    check=ao]
 % \printbibliography[title={Planned Publications},
 %                    type=unpublished]
 
