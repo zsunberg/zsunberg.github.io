@@ -69,6 +69,11 @@
 
 \newcounter{jnum}
 \newcommand{\journal}[1]{\stepcounter{jnum}\item[{[J\thejnum]}] \fullcite{#1}\par}
+\newcounter{jcnum}
+\newcommand{\jc}[1]{\stepcounter{jcnum}\item[{[JC\thejcnum]}] \fullcite{#1}\par}
+
+
+
 
 \newcommand{\mycventry}[4]{
     \begin{samepage}
@@ -195,9 +200,10 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
       {\skipentry}}
 }
 
-\section{Peer Reviewed Journal and Highly Selective Conference Publications}
+\section{Publications}
 
-Items marked with J are journal publications; items marked with JE are journal-equivalent conference publications.
+\subsection{Peer Reviewed Journal Articles}
+
 
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
 \journal{sharma2024investigation}
@@ -210,16 +216,29 @@ Items marked with J are journal publications; items marked with JE are journal-e
 \journal{egorov2017pomdps}
 \journal{sunberg2016information}
 \journal{sunberg2015real}
+\journal{sunberg2013information}
+\journal{sunberg2013belief}
 \end{itemize}
+
+\subsection{Peer Reviewed Journal-Equivalent Conference Publications}
+Journal-equivalent conference publications, as defined by the Smead Aerospace Department, have rigorous peer review of the entire article, an acceptance rate of approximately 30\% or less, and recognition in the field that these publications are as important as journal papers.
+
+\begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+\jc{ho2024recursivelyconstrained}
+\end{itemize}
+
+
+
+
 
 
 % \printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
 %                    check=jorjec]
-\printbibliography[title={Peer Reviewed Journal Publications},
-                    type=article]
-% \printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-%                    type=inproceedings,
-%                    check=jec]
+% \printbibliography[title={Peer Reviewed Journal Publications},
+%                     type=article]
+\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
+                   type=inproceedings,
+                   check=jec]
 % \printbibliography[title={Peer Reviewed Conference Publications},
 %                    type=inproceedings,
 %                    check=pr]
@@ -243,6 +262,7 @@ Items marked with J are journal publications; items marked with JE are journal-e
 \section{Research Funding}
 
 % \subsection{Awarded}
+
 
 \mycventry{2023 -- 2024}{Co-I: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$99,976 \textbar{} Subcontract from UC Berkeley (listed amount is my subcontract)}
 
