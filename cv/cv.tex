@@ -31,6 +31,7 @@
 \usepackage{enumitem}
 \usepackage{comment}
 \usepackage{nameref}
+\usepackage{totcount}
 
 % \includecomment{references}
 \excludecomment{references}
@@ -47,7 +48,7 @@
 
 \usepackage[style=numeric,maxbibnames=20,maxcitenames=20,defernumbers=true,sorting=none]{biblatex}
 \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
-\addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
+% \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
 
 % Bold my name
 % https://tex.stackexchange.com/questions/73136/make-specific-author-bold-using-biblatex?noredirect=1&lq=1
@@ -68,12 +69,19 @@
 }
 
 \newcounter{jnum}
-\newcommand{\journal}[1]{\stepcounter{jnum}\item[{[J\thejnum]}] \fullcite{#1}\par}
+\renewcommand{\thejnum}{J\arabic{jnum}}
+\newcommand{\journal}[1]{\refstepcounter{jnum}\item[{[\thejnum]}] \fullcite{#1}\par\label{#1}}
 \newcounter{jcnum}
-\newcommand{\jc}[1]{\stepcounter{jcnum}\item[{[JC\thejcnum]}] \fullcite{#1}\par}
+\renewcommand{\thejcnum}{JC\arabic{jcnum}}
+\newcommand{\jc}[1]{\refstepcounter{jcnum}\item[{[\thejcnum]}] \fullcite{#1}\par\label{#1}}
+\newcounter{cnum}
+\renewcommand{\thecnum}{C\arabic{cnum}}
+\newcommand{\conf}[1]{\refstepcounter{cnum}\item[{[\thecnum]}] \fullcite{#1}\par\label{#1}}
+\newcounter{onum}
+\renewcommand{\theonum}{A\arabic{onum}}
+\newcommand{\opub}[1]{\refstepcounter{onum}\item[{[\theonum]}] \fullcite{#1}\par\label{#1}}
 
-
-
+\newcommand{\mycite}[1]{[\ref{#1}]}
 
 \newcommand{\mycventry}[4]{
     \begin{samepage}
@@ -101,60 +109,6 @@
 %% Content
 %%------------------------------------------------------------------------------
 \begin{document}
-
-% to get the correct ordering
-\nocite{
-    ho2024gaussian,
-    kraske2024explaining,
-    becker2024bridging,
-    becker2024gametheoretic,
-    wagner2024modeling,
-    ho2024ltlpomdp,
-    ho2024boundeddisturbance,
-    mazouz2024beliefbarriers,
-    gupta2024nonholonomic,
-    % above are planned
-    laouar2023feasibility,
-    ray2023human,
-    sharma2024investigation,
-    ho2024recursivelyconstrained,
-    ho2024samplingbased,
-    hong2024cieran,
-    deglurkar2023compositional,
-    ho2023simba,
-    lim2023optimality,
-    kraske2023explanation,
-    blonder2023navigation,
-    tucker2022adaptive,
-    becker2022imperfect,
-    ho2022automaton,
-    ho2022gaussian,
-    gupta2022intention,
-    ray2022user,
-    sunberg2022improving,
-    ahmad2021end,
-    sunberg2021fair,
-    lim2021voronoi,
-    ahmad2021probabilistic,
-    mern2021bayesian,
-    lim2020sparse,
-    peters2020alignment,
-    slade2020estimation,
-    sonu2018hierarchy,
-    sunberg2018pomcpow,
-sunberg2017value,
-slade2017simultaneous,
-egorov2017pomdps,
-sunberg2016trusted,
-sunberg2016information,
-sunberg2015real,
-sunberg2014space,
-sunberg2014real,
-sunberg2013information,
-sunberg2013belief,
-sunberg2013fuzzy,
-sunberg2012information,
-}
 
 \makecvtitle
 
@@ -202,8 +156,10 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 
 \section{Publications}
 
-\subsection{Peer Reviewed Journal Articles}
+My name and the names of my students are indicated with bold font.
+\vspace{1em}
 
+\subsection{Peer Reviewed Journal Articles}
 
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
 \journal{sharma2024investigation}
@@ -221,24 +177,57 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 \end{itemize}
 
 \subsection{Peer Reviewed Journal-Equivalent Conference Publications}
-Journal-equivalent conference publications, as defined by the Smead Aerospace Department, have rigorous peer review of the entire article, an acceptance rate of approximately 30\% or less, and recognition in the field that these publications are as important as journal papers.
+Journal-equivalent conference publications have rigorous peer review of the entire article, an acceptance rate of approximately 30\% or less, and are recognized to be as important as journal papers in the field.
 
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
 \jc{ho2024recursivelyconstrained}
+\jc{ho2024sound}
+\jc{hong2024cieran}
+\jc{mern2021bayesian}
+\jc{lim2020sparse}
+\jc{peters2020alignment}
+\jc{sunberg2018pomcpow}
 \end{itemize}
 
+\subsection{Peer Reviewed Conference Publications}
+Peer reviewed conference publications are selected based on peer review of the entire article, but are considered less rigorous and selective than journal-equivalent conference publications.
 
+\begin{enumerate}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+\conf{laouar2024feasibility}
+\conf{ray2024human}
+\conf{deglurkar2023compositional}
+\conf{ho2023simba}
+\conf{kraske2023explanation}
+\conf{ho2022automaton}
+\conf{ho2022gaussian}
+\conf{sunberg2021fair}
+\conf{lim2021voronoi}
+\conf{ahmad2021probabilistic}
+\conf{sonu2018hierarchy}
+\conf{sunberg2017value}
+\conf{slade2017simultaneous}
+\conf{sunberg2016trusted}
+\conf{sunberg2014space}
+\conf{sunberg2014real}
+\end{enumerate}
 
+\subsection{Conference Publications with Abstract-only Review}
 
+\begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+\opub{tucker2022adaptive}
+\opub{becker2022imperfect}
+\opub{ray2022user}
+\opub{sunberg2013fuzzy}
+\end{itemize}
 
 
 % \printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
 %                    check=jorjec]
 % \printbibliography[title={Peer Reviewed Journal Publications},
 %                     type=article]
-\printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-                   type=inproceedings,
-                   check=jec]
+% \printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
+%                    type=inproceedings,
+%                    check=jec]
 % \printbibliography[title={Peer Reviewed Conference Publications},
 %                    type=inproceedings,
 %                    check=pr]
@@ -251,40 +240,51 @@ Journal-equivalent conference publications, as defined by the Smead Aerospace De
 \section{Open Source Software} \label{sec:software}
 
 \mycventry{2015 -- present}{POMDPs.jl}{\normalfont{\url{https://github.com/JuliaPOMDP/POMDPs.jl}}}{
-    Interface for defining continuous and discrete, fully and partially observable Markov decision processes along with a suite of state-of-the art solvers written in Julia and C++.
+    Interface for defining continuous and discrete, fully and partially observable Markov decision processes along with a suite of state-of-the art solvers written in Julia and C++ \mycite{egorov2017pomdps}. 33 direct package contributors, 44 dependent packages, 650 GitHub stars, 430 monthly downloads according to \url{juliahub.com}.
 }
 \mycventry{2020}{ProjectAssigner.jl}{\normalfont{\url{https://github.com/zsunberg/ProjectAssigner.jl}}}{
-    Software for optimally assigning student teams to projects based on preferences, friend groups, and skills~\cite{sunberg2021fair}. Used to assign senior project groups in the AES department since 2020.
+    Software for optimally assigning student teams to projects based on preferences, friend groups, and skills~\mycite{sunberg2021fair}. Used to assign senior project groups in the AES department since 2020.
 }
 
 \begin{funding}
 
 \section{Research Funding}
 
-% \subsection{Awarded}
+\small{
+Funding sources are classified by my role: ``PI'' indicates that I am the sole or lead principle investigator for the entire project; ``CU PI'' indicates that I am the lead investigator at CU, but the overall principle investigator is at another institution; ``Co-I'' means that I am a co-investigator, but there is another ranking PI at CU. The first amount listed is my share of the award; if applicable, the second amount is the entire award amount.
+}
+\vspace{1em}
 
+\mycventry{2024 -- 2029}{PI: CAREER: Game-theoretic Online Planning in Partially Observable Domains}{National Science Foundation}{\$599,985 [Recommended, award expected]}
 
-\mycventry{2023 -- 2024}{Co-I: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$99,976 \textbar{} Subcontract from UC Berkeley (listed amount is my subcontract)}
+\mycventry{2024 -- 2028}{CU PI: DECODE AI: Deception and Counter-Deception in Artificial Intelligence}{Office of Naval Research}{\$1,014,000 (my share) \textbar{} \$4,150,000 (total award), PI: Matthew Hale, Georgia Tech [Selected, award expected]}
 
-\mycventry{2023 -- 2024}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$111,000 \textbar{} PI share: \$60,000 (approx.)}
+\mycventry{2023 -- 2024}{CU PI: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$99,976 (my share) \textbar{} \$944,823 (total award), PI: Ben Blonder, UC Berkeley; I did not participate in securing this grant, but was subcontracted to work on it later.}
 
-\mycventry{2023 -- 2028}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$5,000,000 (approx., PI: Marcus Holzinger) \textbar{} My share: \$500,000 (approx.) \textbar{} Co-Is: K. Terry Alfriend (TAMU), Scott Palo, Kyle DeMars (TAMU), John Junkins (TAMU), Karen Feigh (Georgia Tech) \textbar{} Full title: Multi-Phenomenological, Autonomous, and Understandable SDA and XDA Decision Support}
+\mycventry{2023 -- 2024}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$60,000 (my share, approx.) \textbar{} \$111,000 (total award)}
 
-\mycventry{2022 -- 2027}{Co-I: IUCRC Phase I: Center for Autonomous Air Mobility and Sensing (CAAMS)}{National Science Foundation}{\$2,210,225 (PI: Eric Frew) \textbar{} Co-Is: Nisar Ahmed, Morteza Lahijanian, Sriram Sankaranarayanan \textbar{} This grant establishes the IUCRC and pays for administrative costs; sub-awards funded through industry contributions will be listed separately.}
+\mycventry{2023 -- 2028}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$500,000 (my share, approx.) \textbar{} \$5,000,000 (total award, approx.), PI: Marcus Holtzinger, CU Boulder; 
+% Co-Is: K. Terry Alfriend (TAMU), Scott Palo, Kyle DeMars (TAMU), John Junkins (TAMU), Karen Feigh (Georgia Tech) \textbar{} 
+Full title: Multi-Phenomenological, Autonomous, and Understandable SDA and XDA Decision Support}
 
-\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$1,045,429 (PI: Eric Frew) \textbar{} My share: \$300,000 (approx.) \textbar{} Co-Is: Brian Argrow, Adam Houston (University of Nebraska, Lincoln)}
+\mycventry{2022 -- 2027}{Co-I: IUCRC Phase I: Center for Autonomous Air Mobility and Sensing (CAAMS)}{National Science Foundation}{\$0 (my share) \textbar{} \$2,210,225 (total award), PI: Eric Frew, CU Boulder;
+% Co-Is: Nisar Ahmed, Morteza Lahijanian, Sriram Sankaranarayanan
+This grant establishes the IUCRC and pays for administrative costs; sub-awards funded through industry contributions will be listed separately.}
 
-\mycventry{2022-2023}{PI: HIPPO (Human-Informed Planning with Probabilistic Observations)}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$68,000 \textbar{} PI share: full amount}
+\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$300,000 (my share, approx.) \textbar{} \$1,045,429 (total award), PI: Eric Frew}
+% \textbar{} Co-Is: Brian Argrow, Adam Houston (University of Nebraska, Lincoln)}
 
-\mycventry{2022-2024}{Co-I: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$120,000 (PI: Federico Rossi, JPL) \textbar{} My share: \$100,000 \textbar{} Co-Is: Martin Feather (JPL), Morteza Lahijanian}
+\mycventry{2022-2023}{PI: HIPPO (Human-Informed Planning with Probabilistic Observations)}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$68,000}
 
-\mycventry{2021 -- 2023}{PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{\$169,805 \textbar{} PI share: full amount}
+\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$100,000 (my share) \textbar{} \$120,000 (total award), PI: Federico Rossi, JPL}
 
-\mycventry{2021-2023}{Co-I: L3Harris Modern Analytics for Mission Applications (LMA2)}{L3-Harris Technologies}{\$1,495,048 (PI: Marcus Holzinger) \textbar{} My share: \$350,000 (approx.)}
+\mycventry{2021 -- 2023}{CU PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{\$169,805 \textbar{} Subcontract on larger award of unknown total amount}
 
-\mycventry{2021 -- 2022}{Co-PI: Full Stack Planning and Control under Uncertainty}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$130,000 (with Co-PI Ella Atkins, Univ. of Michigan) \textbar{} My share: \$65,000}
+\mycventry{2021-2023}{Co-I: L3Harris Modern Analytics for Mission Applications (LMA2)}{L3-Harris Technologies}{\$350,000 (my share, approx.) \textbar{} \$1,495,048 (total award), PI: Marcus Holzinger, CU Boulder}
 
-\mycventry{2020 -- 2021}{PI: POMDP Algorithms for In-flight Learning in Emergencies}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$60,000 \textbar{} PI share: full amount}
+\mycventry{2021 -- 2022}{CU PI: Full Stack Planning and Control under Uncertainty}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$65,000 (my share) \textbar{} \$130,000 (total award), Co-PI Ella Atkins, Univ. of Michigan}
+
+\mycventry{2020 -- 2021}{PI: POMDP Algorithms for In-flight Learning in Emergencies}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$60,000}
 
 \end{funding}
 
@@ -323,58 +323,74 @@ Journal-equivalent conference publications, as defined by the Smead Aerospace De
 % \mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program}{Research Assistant}{Kirtland AFB, Albuquerque, NM}
 
 \section{Invited and Contributed Talks and Panels}
+
+\newcounter{invited}
+\regtotcounter{invited}
+\newcounter{conference}
+\regtotcounter{conference}
+\newcounter{panel}
+\regtotcounter{panel}
+
+Totals: \total{invited} invited talks, \total{panel} panel, \total{conference} other contributed talks.
+
+\vspace{1ex}
+
 \textbf{2024}
 
 {\small
-    \cvline{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning.}
+    \cvline{Autonomy Talks Series, Massachusetts Institute of Technology (MIT) \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning. \url{https://www.youtube.com/watch?v=XDIyX0tanjk}} \refstepcounter{invited}
+    \cvline{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning.} \refstepcounter{invited}
 }
 
 \textbf{2022}
 
 {\small
-    \cvline{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty.}
-    \cvline{University of Texas at Austin}{Safe and efficient autonomy in the face of uncertainty.}
-    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.}
+    \cvline{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty.} \refstepcounter{invited}
+    \cvline{University of Texas at Austin}{Safe and efficient autonomy in the face of uncertainty.} \refstepcounter{invited}
+    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.} \refstepcounter{invited}
 }
 
 \textbf{2021}
 
 {\small
-    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)}
-    \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia}
-    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy}
-    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms}
+    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)} \refstepcounter{panel}
+    \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia} \refstepcounter{conference}
+    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy} \refstepcounter{invited}
+    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms} \refstepcounter{invited}
 }
 
 \textbf{2019}
 
 {\small
-\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
-\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
-\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}
+\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} \refstepcounter{invited}
+\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} \refstepcounter{invited}
+\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} \refstepcounter{invited}
 }
 
 \textbf{2018}
 
 {\small
-\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning}
-\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
-\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World}
-\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}
+\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning} \refstepcounter{invited}
+\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} \refstepcounter{invited}
+\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World} \refstepcounter{invited}
+
+\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} \refstepcounter{invited}
 }
 
 \begin{minipage}{\textwidth}
 \textbf{2017}
 
 {\small
-\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{POMDPs.jl}
-\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{POMDPs.jl - Challenges and Lessons Learned}
+\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{POMDPs.jl} \refstepcounter{conference}
+\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{POMDPs.jl - Challenges and Lessons Learned} \refstepcounter{conference}
 }
 \end{minipage}\\
 
 \section{Teaching}
 \subsection{At CU Boulder}
-\mycventry{2022 -- Present}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder}{}
+\mycventry{2022 -- Present}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder}{
+    Open-source course materials: \url{https://github.com/zsunberg/Aircraft-Dynamics-Materials}
+}
 
 \mycventry{2020 -- present}{ASEN 5264 Decision Making under Uncertainty}{University of Colorado Boulder}{
     Developed new entry-level graduate course about decision making under uncertainty.\\
@@ -387,7 +403,7 @@ Journal-equivalent conference publications, as defined by the Smead Aerospace De
 }
 
 \mycventry{2020 -- 2021}{ASEN 4018/4028 Senior Design Project}{University of Colorado Boulder}{
-    Advised senior design project teams, created new optimization-based approach (see Open Source Software) for fairly creating teams based on student preferences~\cite{sunberg2021fair}.
+    Advised senior design project teams, created new optimization-based approach (see Open Source Software) for fairly creating teams based on student preferences~\mycite{sunberg2021fair}.
 }
 
 \subsection{Prior to CU Boulder}
@@ -406,23 +422,26 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 
 \section{Advising and Mentoring}
 
+% TODO Add Postdoc
+
 \subsection{Graduated Ph.D. Thesis Advisees}
 \mycventry{2020 -- 2023}{Hyun Jae (Michael) Lim {\normalfont (Co-advised with Claire Tomlin at U.C. Berkeley)}}{AI Scientist, C3.ai}{}
 
 \subsection{Current Ph.D. Thesis Advisees}
-\mycvitem{Fall 2020 -- Present}{Tyler Becker}
-\mycvitem{Fall 2020 -- Present}{Qi Heng Ho}
-\mycvitem{Fall 2020 -- Present}{Ben Kraske {\normalfont(Received NSF GRFP under my direction)}}
-\mycvitem{Fall 2020 -- Present}{Himanshu Gupta}
-\mycvitem{Fall 2021 -- Present}{Zakariya Laouar}
-\mycvitem{Summer 2022 -- Present}{Jackson Wagner}
+\mycvitem{Fall 2020 -- Present}{Qi Heng Ho {\normalfont(Comprehensive exam spring 2024)}}
+\mycvitem{Fall 2020 -- Present}{Tyler Becker {\normalfont(Prelim exam fall 2021)}}
+\mycvitem{Fall 2020 -- Present}{Ben Kraske {\normalfont(Prelim exam fall 2021, Received NSF GRFP)}}
+\mycvitem{Fall 2021 -- Present}{Zakariya Laouar {\normalfont(Prelim exam fall 2022)}}
+\mycvitem{Fall 2020 (Started as MS) -- Present}{Himanshu Gupta {\normalfont(Prelim exam fall 2023)}}
+\mycvitem{Summer 2022 -- Present}{Jackson Wagner {\normalfont(Attempting prelim exam fall 2024)}}
 
 \subsection{Graduated M.S. Thesis Advisees}
-\mycvitem{Spring 2022 -- Fall 2022}{William Pope {\normalfont[\textit{U.S. Space Force Officer}]}}
+\mycventry{Spring 2022 -- Fall 2022}{William Pope}{U.S. Space Force Officer}{}
 
 \subsection{Independent Study Advisees}
 \mycvitem{Fall 2020 -- Summer 2022}{Johnathan Tucker {\normalfont(Received NSF GRFP under my direction)}}
 \mycvitem{Spring 2020}{Saurabh Mishra}
+\mycvitem{2023 -- 2024}{Austin Monell}
 
 \begin{minipage}{\textwidth}
 \subsection{Ph.D. Comprehensive Exam and Defense Committees}
@@ -444,7 +463,9 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
     Shohei Wakayama\\
     Marcus Lapeyrolerie (Univ. of California, Berkeley, Quals)
     John R. Martin\\
-    Adam Herrmann
+    Adam Herrmann\\
+    Camron (Alex) Hirst\\
+    Hunter Ray\\
 \end{multicols}
 \end{minipage}\\
 \\
@@ -458,7 +479,8 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
     Akash Ratheesh\\
     Jamison Mcginley\\
     Rio McMahon\\
-    Eli Kravitz
+    Eli Kravitz\\
+    Abdoulaye Diallo
 \end{multicols}
 
 \section{Department Service and Outreach}
@@ -513,11 +535,12 @@ IEEE Conference on Decision and Control (CDC)\\
 
 \section{Fellowships and Awards}
 
+\mycvitem{2024}{NSF CAREER Award (recommended, award expected)}
 \mycvitem{2023}{IET Cyberphysical Systems Journal Premium Paper Award}
 \mycvitem{2021,2022}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
 \mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
-\mycvitem{February 2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
-\mycvitem{May 2017}{American Control Conference Student Travel Award}
+\mycvitem{2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
+\mycvitem{2017}{American Control Conference Student Travel Award}
 \mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 
 \end{document}
