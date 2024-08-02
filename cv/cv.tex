@@ -68,19 +68,6 @@
     \clearfield{issn}
 }
 
-\newcounter{jnum}
-\renewcommand{\thejnum}{J\arabic{jnum}}
-\newcommand{\journal}[1]{\refstepcounter{jnum}\item[{[\thejnum]}] \fullcite{#1}\par\label{#1}}
-\newcounter{jcnum}
-\renewcommand{\thejcnum}{JC\arabic{jcnum}}
-\newcommand{\jc}[1]{\refstepcounter{jcnum}\item[{[\thejcnum]}] \fullcite{#1}\par\label{#1}}
-\newcounter{cnum}
-\renewcommand{\thecnum}{C\arabic{cnum}}
-\newcommand{\conf}[1]{\refstepcounter{cnum}\item[{[\thecnum]}] \fullcite{#1}\par\label{#1}}
-\newcounter{onum}
-\renewcommand{\theonum}{A\arabic{onum}}
-\newcommand{\opub}[1]{\refstepcounter{onum}\item[{[\theonum]}] \fullcite{#1}\par\label{#1}}
-
 \newcommand{\mycite}[1]{[\ref{#1}]}
 
 \newcommand{\mycventry}[4]{
@@ -156,6 +143,19 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 
 \section{Publications}
 
+\newcounter{jnum}
+\renewcommand{\thejnum}{J\arabic{jnum}}
+\newcommand{\journal}[1]{\refstepcounter{jnum}\item[{[\thejnum]}] \fullcite{#1}\par\label{#1}}
+\newcounter{jcnum}
+\renewcommand{\thejcnum}{JC\arabic{jcnum}}
+\newcommand{\jc}[1]{\refstepcounter{jcnum}\item[{[\thejcnum]}] \fullcite{#1}\par\label{#1}}
+\newcounter{cnum}
+\renewcommand{\thecnum}{C\arabic{cnum}}
+\newcommand{\conf}[1]{\refstepcounter{cnum}\item[{[\thecnum]}] \fullcite{#1}\par\label{#1}}
+\newcounter{onum}
+\renewcommand{\theonum}{A\arabic{onum}}
+\newcommand{\opub}[1]{\refstepcounter{onum}\item[{[\theonum]}] \fullcite{#1}\par\label{#1}}
+
 My name and the names of my students are indicated with bold font.
 \vspace{1em}
 
@@ -221,22 +221,6 @@ Peer reviewed conference publications are selected based on peer review of the e
 \end{itemize}
 
 
-% \printbibliography[title={Peer Reviewed Journal and Highly-Selective Conference Publications},
-%                    check=jorjec]
-% \printbibliography[title={Peer Reviewed Journal Publications},
-%                     type=article]
-% \printbibliography[title={Journal-Equivalent Peer Reviewed Conference Publications},
-%                    type=inproceedings,
-%                    check=jec]
-% \printbibliography[title={Peer Reviewed Conference Publications},
-%                    type=inproceedings,
-%                    check=pr]
-% \printbibliography[title={Conference Publications with Abstract-only Review},
-%                    type=inproceedings,
-%                    check=ao]
-% \printbibliography[title={Planned Publications},
-%                    type=unpublished]
-
 \section{Open Source Software} \label{sec:software}
 
 \mycventry{2015 -- present}{POMDPs.jl}{\normalfont{\url{https://github.com/JuliaPOMDP/POMDPs.jl}}}{
@@ -255,7 +239,7 @@ Funding sources are classified by my role: ``PI'' indicates that I am the sole o
 }
 \vspace{1em}
 
-\mycventry{2024 -- 2029}{PI: CAREER: Game-theoretic Online Planning in Partially Observable Domains}{National Science Foundation}{\$599,985 [Recommended, award expected]}
+\mycventry{2024 -- 2029}{PI: CAREER: Game-theoretic Online Planning in Partially Observable Domains}{National Science Foundation}{\$599,985}
 
 \mycventry{2024 -- 2028}{CU PI: DECODE AI: Deception and Counter-Deception in Artificial Intelligence}{Office of Naval Research}{\$1,014,000 (my share) \textbar{} \$4,150,000 (total award), PI: Matthew Hale, Georgia Tech [Selected, award expected]}
 
@@ -322,70 +306,75 @@ This grant establishes the IUCRC and pays for administrative costs; sub-awards f
 % 
 % \mycventry{Summer 2011}{Air Force Research Lab Summer Faculty Program}{Research Assistant}{Kirtland AFB, Albuquerque, NM}
 
-\section{Invited and Contributed Talks and Panels}
+\section{Invited Talks and Panels}
 
-\newcounter{invited}
-\regtotcounter{invited}
-\newcounter{conference}
-\regtotcounter{conference}
-\newcounter{panel}
-\regtotcounter{panel}
+\newcounter{inum}
+\renewcommand{\thejnum}{I\arabic{inum}}
+\newcommand{\invited}[1]{\refstepcounter{inum}\item[{[\theinum]}] \fullcite{#1}\par\label{#1}}
 
-Totals: \total{invited} invited talks, \total{panel} panel, \total{conference} other contributed talks.
+% \newcounter{invited}
+% \regtotcounter{invited}
+% \newcounter{conference}
+% \regtotcounter{conference}
+% \newcounter{panel}
+% \regtotcounter{panel}
+% Totals: \total{invited} invited talks, \total{panel} panel, \total{conference} other contributed talks.
 
 \vspace{1ex}
 
 \textbf{2024}
 
 {\small
-    \cvline{Autonomy Talks Series, Massachusetts Institute of Technology (MIT) \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning. \url{https://www.youtube.com/watch?v=XDIyX0tanjk}} \refstepcounter{invited}
-    \cvline{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning.} \refstepcounter{invited}
+    \cvline{Autonomy Talks Series, Massachusetts Institute of Technology (MIT) \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning. \url{https://www.youtube.com/watch?v=XDIyX0tanjk}} % \refstepcounter{invited}
+    \cvline{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning.} % \refstepcounter{invited}
 }
 
 \textbf{2022}
 
 {\small
-    \cvline{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty.} \refstepcounter{invited}
-    \cvline{University of Texas at Austin}{Safe and efficient autonomy in the face of uncertainty.} \refstepcounter{invited}
-    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.} \refstepcounter{invited}
+    \cvline{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty.} % \refstepcounter{invited}
+    \cvline{University of Texas at Austin}{Safe and efficient autonomy in the face of uncertainty.} % \refstepcounter{invited}
+    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.} % \refstepcounter{invited}
 }
 
 \textbf{2021}
 
 {\small
-    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)} \refstepcounter{panel}
-    \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia} \refstepcounter{conference}
-    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy} \refstepcounter{invited}
-    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms} \refstepcounter{invited}
+    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)} % \refstepcounter{panel}
+    % \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia} % \refstepcounter{conference}
+    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy} % \refstepcounter{invited}
+    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms} % \refstepcounter{invited}
 }
 
 \textbf{2019}
 
 {\small
-\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} \refstepcounter{invited}
-\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} \refstepcounter{invited}
-\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} \refstepcounter{invited}
+\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} % \refstepcounter{invited}
+\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} % \refstepcounter{invited}
+\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} % \refstepcounter{invited}
 }
 
 \textbf{2018}
 
 {\small
-\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning} \refstepcounter{invited}
-\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} \refstepcounter{invited}
-\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World} \refstepcounter{invited}
+\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning} % \refstepcounter{invited}
+\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} % \refstepcounter{invited}
+\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World} % \refstepcounter{invited}
 
-\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} \refstepcounter{invited}
+\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} % \refstepcounter{invited}
 }
 
 \begin{minipage}{\textwidth}
 \textbf{2017}
 
-{\small
-\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{POMDPs.jl} \refstepcounter{conference}
-\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{POMDPs.jl - Challenges and Lessons Learned} \refstepcounter{conference}
-}
+
 \end{minipage}\\
 
+\section{Other Presentations}
+{\small
+\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{``POMDPs.jl'', 2017}
+\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{``POMDPs.jl - Challenges and Lessons Learned'', 2017}
+}
 \section{Teaching}
 \subsection{At CU Boulder}
 \mycventry{2022 -- Present}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder}{
@@ -422,7 +411,8 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 
 \section{Advising and Mentoring}
 
-% TODO Add Postdoc
+\subsection{Postdoctoral Scholars}
+\mycvitem{2024 -- present}{Ofer Dagan}
 
 \subsection{Graduated Ph.D. Thesis Advisees}
 \mycventry{2020 -- 2023}{Hyun Jae (Michael) Lim {\normalfont (Co-advised with Claire Tomlin at U.C. Berkeley)}}{AI Scientist, C3.ai}{}
@@ -483,10 +473,15 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
     Abdoulaye Diallo
 \end{multicols}
 
-\section{Department Service and Outreach}
+\section{Department Service}
 
+\mycvitem{2023--present}{Onboarding mentor for new faculty member}
+\mycvitem{2023--present}{Autonomous Systems Faculty Search Committee}
 \mycvitem{2023--present}{Undergraduate Operations Committee}
 \mycventry{2020--2023}{Graduate Program Committee}{Autonomous Systems Lead}{Served on Preliminary Exam Subcommittee, Revised MS Admissions Criteria}
+
+\section{Outreach and Inclusion}
+
 \mycvitem{2023}{Smead aerospace career panelist}
 \mycvitem{2022}{Rising Stars in Aerospace organizing committee member}
 \mycvitem{2021, 2022}{Speaker for Tuskegee Airmen outreach event at CU}
@@ -535,11 +530,11 @@ IEEE Conference on Decision and Control (CDC)\\
 
 \section{Fellowships and Awards}
 
-\mycvitem{2024}{NSF CAREER Award (recommended, award expected)}
+\mycvitem{2024}{NSF CAREER Award}
 \mycvitem{2023}{IET Cyberphysical Systems Journal Premium Paper Award}
 \mycvitem{2021,2022}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
 \mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
-\mycvitem{2018}{Association for the Advancement of Artificial Intelligence Doctoral Consortium}
+\mycvitem{2018}{Association for the Advancement of Artificial Intelligence (AAAI) Doctoral Consortium}
 \mycvitem{2017}{American Control Conference Student Travel Award}
 \mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 
