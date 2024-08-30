@@ -35,8 +35,7 @@
 
 % \includecomment{references}
 \excludecomment{references}
-\includecomment{research}
-\includecomment{funding}
+\excludecomment{funding}
 \excludecomment{declined}
 
 \pagestyle{fancy}
@@ -47,7 +46,9 @@
 \addtolength{\textheight}{0.2in}
 
 \usepackage[style=numeric,maxbibnames=20,maxcitenames=20,defernumbers=true,sorting=none]{biblatex}
-\addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
+% \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
+% \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
+\addbibresource[location=remote]{https://raw.githubusercontent.com/CU-ADCL/CU-ADCL.github.io/main/bibliography/our-pubs.bib}
 % \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
 
 % Bold my name
@@ -121,26 +122,36 @@
 Evaluated and optimized a NASA collision avoidance program for use with Google self-piloted air vehicles.
 }
 
-\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Intern}{
+\mycventry{Summer 2009}{Lockheed Martin Autonomous Systems\mdseries{, Littleton, CO}}{Engineering Intern}{
 Helped in testing of autonomous SMSS all­terrain military transport vehicle navigation system; wrote rough terrain navigation program in C++ based on the A* search algorithm; wrote software in C++ for analyzing the performance of an advanced video analysis tool.
 }
 
+\section{Awards and Fellowships}
+
+\mycvitem{2024}{NSF CAREER Award}
+\mycvitem{2023}{IET Cyberphysical Systems Journal Premium Paper Award}
+\mycvitem{2021,2022}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
+\mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
+\mycvitem{2018}{Association for the Advancement of Artificial Intelligence (AAAI) Doctoral Consortium}
+% \mycvitem{2017}{American Control Conference Student Travel Award}
+\mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 
 
-\defbibcheck{jec}{\iffieldequalstr{annotation}{journal-equivalent}{}{\skipentry}}
-\defbibcheck{pr}{\iffieldequalstr{annotation}{journal-equivalent}{\skipentry}{}\iffieldequalstr{annotation}{abstract-review}{\skipentry}{}}
-\defbibcheck{ao}{\iffieldequalstr{annotation}{abstract-review}{}{\skipentry}}
+% \defbibcheck{jec}{\iffieldequalstr{annotation}{journal-equivalent}{}{\skipentry}}
+% \defbibcheck{pr}{\iffieldequalstr{annotation}{journal-equivalent}{\skipentry}{}\iffieldequalstr{annotation}{abstract-review}{\skipentry}{}}
+% \defbibcheck{ao}{\iffieldequalstr{annotation}{abstract-review}{}{\skipentry}}
+% 
+% \defbibcheck{jorjec}{
+%   \ifentrytype{article}
+%     {}
+%     {\ifentrytype{inproceedings}
+%       {\iffieldequalstr{annotation}{journal-equivalent}
+%         {}
+%         {\skipentry}}
+%       {\skipentry}}
+% }
 
-\defbibcheck{jorjec}{
-  \ifentrytype{article}
-    {}
-    {\ifentrytype{inproceedings}
-      {\iffieldequalstr{annotation}{journal-equivalent}
-        {}
-        {\skipentry}}
-      {\skipentry}}
-}
-
+\clearpage
 \section{Publications}
 
 \newcounter{jnum}
@@ -231,42 +242,48 @@ Peer reviewed conference publications are selected based on peer review of the e
 }
 
 \begin{funding}
-
+\clearpage
 \section{Research Funding}
 
 \small{
-Funding sources are classified by my role: ``PI'' indicates that I am the sole or lead principle investigator for the entire project; ``CU PI'' indicates that I am the lead investigator at CU, but the overall principle investigator is at another institution; ``Co-I'' means that I am a co-investigator, but there is another ranking PI at CU. The first amount listed is my share of the award; if applicable, the second amount is the entire award amount.
+Funding sources are classified by my role:
+\begin{itemize}[nosep]
+\item ``PI'' (\$839k total awards; \$788k my share): I am the sole or lead principal investigator for the entire project;
+\item ``CU PI'' (\$4.5m total awards; \$1.4m my share): I am the lead investigator at CU, but the overall PI is at another institution;
+\item ``Co-I'' (\$8.3m total awards; \$1.2m my share) I am a co-investigator, but there is another ranking PI at CU.
+\end{itemize}
+The first amount listed is the total award amount; if applicable, the second amount is the share specifically for the ADCL.
 }
 \vspace{1em}
 
 \mycventry{2024 -- 2029}{PI: CAREER: Game-theoretic Online Planning in Partially Observable Domains}{National Science Foundation}{\$599,985}
 
-\mycventry{2024 -- 2028}{CU PI: DECODE AI: Deception and Counter-Deception in Artificial Intelligence}{Office of Naval Research}{\$1,014,000 (my share) \textbar{} \$4,150,000 (total award), PI: Matthew Hale, Georgia Tech [Selected, award expected]}
+\mycventry{2024 -- 2028}{CU PI: DECODE AI: Deception and Counter-Deception in Artificial Intelligence}{Office of Naval Research}{\$4,150,000 (total award) \textbar{} \$1,014,000 (my share), PI: Matthew Hale, Georgia Tech}
 
-\mycventry{2023 -- 2024}{CU PI: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$99,976 (my share) \textbar{} \$944,823 (total award), PI: Ben Blonder, UC Berkeley; I did not participate in securing this grant, but was subcontracted to work on it later.}
+\mycventry{2023 -- 2024}{CU PI: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$944,823 (total award) \textbar{} \$99,976 (my share), PI: Ben Blonder, UC Berkeley; (I did not participate in securing this grant, but was subcontracted to work on it later.)}
 
-\mycventry{2023 -- 2024}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$60,000 (my share, approx.) \textbar{} \$111,000 (total award)}
+\mycventry{2023 -- 2024}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$111,000 (total award) \textbar{} \$60,000 (my share, approx.)}
 
-\mycventry{2023 -- 2028}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$500,000 (my share, approx.) \textbar{} \$5,000,000 (total award, approx.), PI: Marcus Holtzinger, CU Boulder; 
+\mycventry{2023 -- 2028}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$5,000,000 (total award, approx.) \textbar{} \$500,000 (my share, approx.), PI: Marcus Holtzinger, CU Boulder; 
 % Co-Is: K. Terry Alfriend (TAMU), Scott Palo, Kyle DeMars (TAMU), John Junkins (TAMU), Karen Feigh (Georgia Tech) \textbar{} 
 Full title: Multi-Phenomenological, Autonomous, and Understandable SDA and XDA Decision Support}
 
-\mycventry{2022 -- 2027}{Co-I: IUCRC Phase I: Center for Autonomous Air Mobility and Sensing (CAAMS)}{National Science Foundation}{\$0 (my share) \textbar{} \$2,210,225 (total award), PI: Eric Frew, CU Boulder;
+\mycventry{2022 -- 2027}{Co-I: IUCRC Phase I: Center for Autonomous Air Mobility and Sensing (CAAMS)}{National Science Foundation}{\$2,210,225 (total award) \textbar{} \$0 (my direct share - all funds shared for travel and administrative costs), PI: Eric Frew, CU Boulder;
 % Co-Is: Nisar Ahmed, Morteza Lahijanian, Sriram Sankaranarayanan
-This grant establishes the IUCRC and pays for administrative costs; sub-awards funded through industry contributions will be listed separately.}
+This grant establishes the IUCRC; sub-awards funded through industry contributions are listed separately.}
 
-\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$300,000 (my share, approx.) \textbar{} \$1,045,429 (total award), PI: Eric Frew}
+\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$1,045,429 (total award) \textbar{} \$300,000 (my share, approx.), PI: Eric Frew}
 % \textbar{} Co-Is: Brian Argrow, Adam Houston (University of Nebraska, Lincoln)}
 
 \mycventry{2022-2023}{PI: HIPPO (Human-Informed Planning with Probabilistic Observations)}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$68,000}
 
-\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$100,000 (my share) \textbar{} \$120,000 (total award), PI: Federico Rossi, JPL}
+\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$120,000 (total award) \textbar{} \$100,000 (my share), PI: Federico Rossi, JPL}
 
 \mycventry{2021 -- 2023}{CU PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{\$169,805 \textbar{} Subcontract on larger award of unknown total amount}
 
-\mycventry{2021-2023}{Co-I: L3Harris Modern Analytics for Mission Applications (LMA2)}{L3-Harris Technologies}{\$350,000 (my share, approx.) \textbar{} \$1,495,048 (total award), PI: Marcus Holzinger, CU Boulder}
+\mycventry{2021-2023}{Co-I: L3Harris Modern Analytics for Mission Applications (LMA2)}{L3-Harris Technologies}{\$1,495,048 (total award) \textbar{} \$350,000 (my share, approx.), PI: Marcus Holzinger, CU Boulder (I did not participate in securing this grant, but began work on it later.)}
 
-\mycventry{2021 -- 2022}{CU PI: Full Stack Planning and Control under Uncertainty}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$65,000 (my share) \textbar{} \$130,000 (total award), Co-PI Ella Atkins, Univ. of Michigan}
+\mycventry{2021 -- 2022}{CU PI: Full Stack Planning and Control under Uncertainty}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$130,000 (total award) \textbar{} \$65,000 (my share), Co-PI Ella Atkins, Univ. of Michigan}
 
 \mycventry{2020 -- 2021}{PI: POMDP Algorithms for In-flight Learning in Emergencies}{NSF Center for Unmanned Aircraft Systems (C-UAS) Sub-award}{\$60,000}
 
@@ -309,8 +326,8 @@ This grant establishes the IUCRC and pays for administrative costs; sub-awards f
 \section{Invited Talks and Panels}
 
 \newcounter{inum}
-\renewcommand{\thejnum}{I\arabic{inum}}
-\newcommand{\invited}[1]{\refstepcounter{inum}\item[{[\theinum]}] \fullcite{#1}\par\label{#1}}
+\renewcommand{\theinum}{I\arabic{inum}}
+\newcommand{\invited}[3]{\refstepcounter{inum}\item[{[\theinum]}] \textbf{#1:} ``#2''. #3}
 
 % \newcounter{invited}
 % \regtotcounter{invited}
@@ -319,80 +336,54 @@ This grant establishes the IUCRC and pays for administrative costs; sub-awards f
 % \newcounter{panel}
 % \regtotcounter{panel}
 % Totals: \total{invited} invited talks, \total{panel} panel, \total{conference} other contributed talks.
-
-\vspace{1ex}
-
-\textbf{2024}
-
-{\small
-    \cvline{Autonomy Talks Series, Massachusetts Institute of Technology (MIT) \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning. \url{https://www.youtube.com/watch?v=XDIyX0tanjk}} % \refstepcounter{invited}
-    \cvline{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning.} % \refstepcounter{invited}
-}
-
-\textbf{2022}
-
-{\small
-    \cvline{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty.} % \refstepcounter{invited}
-    \cvline{University of Texas at Austin}{Safe and efficient autonomy in the face of uncertainty.} % \refstepcounter{invited}
-    \cvline{Korea Advanced Institute of Science and Technology (KAIST)}{Safe and efficient autonomy in the face of state and interaction uncertainty.} % \refstepcounter{invited}
-}
-
-\textbf{2021}
-
-{\small
-    \cvline{AIAA Rocky Mountain Annual Technical Symposium}{``Machine Learning in Aerospace Systems'' (panel)} % \refstepcounter{panel}
-    % \cvline{JuliaCon 2021}{POMDPs.jl and Interactive Assignments in Julia} % \refstepcounter{conference}
-    \cvline{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy} % \refstepcounter{invited}
-    \cvline{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms} % \refstepcounter{invited}
-}
-
-\textbf{2019}
-
-{\small
-\cvline{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} % \refstepcounter{invited}
-\cvline{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} % \refstepcounter{invited}
-\cvline{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning} % \refstepcounter{invited}
-}
-
-\textbf{2018}
-
-{\small
-\cvline{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning} % \refstepcounter{invited}
-\cvline{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} % \refstepcounter{invited}
-\cvline{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World} % \refstepcounter{invited}
-
-\cvline{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty} % \refstepcounter{invited}
-}
-
-\begin{minipage}{\textwidth}
-\textbf{2017}
+% \vspace{1ex}
 
 
-\end{minipage}\\
+\begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+    \invited{Autonomy Talks Series, Massachusetts Institute of Technology (MIT) \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning} {2024. \url{https://www.youtube.com/watch?v=XDIyX0tanjk}}
+    \invited{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning}{2024}
+    \invited{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty}{2022}
+    \invited{University of Texas at Austin}{Safe and efficient autonomy in the face of uncertainty}{2022}
+    \invited{Korea Advanced Institute of Science and Technology (KAIST) \textit{(Online)}}{Safe and efficient autonomy in the face of state and interaction uncertainty}{2022}
+    \invited{AIAA Rocky Mountain Annual Technical Symposium}{Machine Learning in Aerospace Systems}{2021 (panel)}
+    \invited{NASA Jet Propulsion Lab, \textit{Pasadena, CA}}{Scalable online POMDP planning for safe and efficient autonomy}{2021}
+    \invited{Johns Hopkins University Applied Physics Lab, \textit{Laurel, MD}}{Some Recent Advances in Online POMDP Algorithms}{2021}
+    \invited{SRI International, \textit{Palo Alto, CA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}{2019}
+    \invited{Washington State University, \textit{Pullman, WA}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}{2019}
+    \invited{University of Colorado, \textit{Boulder, CO}}{Safety and Efficiency for Autonomous Vehicles through Online Learning}{2019}
+    \invited{Renault-Nissan Research, \emph{Sunnyvale, CA}}{Safety and Efficiency in Autonomous Vehicles through POMDP Planning}{2018}
+    \invited{Lyft Level 5, \emph{Palo Alto, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}{2018}
+    \invited{Makani, \emph{Alameda, CA}}{Algorithms for Uncertain, Non-convex Control Problems in the Real World}{2018}
+    \invited{Indeed, \emph{San Francisco, CA}}{Safety and Efficiency in Autonomous Vehicles through Planning with Uncertainty}{2018}
+\end{itemize}
 
 \section{Other Presentations}
 {\small
-\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{``POMDPs.jl'', 2017}
-\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{``POMDPs.jl - Challenges and Lessons Learned'', 2017}
+\cvline{JuliaCon 2021}{``POMDPs.jl and Interactive Assignments in Julia''. 2021}
+\cvline{Julia in Controls Workshop, \textit{ACC, Seattle, WA}}{``POMDPs.jl''. 2017}
+\cvline{Open Source Software for Decision Making (OSS4DM), \textit{Stanford, CA}}{``POMDPs.jl - Challenges and Lessons Learned''. 2017}
 }
+
 \section{Teaching}
 \subsection{At CU Boulder}
-\mycventry{2022 -- Present}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder}{
+\mycventry{Fa 2022, Sp 2024}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder, typical enrollment: 140}{
+    Required Junior-level course in aircraft dynamics, stability, and control.\\
+    Team taught with Prof.~Eric Frew in 2022.\\
     Open-source course materials: \url{https://github.com/zsunberg/Aircraft-Dynamics-Materials}
 }
 
-\mycventry{2020 -- present}{ASEN 5264 Decision Making under Uncertainty}{University of Colorado Boulder}{
-    Developed new entry-level graduate course about decision making under uncertainty.\\
+\mycventry{Sp 2020, Sp 2021, Sp 2022, Sp 2023, Sp 2024}{ASEN 5264 Decision Making under Uncertainty}{University of Colorado Boulder, typical enrollment: 30-50}{
+    New entry-level graduate course about decision making under uncertainty created by me.\\
     Open-source course materials: \url{https://github.com/zsunberg/CU-DMU-Materials}\\
     Open-source companion software package: \url{https://github.com/zsunberg/DMUStudent.jl}
 }
 
-\mycventry{2021, 2023}{ASEN 6519 Advanced Survey of Sequential Decision Making}{University of Colorado Boulder}{
-    Developed new advanced graduate course that surveys recent advances in decision making under uncertainty. 
+\mycventry{Fa 2021, Fa 2023}{ASEN 6519 Advanced Survey of Sequential Decision Making}{University of Colorado Boulder, typical enrollment: 10-15}{
+    New advanced graduate course that surveys recent advances in decision making under uncertainty created by me. 
 }
 
-\mycventry{2020 -- 2021}{ASEN 4018/4028 Senior Design Project}{University of Colorado Boulder}{
-    Advised senior design project teams, created new optimization-based approach (see Open Source Software) for fairly creating teams based on student preferences~\mycite{sunberg2021fair}.
+\mycventry{Fa 2020-Sp 2021}{ASEN 4018/4028 Senior Design Project}{University of Colorado Boulder, typical enrollment: 250-300, team size: 9-12}{
+    Capstone senior design course. I mentored two teams and created new optimization-based approach (see Open Source Software) for fairly creating teams based on student preferences~\mycite{sunberg2021fair}.
 }
 
 \subsection{Prior to CU Boulder}
@@ -406,7 +397,7 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 }
     
 \mycventry{Autumn 2016}{AA-228/CS-238 Decision Making Under Uncertainty}{Stanford University, Stanford, CA}{
-    Head course assistant for a class of around 200; developed problems for midterm project; gave guest lectures on the POMDPs.jl framework and autonomous driving research; project software was reused in a course at Iowa State University.
+    Head course assistant for a class of around 200; developed problems for midterm project; gave guest lectures on the POMDPs.jl framework and autonomous driving research; project software reused at Iowa State University.
 }
 
 \section{Advising and Mentoring}
@@ -501,41 +492,33 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \vspace{-2ex}
 \begin{multicols}{2}
 \small
-Journal of Artificial Intelligence Research\\
+AAAI Conference on Artificial Intelligence\\
 AIAA Journal of Guidance, Control, and Dynamics\\
 AIAA Journal of Aerospace Information Systems\\
+American Control Conference (ACC)\\
+Journal of the American Helicopter Society\\
+Autonomous Robots\\
+Artificial Intelligence\\
+Journal of Artificial Intelligence Research\\
+Field Robotics\\
 IEEE Robotics and Automation Letters\\
-IEEE Transations on Cybernetics\\
+IEEE Conference on Decision and Control (CDC)\\
+IEEE Transactions on Cybernetics\\
 IEEE Transactions on Intelligent Transportation Systems\\
 IEEE Transactions on Intelligent Vehicles\\
-Autonomous Robots\\
+Intelligent Transportation Systems Conference (ITSC)\\
 Intl. Journal of Robotics Research (IJRR)\\
-Journal of the American Helicopter Society\\
-Field Robotics\\
-R (programming language) Journal\\
-International Symposium on Robotics Research\\
+Intl. Symposium on Robotics Research\\
 Intl. Conference on Robotics and Automation (ICRA)\\
 Intl. Joint Conference on Artificial Intelligence (IJCAI)\\
-AAAI Conference on Artificial Intelligence\\
-American Control Conference (ACC)\\
-Intelligent Transportation Systems Conference (ITSC)\\
-Robotics, Science and Systems (RSS)\\
 Learning for Decision and Control Conference (L4DC)\\
-IEEE Conference on Decision and Control (CDC)\\
+Operations Research\\
+R (programming language) Journal\\
+Robotics, Science and Systems (RSS)\\
 \end{multicols}
 
 \section{Proposal Review}
-\mycvitem{2023}{NSF CISE Small Proposal Review Panelist}
+\mycvitem{2023}{NSF CISE Proposal Review Panelist}
 \mycvitem{2023}{Army Research Office (ARO) Proposal Reviewer}
-
-\section{Fellowships and Awards}
-
-\mycvitem{2024}{NSF CAREER Award}
-\mycvitem{2023}{IET Cyberphysical Systems Journal Premium Paper Award}
-\mycvitem{2021,2022}{AIAA Journal of Guidance, Control, and Dynamics Excellent Reviewer}
-\mycvitem{2019}{IJCAI 2019 Distinguished Program Committee member}
-\mycvitem{2018}{Association for the Advancement of Artificial Intelligence (AAAI) Doctoral Consortium}
-\mycvitem{2017}{American Control Conference Student Travel Award}
-\mycvitem{2012-2016}{National Science Foundation Graduate Research Fellowship}
 
 \end{document}
