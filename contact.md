@@ -23,7 +23,6 @@ I am usually available to meet **any time NOT marked busy** during normal workin
 
 If you're at CU, you can find an up-to-date calendar in Outlook. Put your name on [this list](https://docs.google.com/spreadsheets/d/1dq-c9WEY2KWbsM2MmC00OD2SGrJTn9tGAKrefr9r_8M/edit?usp=sharing) if you'd like to use Outlook for scheduling. If you're outside of CU, you can import this ics link into your calendar application: [outlook.office365.com/.../calendar.ics](https://outlook.office365.com/owa/calendar/5e4124a72c7a47c389d4cd4539bdfffe@colorado.edu/697ff15ee65b4c22b9826fbc5d2c007b8042255640283035907/calendar.ics). (However, note that Google calendar will not automatically update it [-1 for Google].)
 
-
 <!--
 <iframe src="https://outlook.office365.com/owa/calendar/5e4124a72c7a47c389d4cd4539bdfffe@colorado.edu/697ff15ee65b4c22b9826fbc5d2c007b8042255640283035907/calendar.html" style="border-width:0" width="1100" height="600" frameborder="0"></iframe>
 -->

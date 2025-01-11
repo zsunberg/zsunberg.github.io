@@ -35,8 +35,9 @@
 
 % \includecomment{references}
 \excludecomment{references}
-\excludecomment{funding}
-\excludecomment{declined}
+\includecomment{funding}
+% \excludecomment{funding}
+\includecomment{declined}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -67,6 +68,11 @@
     \clearfield{pages}  
     \clearlist{location}
     \clearfield{issn}
+}
+
+\AtEveryCitekey{%
+    \iffieldequalstr{entrykey}{ho2024recursivelyconstrained}{\clearfield{note}}{}%
+    \iffieldequalstr{entrykey}{ho2024sound}{\clearfield{note}}{}%
 }
 
 \newcommand{\mycite}[1]{[\ref{#1}]}
@@ -166,6 +172,9 @@ Helped in testing of autonomous SMSS all­terrain military transport vehicle nav
 \newcounter{onum}
 \renewcommand{\theonum}{A\arabic{onum}}
 \newcommand{\opub}[1]{\refstepcounter{onum}\item[{[\theonum]}] \fullcite{#1}\par\label{#1}}
+\newcounter{pnum}
+\renewcommand{\thepnum}{X\arabic{pnum}}
+\newcommand{\inprep}[1]{\refstepcounter{pnum}\item[{[\thepnum]}] #1 \par}
 
 My name and the names of my students are indicated with bold font.
 \vspace{1em}
@@ -194,6 +203,7 @@ Journal-equivalent conference publications have rigorous peer review of the enti
 \jc{ho2024recursivelyconstrained}
 \jc{ho2024sound}
 \jc{hong2024cieran}
+\jc{gupta2022intention}
 \jc{mern2021bayesian}
 \jc{lim2020sparse}
 \jc{peters2020alignment}
@@ -231,6 +241,16 @@ Peer reviewed conference publications are selected based on peer review of the e
 \opub{sunberg2013fuzzy}
 \end{itemize}
 
+\subsection{Journal and Journal-equivalent Papers Under Review or Near Submission}
+
+% \fullcite{becker2024bridging}
+\begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+    % \inprep{\fullcite{becker2024bridging}}
+    \inprep{\textbf{Tyler Becker} and \textbf{Zachary Sunberg}, ``Bridging the Gap between Partially Observable Stochastic Games and Sparse POMDP Methods'', In preparation for submission to Autonomous Agents and Multi-Agent Systems (AAMAS), recently declined from Advances in Neural Information Processing Systems (NeurIPS).}
+    \inprep{\textbf{Qi Heng Ho}, Kiril Solovey, \textbf{Zachary Sunberg}, and Morteza Lahijanian, ``Gaussian Belief Trees: Generalizing State Space Motion Planners for Chance Constrained Motion Planning under Uncertainty'', In preparation for submission to IEEE Transactions on Robotics.}
+    \inprep{\textbf{Austin Monell} and \textbf{Zachary Sunberg}, ``The V-twin Configuration for Airborne Wind Energy'', In preparation for submission to Wind Energy Science.}
+    \inprep{\textbf{Tyler Becker} and \textbf{Zachary Sunberg}, ``Partially Observable Stochastic Games in Space Domain Awareness'', In preparation for submission to Advances in Space Research.} 
+\end{itemize}
 
 \section{Open Source Software} \label{sec:software}
 
@@ -242,7 +262,6 @@ Peer reviewed conference publications are selected based on peer review of the e
 }
 
 \begin{funding}
-\clearpage
 \section{Research Funding}
 
 \small{
@@ -258,26 +277,25 @@ The first amount listed is the total award amount; if applicable, the second amo
 
 \mycventry{2024 -- 2029}{PI: CAREER: Game-theoretic Online Planning in Partially Observable Domains}{National Science Foundation}{\$599,985}
 
-\mycventry{2024 -- 2028}{CU PI: DECODE AI: Deception and Counter-Deception in Artificial Intelligence}{Office of Naval Research}{\$4,150,000 (total award) \textbar{} \$1,014,000 (my share), PI: Matthew Hale, Georgia Tech}
+\mycventry{2024 -- 2028}{CU PI: DECODE AI: Deception and Counter-Deception in Artificial Intelligence}{Office of Naval Research}{\$4,150,000 (total award) \textbar{} \$1,014,000 (my share); PI: Matthew Hale, Georgia Tech, Co-Is: Ufuk Topku, UT Austin; Ruimeng Hu, UCSB}
 
 \mycventry{2023 -- 2024}{CU PI: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$944,823 (total award) \textbar{} \$99,976 (my share), PI: Ben Blonder, UC Berkeley; (I did not participate in securing this grant, but was subcontracted to work on it later.)}
 
-\mycventry{2023 -- 2024}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$111,000 (total award) \textbar{} \$60,000 (my share, approx.)}
+\mycventry{2023 -- 2024}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$111,000 (total award) \textbar{} \$60,000 (my share, approx.); Co-I: Nisar Ahmed, CU Boulder}
 
 \mycventry{2023 -- 2028}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$5,000,000 (total award, approx.) \textbar{} \$500,000 (my share, approx.), PI: Marcus Holtzinger, CU Boulder; 
-% Co-Is: K. Terry Alfriend (TAMU), Scott Palo, Kyle DeMars (TAMU), John Junkins (TAMU), Karen Feigh (Georgia Tech) \textbar{} 
+Co-Is: K. Terry Alfriend (TAMU), Scott Palo, Kyle DeMars (TAMU), John Junkins (TAMU), Karen Feigh (Georgia Tech) \textbar{} 
 Full title: Multi-Phenomenological, Autonomous, and Understandable SDA and XDA Decision Support}
 
 \mycventry{2022 -- 2027}{Co-I: IUCRC Phase I: Center for Autonomous Air Mobility and Sensing (CAAMS)}{National Science Foundation}{\$2,210,225 (total award) \textbar{} \$0 (my direct share - all funds shared for travel and administrative costs), PI: Eric Frew, CU Boulder;
-% Co-Is: Nisar Ahmed, Morteza Lahijanian, Sriram Sankaranarayanan
+Co-Is: Nisar Ahmed, Morteza Lahijanian, and Sriram Sankaranarayanan, CU Boulder;
 This grant establishes the IUCRC; sub-awards funded through industry contributions are listed separately.}
 
-\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$1,045,429 (total award) \textbar{} \$300,000 (my share, approx.), PI: Eric Frew}
-% \textbar{} Co-Is: Brian Argrow, Adam Houston (University of Nebraska, Lincoln)}
+\mycventry{2022 -- 2025}{Co-I: Dispersed Autonomy for Marsupial Aerial Robot Teams}{National Science Foundation \textbar{} National Robotics Institute (Collaborative Research)}{\$1,045,429 (total award) \textbar{} \$300,000 (my share, approx.), PI: Eric Frew; Co-Is: Brian Argrow, Adam Houston (University of Nebraska, Lincoln)}
 
 \mycventry{2022-2023}{PI: HIPPO (Human-Informed Planning with Probabilistic Observations)}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$68,000}
 
-\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$120,000 (total award) \textbar{} \$100,000 (my share), PI: Federico Rossi, JPL}
+\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$120,000 (total award) \textbar{} \$100,000 (my share), PI: Federico Rossi, JPL; Co-I: Morteza Lahijanian, CU Boulder}
 
 \mycventry{2021 -- 2023}{CU PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{\$169,805 \textbar{} Subcontract on larger award of unknown total amount}
 
@@ -291,19 +309,27 @@ This grant establishes the IUCRC; sub-awards funded through industry contributio
 
 \begin{declined}
 
-\subsection{Declined}
+\subsection{Declined Proposals}
 
-\mycventry{2022}{In the moment (ITM): Aligned Algorithmic Aide (ALAI)}{Defence Advanced Research Projects Agency}{\$6,200,000 (approx., PI: Brett Israelson, Raytheon) \textbar{} My share: \$450,000 (approx.) \textbar{} CU subcontract Co-I: Nisar Ahmed}
+(I have no proposals currently pending.) \\
 
-\mycventry{2021}{PI: CAREER: Active competence through online Bayesian reasoning}{National Science Foundation}{\$599,341 \textbar{} PI share: full amount \textbar{} Full title: CAREER: Towards reliable autonomy in open environments: active competence through online Bayesian reasoning}
+\mycventry{2023}{PI: Online POMDP Planning for Active Competence in Autonomous Vehicles}{General Motors}{\$24,466 (total award) \textbar{} \$24,466 (my share) \textbar{} Co-Is: Stefano Bonasera and Daniel Marsillach (General Motors)}
+
+\mycventry{2023}{CU-PI: Draper Scholar Program: Online AUV Task Planning for Persistent Undersea Surveillance}{The Charles Stark Draper Laboratory}{\$500,000 (total award, approx.) \textbar{} \$500,000 (my share, approx.) \textbar{} PI: Michael B. Gratton (Draper)}
+
+\mycventry{2023}{Co-I: MARDET: Multi-Agent Robotic Disaster Exploration and Triage}{Defence Advanced Research Projects Agency}{\$2,249,993 (total award) \textbar{} \$500,000 (my share, approx.) \textbar{} PI: Steve McGuire (University of California, Santa Cruz); Co-Is: Christoffer Heckman and Sean Humbert (CU Boulder); Danielle Caroll, (Orbital Biodesign)}
+
+\mycventry{2022}{Co-I: In the moment (ITM): Aligned Algorithmic Aide (ALAI)}{Defence Advanced Research Projects Agency}{\$6,200,000 (total award) \textbar{} \$450,000 (my share) \textbar{} PI: Brett Israelson (Raytheon); Co-Is: Barclay Brown (Collins Aerospace); Edward Boyer (The Ohio State University); Nisar Ahmed (CU Boulder)}
+
+\mycventry{2021}{PI: CAREER: Active competence through online Bayesian reasoning}{National Science Foundation}{\$599,341 \textbar{} Full title: CAREER: Towards reliable autonomy in open environments: active competence through online Bayesian reasoning}
 
 \mycventry{2021}{Co-I: RACER-Sim}{Defence Advanced Research Projects Agency}{Budget details are controlled unclassified information (CUI) \textbar{} PI: Christoffer Heckman; Co-I: Zachary Manchester (CMU)}
 
-\mycventry{2020}{PI: Hazard mitigation for self-piloted vehicles...}{National Aeronautics and Space Administration}{\$806,411 \textbar{} PI share: \$400,000 (approx.) \textbar{} Full title: Hazard mitigation for self-piloted vehicles through POMDP planning and formal controller synthesis \textbar{} Co-I: Majid Zamani}
+\mycventry{2020}{PI: Hazard mitigation for self-piloted vehicles...}{National Aeronautics and Space Administration}{\$806,411 (total award) \textbar{} \$400,000 (my share, approx.) \textbar{} Full title: Hazard mitigation for self-piloted vehicles through POMDP planning and formal controller synthesis \textbar{} Co-I: Majid Zamani}
 
-\mycventry{2020}{PI: Enabling rapid and flexible medical planning research with POMDPs.jl}{Chan Zuckerberg Initiative}{\$91,053 \textbar{} PI share: full amount}
+\mycventry{2020}{PI: Enabling rapid and flexible medical planning research with POMDPs.jl}{Chan Zuckerberg Initiative}{\$91,053}
 
-\mycventry{2020}{Co-I: AVATAR-ACE (AViator-Agent Trusted AI for Real-time Air Combat Engagements)}{Defence Advanced Research Projects Agency}{\$5,000,000 (approx., PI: Krishna Kalyanam, Palo Alto Research Center) \textbar{} My share: \$660,000 (approx.)}
+\mycventry{2020}{Co-I: AVATAR-ACE (AViator-Agent Trusted AI for Real-time Air Combat Engagements)}{Defence Advanced Research Projects Agency}{\$5,000,000 (total award, approx.)\textbar{} My share: \$660,000 (approx.) \textbar{} PI: Krishna Kalyanam (Palo Alto Research Center); Co-Is: Roni Stern, Shiwali Mohan, Wiktor Piotrowski (PARC); John Boehm (Advanced Strategic Insight); Andrew Van Timmeren (Vechter Technologies); Nisar Ahmed (CU Boulder)}
 
 \end{declined}
 
