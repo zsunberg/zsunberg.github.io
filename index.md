@@ -10,7 +10,7 @@ header:
     caption: POMCP Tree from POMDPs.jl [PC Tomer Arnon]
 excerpt: I research and teach about artificial intelligence for autonomous vehicles.
 
-feature_row:
+old_research:
     - image_path: "/assets/images/states_and_road.svg"
       title: "Behavior-aware planning"
       excerpt: "Self-driving cars can be safer and more efficient when they reason about latent states related to behavior."
@@ -36,13 +36,6 @@ adcl:
       url: "https://www.cu-adcl.org"
       btn_class: "btn--primary"
 
-pomdps:
-    - image_path: "/assets/images/lasertag.gif"
-      title: "POMDPs.jl"
-      excerpt: "POMDPs.jl is a Julia interface for working with discrete and continuous, fully and partially observable Markov decision processes (See an example [here](https://nbviewer.jupyter.org/url/zachary.sunberg.net/assets/notebooks/pomdps_lightdark_demo.ipynb))."
-      url: "https://github.com/JuliaPOMDP/POMDPs.jl"
-      btn_class: "btn--primary"
-
 ai4all:
     - image_path: "/assets/images/sailors_robotics.jpg"
       title: "AI4ALL"
@@ -51,7 +44,19 @@ ai4all:
       btn_class: "btn--primary"
       caption: "Photo credit: Lauren Yang"
 
-me:
+other:
+    - image_path: "/assets/images/lasertag.gif"
+      title: "POMDPs.jl"
+      excerpt: "POMDPs.jl is a Julia interface for working with discrete and continuous, fully and partially observable Markov decision processes (See an example [here](https://nbviewer.jupyter.org/url/zachary.sunberg.net/assets/notebooks/pomdps_lightdark_demo.ipynb))."
+      url: "https://github.com/JuliaPOMDP/POMDPs.jl"
+      btn_class: "btn--primary"
+
+    - image_path: "/assets/images/pomcpow.png"
+      title: "Research"
+      excerpt: "My research focuses on artificial intelligence for controlling complex systems."
+      url: "https://www.cu-adcl.org/research/"
+      btn_class: "btn--primary"
+
     - image_path: "assets/images/faroe_selfie.jpg"
       title: "About me"
       excerpt: "I am an Assistant Professor in the Ann and H.J. Smead Aerospace Engineering Sciences department at the University of Colorado Boulder. If you are interested in my research in artificial intelligence or aerospace vehicle control,  please [reach out](/contact)."
@@ -60,10 +65,12 @@ me:
 
 {% include feature_row id="adcl" type="left" %}
 
-{% include feature_row %}
+{% include feature_row id="other" %}
 
-{% include feature_row id="ai4all" type="left" %}
+<!--{% include feature_row %}-->
 
-{% include feature_row id="pomdps" type="right" %}
+<!--{% include feature_row id="ai4all" type="left" %}-->
 
-{% include feature_row id="me" type="center" %}
+<!--{% include feature_row id="pomdps" type="right" %}-->
+
+<!--{% include feature_row id="me" type="center" %}-->

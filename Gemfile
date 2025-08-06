@@ -33,3 +33,6 @@ gem "jekyll-remote-theme"
 
 # gem "faraday-retry", "~> 2.0"
 gem "faraday-retry", "~> 2.0"
+
+# Add webrick for Ruby 3+ compatibility
+gem "webrick"
