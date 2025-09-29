@@ -8,7 +8,7 @@ header:
     overlay_color: "#000"
     overlay_filter: "0.0"
     caption: POMCP Tree from POMDPs.jl [PC Tomer Arnon]
-excerpt: I research and teach about artificial intelligence for autonomous vehicles.
+excerpt: I research and teach about artificial intelligence for autonomous vehicles. This is my personal website.
 
 old_research:
     - image_path: "/assets/images/states_and_road.svg"

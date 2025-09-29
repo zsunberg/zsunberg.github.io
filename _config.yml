@@ -16,7 +16,7 @@
 title: Zachary Sunberg
 email: sunbergzach@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-    I research and teach about artificial intelligence applied to control vehicles in the physical world.
+    This is my personal website. I research and teach about artificial intelligence applied to control vehicles in the physical world.
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: zsunberg
@@ -44,13 +44,13 @@ exclude:
 
 minimal_mistakes_skin: "default"
 
-logo: "/assets/images/cu.png"
+# logo: "/assets/images/cu.png"
 # logo: "/assets/images/faroe_selfie.jpg"
 
 author:
     name: "Zachary Sunberg"
     avatar: "/assets/images/faroe_selfie.jpg"
-    bio: "Artificial intelligence for the physical world."
+    bio: "Assistant professor at CU Boulder"
     url: "zachary.sunberg.net"
     email: "zachary.sunberg@colorado.edu"
     github: "zsunberg"
