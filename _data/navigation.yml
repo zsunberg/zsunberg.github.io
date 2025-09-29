@@ -3,11 +3,5 @@ main:
       url: https://www.cu-adcl.org/publications/
     - title: "CV"
       url: /cv_page
-    - title: "Research"
-      url: /research
-    - title: "Teaching"
-      url: /teaching
-    - title: "Defense"
-      url: /talks
     - title: "Contact"
       url: /contact
