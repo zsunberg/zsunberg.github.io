@@ -132,7 +132,7 @@
             li.className = 'file-icon';
 
             const link = document.createElement('a');
-            link.href = `https://github.com/${owner}/${repo}/blob/master/${file.path}?raw=true`;
+            link.href = file.download_url;
             link.textContent = file.name;
             link.target = '_blank';
 
