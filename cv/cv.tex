@@ -39,6 +39,8 @@
 % \excludecomment{funding}
 % \includecomment{declined}
 \excludecomment{declined}
+\includecomment{submitted}
+% \excludecomment{submitted}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -51,6 +53,7 @@
 % \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
 % \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/our-pubs.bib}
 \addbibresource[location=remote]{https://raw.githubusercontent.com/CU-ADCL/CU-ADCL.github.io/main/bibliography/our-pubs.bib}
+\addbibresource{local.bib}
 % \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
 
 % Bold my name
@@ -205,14 +208,16 @@ My name and the names of my students are indicated with bold font.
 Journal-equivalent conference publications have rigorous peer review of the entire article, an acceptance rate of approximately 30\% or less, and are recognized to be as important as journal papers in the field.
 
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
-\jc{ho2024recursivelyconstrained}
-\jc{ho2024sound}
-\jc{hong2024cieran}
-\jc{gupta2022intention}
-\jc{mern2021bayesian}
-\jc{lim2020sparse}
-\jc{peters2020alignment}
-\jc{sunberg2018pomcpow}
+    \jc{krusniak2026decisions}
+    \jc{laouar2026voi}
+    \jc{ho2024recursivelyconstrained}
+    \jc{ho2024sound}
+    \jc{hong2024cieran}
+    \jc{gupta2022intention}
+    \jc{mern2021bayesian}
+    \jc{lim2020sparse}
+    \jc{peters2020alignment}
+    \jc{sunberg2018pomcpow}
 \end{itemize}
 
 \subsection{Peer Reviewed Conference Publications}
@@ -250,13 +255,26 @@ Peer reviewed conference publications are selected based on peer review of the e
 \opub{sunberg2013fuzzy}
 \end{itemize}
 
-\subsection{Extended Abstracts}
+% \subsection{Extended Abstracts}
+% 
+% \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+% \epub{becker2024bridging}
+% \epub{dagan2025resolving}
+% \end{itemize}
+
+\begin{submitted}
+\subsection{Submitted Publications (Currently in the review process)}
 
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
-\epub{becker2024bridging}
-\epub{dagan2025resolving}
+\journal{kraske2026robustness}
+\journal{dagan2026sensortasking}
+\journal{boyer2026explanation}
+\journal{monell2026vtwin}
+\jc{ventura2026constraint}
+\jc{gupta2026edgebundles}
+\conf{gupta2026interception}
 \end{itemize}
-
+\end{submitted}
 
 % \subsection{Journal and Journal-equivalent Papers Under Review or Near Submission}
 
@@ -275,8 +293,8 @@ Peer reviewed conference publications are selected based on peer review of the e
     Interface for defining continuous and discrete, fully and partially observable Markov decision processes along with a suite of state-of-the art solvers written in Julia and C++ \mycite{egorov2017pomdps}. 33 direct package contributors, 44 dependent packages, 650 GitHub stars, 430 monthly downloads according to \url{juliahub.com}.
 }
 
-\mycventry{2025 -- present}{satisfaculty}{\normalfont{\url{https://github.com/zsunberg/satisfaculty}}}{
-    Python package for optimizing teaching schedules using integer linear programming.
+\mycventry{2025 -- present}{satisfaculty}{\normalfont{\url{https://www.satisfaculty.com}}}{
+    Python package for optimizing teaching schedules using integer linear programming. Used to create Smead AES Fall 2026 schedule.
 }
 
 \mycventry{2020}{ProjectAssigner.jl}{\normalfont{\url{https://github.com/zsunberg/ProjectAssigner.jl}}}{
@@ -303,7 +321,7 @@ Peer reviewed conference publications are selected based on peer review of the e
 
 \mycventry{2023 -- 2024}{CU PI: Collaborative Research: Alternative Leaf Water use Strategies in Hot Environments}{National Science Foundation}{\$944,823 (total award) \textbar{} \$99,976 (my share), PI: Ben Blonder, UC Berkeley; (I did not participate in securing this grant, but was subcontracted to work on it later.)}
 
-\mycventry{2023 -- 2025}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$222,000 (total award) \textbar{} \$120,000 (my share, approx.); Co-I: Nisar Ahmed, CU Boulder}
+\mycventry{2023 -- 2026}{PI: Human Centered Autonomy for Dynamic sUAS Target Search Operations}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$287,000 (total award) \textbar{} \$152,000 (my share, approx.); Co-I: Nisar Ahmed, CU Boulder}
 
 \mycventry{2023 -- 2028}{Co-I: Multi-Phenomenological, Autonomous \ldots Decision Support}{Air Force Office of Scientific Research}{\$5,000,000 (total award, approx.) \textbar{} \$500,000 (my share, approx.), PI: Marcus Holtzinger, CU Boulder; 
 Co-Is: K. Terry Alfriend (TAMU), Scott Palo, Kyle DeMars (TAMU), John Junkins (TAMU), Karen Feigh (Georgia Tech) \textbar{} 
@@ -317,7 +335,7 @@ This grant establishes the IUCRC; sub-awards funded through industry contributio
 
 \mycventry{2022-2023}{PI: HIPPO (Human-Informed Planning with Probabilistic Observations)}{NSF Center for Autonomous Air Mobility and Sensing (CAAMS) Sub-award}{\$68,000}
 
-\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$120,000 (total award) \textbar{} \$100,000 (my share), PI: Federico Rossi, JPL; Co-I: Morteza Lahijanian, CU Boulder}
+\mycventry{2022-2024}{CU PI: SURP: Fast planning under uncertainty with operational and safety guarantees}{NASA Jet Propulsion Laboratory}{\$180,000 (total award) \textbar{} \$150,000 (my share), PI: Federico Rossi, JPL; Co-I: Morteza Lahijanian, CU Boulder}
 
 \mycventry{2021 -- 2023}{CU PI: Elektra: Naval Defensive Resource Allocation through POMDP Optimization}{Office of Naval Research (Subcontract of Johns Hopkins University Applied Physics Lab)}{\$169,805 \textbar{} Subcontract on larger award of unknown total amount}
 
@@ -388,6 +406,7 @@ This grant establishes the IUCRC; sub-awards funded through industry contributio
 
 
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
+    \invited{Technion -- Israel Institute of Technology \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs and games with sampling-based online planning}{2025}
     \invited{Autonomy Talks Series, Massachusetts Institute of Technology (MIT) \textit{(Online)}}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning} {2024. \url{https://www.youtube.com/watch?v=XDIyX0tanjk}}
     \invited{University of California, San Diego}{Breaking the curse of dimensionality in POMDPs with sampling-based online planning}{2024}
     \invited{University of Illinois Urbana-Champaign (UIUC)}{Safe and efficient autonomy in the face of uncertainty}{2022}
@@ -456,7 +475,7 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \section{Advising and Mentoring}
 
 \subsection{Postdoctoral Scholars}
-\mycvitem{2024 -- 2025}{Ofer Dagan}
+\mycventry{2024 -- 2025}{Ofer Dagan}{Founding Machine Learning Engineer, Eiro Inc.}{}
 
 \subsection{Graduated Ph.D. Thesis Advisees}
 \mycventry{2020 -- 2025}{Qi Heng Ho {\normalfont(Co-advised with Morteza Lahijanian)}}{Assistant Professor, Virginia Tech}{}
@@ -464,7 +483,7 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 
 \subsection{Current Ph.D. Thesis Advisees}
 \mycvitem{Fall 2020 -- Present}{Tyler Becker {\normalfont(Comprehensive exam spring 2026)}}
-\mycvitem{Fall 2020 -- Present}{Ben Kraske {\normalfont(Prelim exam fall 2021, Received NSF GRFP)}}
+\mycvitem{Fall 2020 -- Present}{Ben Kraske {\normalfont(Comprehensive exams spring 2026, Received NSF GRFP)}}
 \mycvitem{Fall 2021 -- Present}{Zakariya Laouar {\normalfont(Prelim exam fall 2022)}}
 \mycvitem{Fall 2020 (Started as MS) -- Present}{Himanshu Gupta {\normalfont(Prelim exam fall 2023)}}
 \mycvitem{Fall 2024 -- Present}{Lisa Ventura {\normalfont(Prelim exam fall 2025)}}
@@ -528,8 +547,8 @@ Developed and taught a 5 lecture course about decision making under uncertainty 
 \mycvitem{2024--present}{Co-Organizer of \emph{Faculty Sanity} University-Wide Happy Hour}
 \mycvitem{2024--present}{Undergraduate Curriculum Committee}
 \mycvitem{2023--present}{Onboarding mentor for new faculty member}
-\mycvitem{2023--present}{Undergraduate Operations Committee}{\small Optimized undergraduate teaching assignments for the department with fair matching algorithm}\\
-\mycvitem{2023--2024}{Autonomous Systems Faculty Search Committee}
+\mycvitem{2023--present}{Undergraduate Operations Committee}{\small Optimized undergraduate teaching assignments for course scheduling for the department.}\\
+\mycvitem{2023--2025}{Autonomous Systems Faculty Search Committee}
 \mycventry{2020--2023}{Graduate Program Committee}{Autonomous Systems Lead}{Served on Preliminary Exam Subcommittee, Revised MS Admissions Criteria}
 
 \section{Outreach and Inclusion}
