@@ -60,6 +60,19 @@
 \addbibresource{local.bib}
 % \addbibresource[location=remote]{https://www.cu-adcl.org/bibliography/unsubmitted.bib}
 
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=entrykey, match=becker2024bridging, final]
+      \step[fieldset=addendum, fieldvalue={Submitted as full paper; accepted for presentation as extended abstract (top 40\% of full paper submissions)}]
+    }
+    \map{
+      \step[fieldsource=entrykey, match=dagan2025resolving, final]
+      \step[fieldset=addendum, fieldvalue={Submitted as full paper; accepted for presentation as extended abstract (top 40\% of full paper submissions)}]
+    }
+  }
+}
+
 % Bold my name
 % https://tex.stackexchange.com/questions/73136/make-specific-author-bold-using-biblatex?noredirect=1&lq=1
 \renewcommand*{\mkbibnamegiven}[1]{%
@@ -73,14 +86,19 @@
     \clearlist{publisher}
     \clearname{editor}
     \clearlist{organization}
-    \clearfield{pages}  
+    \clearfield{pages}
     \clearlist{location}
     \clearfield{issn}
+    \clearfield{note}
 }
 
+% \AtEveryCitekey{%
+%     \iffieldequalstr{entrykey}{ho2024recursivelyconstrained}{\clearfield{note}}{}%
+%     \iffieldequalstr{entrykey}{ho2024sound}{\clearfield{note}}{}%
+% }
+
 \AtEveryCitekey{%
-    \iffieldequalstr{entrykey}{ho2024recursivelyconstrained}{\clearfield{note}}{}%
-    \iffieldequalstr{entrykey}{ho2024sound}{\clearfield{note}}{}%
+    \clearfield{note}
 }
 
 \newcommand{\mycite}[1]{[\ref{#1}]}
@@ -276,6 +294,8 @@ Peer reviewed conference publications are selected based on peer review of the e
 
 \subsection{Extended Abstracts}
 
+% These two publications were submitted as full papers to the AAMAS conference and were accepted as "extended abstracts", which meant they were in the top 40\% of submitted papers, however this is not considered an archival publication.
+
 \begin{itemize}[labelwidth=1cm,leftmargin=1cm,itemsep=0.1em]
 \epub{becker2024bridging}
 \epub{dagan2025resolving}
@@ -442,7 +462,8 @@ This grant establishes the IUCRC; sub-awards funded through industry contributio
 \mycventry{Fa 2022, Sp 2024, Sp 2025}{ASEN 3728/3128 Aircraft Dynamics}{University of Colorado Boulder, typical enrollment: 140}{
     Required Junior-level course in aircraft dynamics, stability, and control.\\
     Team taught with Prof.~Eric Frew in 2022.\\
-    Open-source course materials: \url{https://github.com/zsunberg/Aircraft-Dynamics-Materials}
+    Open-source course materials: \url{https://github.com/zsunberg/Aircraft-Dynamics-Materials} \\
+    Nominated by students for the 2025 John and Mercedes Peebles Innovation in Education Award
 }
 
 \mycventry{Sp 2020--Sp 2026}{ASEN 5264 Decision Making under Uncertainty}{University of Colorado Boulder, typical enrollment: 30-60}{
@@ -612,5 +633,9 @@ Conf. on Uncertainty in Artificial Intelligence (UAI)\\
 \mycvitem{2026}{Proposal Reviewer for Israel Science Foundation (ISF)}
 \mycvitem{2023}{NSF Computer and Information Science and Engineering (CISE) Proposal Review Panelist}
 \mycvitem{2023}{Army Research Office (ARO) Proposal Reviewer}
+
+\section{Professional Affiliations}
+\mycvitem{$\sim$2010-Present}{American Institute of Aeronautics and Astronautics (AIAA) \textit{Member}}
+\mycvitem{$\sim$2015-Present}{Institute of Electrical and Electronics Engineers (IEEE) \textit{Member}}
 
 \end{document}
