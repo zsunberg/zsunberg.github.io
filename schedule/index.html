@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schedule Viewer</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+    :root {
+        --bg: #fafafa;
+        --fg: #222;
+        --muted: #666;
+        --border: #ccc;
+        --accent: #1f5fa8;
+    }
+    body {
+        margin: 0;
+        padding: 16px;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+    }
+    h1 { font-size: 1.3rem; margin: 0 0 12px; }
+    #drop {
+        border: 2px dashed var(--border);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        color: var(--muted);
+        margin-bottom: 12px;
+        background: #fff;
+    }
+    #drop.over { border-color: var(--accent); background: #eef4fb; }
+    #drop label {
+        color: var(--accent);
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    #drop input { display: none; }
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    button {
+        padding: 6px 14px;
+        font-size: 0.95rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: #fff;
+        cursor: pointer;
+    }
+    button:disabled { opacity: 0.5; cursor: default; }
+    #status { color: var(--muted); font-size: 0.9rem; }
+    #out { display: block; background: #fff; border: 1px solid var(--border); }
+    #out svg { width: 100%; height: auto; display: block; }
+    #out[hidden] { display: none; }
+    .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>Schedule Viewer</h1>
+
+<div id="drop">
+    Drop <b>schedule.csv</b> or <b>schedule.xlsx</b> here, or
+    <label>choose a file<input type="file" id="schedFile" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></label>.
+    <div class="small" style="margin-top:6px">
+        Optional: also drop a <b>rooms.csv</b> (columns <code>Room,Capacity</code>) to override the built-in capacities.
+    </div>
+</div>
+
+<div class="row">
+    <button id="downloadSvg" disabled>Download SVG</button>
+    <button id="downloadPng" disabled>Download PNG</button>
+    <span id="status">No schedule loaded.</span>
+</div>
+
+<div id="out" hidden></div>
+
+<script>
+// ---------- Defaults (from 2027-spring/generated_rooms.csv) ----------
+let roomCapacity = {
+    'AERO 120': 200, 'AERO 111': 80, 'AERO 114': 60, 'AERO N240': 60,
+    'AERO N250': 40, 'AERO 232': 30, 'AERO 141': 102, 'AERO N100': 75,
+    'MBE 157': 86, 'MBE 155': 150, 'ECCS 201': 191, 'Duane G1B30': 356,
+    'Benson': 75, 'ECCR 1B40 **ON HOLD**': 130, 'Main-General': 200,
+    'MUEN E050': 100, 'ECCR 200': 95, 'BESC 180': 169, 'ITLL2B10': 108,
+};
+
+const YEAR_COLORS = {
+    1000: '#FFFFFF', 2000: '#9BC2E6', 3000: '#A9D08E',
+    4000: '#D9B3FF', 5000: '#FFD85D', 6000: '#F1995D',
+};
+const DAY_ORDER = ['M', 'T', 'W', 'TH', 'F'];
+const DAY_NAMES = { M: 'MONDAY', T: 'TUESDAY', W: 'WEDNESDAY', TH: 'THURSDAY', F: 'FRIDAY' };
+
+// ---------- CSV parsing ----------
+function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQuotes) {
+            if (c === '"') {
+                if (text[i + 1] === '"') { field += '"'; i++; }
+                else inQuotes = false;
+            } else field += c;
+        } else if (c === '"') inQuotes = true;
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n' || c === '\r') {
+            if (c === '\r' && text[i + 1] === '\n') i++;
+            row.push(field); field = '';
+            rows.push(row); row = [];
+        } else field += c;
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    const nonEmpty = rows.filter(r => r.some(f => f.trim() !== ''));
+    const header = nonEmpty[0].map(h => h.trim());
+    return nonEmpty.slice(1).map(r => Object.fromEntries(header.map((h, i) => [h, (r[i] ?? '').trim()])));
+}
+
+// ---------- Helpers (mirroring satisfaculty.utils) ----------
+function timeToMinutes(s) { const [h, m] = s.split(':').map(Number); return h * 60 + m; }
+function minutesToTime(min) {
+    const h = Math.floor(min / 60), m = min % 60;
+    return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+}
+function expandDays(s) {
+    const out = [];
+    for (let i = 0; i < s.length;) {
+        if (s.substr(i, 2) === 'TH') { out.push('TH'); i += 2; }
+        else { out.push(s[i]); i += 1; }
+    }
+    return out;
+}
+function courseColor(name) {
+    const parts = name.split('-');
+    if (parts.length >= 2 && /^\d+$/.test(parts[1])) {
+        const level = Math.floor(parseInt(parts[1], 10) / 1000) * 1000;
+        return YEAR_COLORS[level] ?? '#BBBBBB';
+    }
+    return '#BBBBBB';
+}
+function intervalsOverlap(a, b) {
+    for (const [sa, ea] of a) for (const [sb, eb] of b) if (sa < eb && sb < ea) return true;
+    return false;
+}
+
+// Greedy bin-packing, same semantics as _compute_merged_rows in satisfaculty.
+// `rooms` is processed in the given order; row 0 is drawn at the bottom.
+function computeMergedRows(dayCourses, rooms, mergeable) {
+    const roomIntervals = {};
+    for (const c of dayCourses) (roomIntervals[c.Room] ??= []).push([c.StartMin, c.EndMin]);
+    const rows = [];  // {rooms:Set, intervals:[]}
+    const roomToRow = {};
+    for (const room of rooms) {
+        const canMerge = mergeable.has(room);
+        if (!(room in roomIntervals)) {
+            if (canMerge) continue;
+            roomToRow[room] = rows.length;
+            rows.push({ rooms: new Set([room]), intervals: [] });
+            continue;
+        }
+        const intervals = roomIntervals[room];
+        let placed = false;
+        if (canMerge) {
+            for (let i = 0; i < rows.length; i++) {
+                const r = rows[i];
+                const allMergeable = [...r.rooms].every(x => mergeable.has(x));
+                if (allMergeable && !intervalsOverlap(intervals, r.intervals)) {
+                    r.rooms.add(room); r.intervals.push(...intervals);
+                    roomToRow[room] = i; placed = true; break;
+                }
+            }
+        }
+        if (!placed) {
+            roomToRow[room] = rows.length;
+            rows.push({ rooms: new Set([room]), intervals: [...intervals] });
+        }
+    }
+    return { rows: rows.map(r => r.rooms), roomToRow };
+}
+
+// ---------- Rendering ----------
+function render(schedule) {
+    // Expand to one record per day
+    const exp = [];
+    for (const r of schedule) {
+        for (const day of expandDays(r.Days)) {
+            exp.push({
+                Course: r.Course, Room: r.Room, Day: day,
+                StartMin: timeToMinutes(r.Start), EndMin: timeToMinutes(r.End),
+                Instructor: r.Instructor, Enrollment: r.Enrollment === '' ? '?' : parseInt(r.Enrollment, 10),
+            });
+        }
+    }
+
+    const scheduledRooms = [...new Set(exp.map(r => r.Room))].sort();
+    const cap = r => roomCapacity[r] ?? 0;
+    const aero = scheduledRooms.filter(r => r.startsWith('AERO')).sort((a, b) => cap(b) - cap(a));
+    const main = scheduledRooms.filter(r => !r.startsWith('AERO')).sort((a, b) => cap(b) - cap(a));
+    const mergeable = new Set(main);
+    // Python reverses so first in list is at the top (highest index). Mirror that.
+    const roomsBottomUp = [...aero, ...main].reverse();
+
+    const days = DAY_ORDER.filter(d => exp.some(r => r.Day === d));
+    let minT = Math.min(...exp.map(r => r.StartMin));
+    let maxT = Math.max(...exp.map(r => r.EndMin));
+    minT = Math.floor(minT / 60) * 60;
+    maxT = (Math.floor(maxT / 60) + 1) * 60;
+
+    // Layout in SVG user units (px).
+    const W = 1500, rowPx = 24, gap = 16;
+    const marginL = 130, marginR = 20, marginT = 28, marginB = 40;
+
+    // Pre-compute row layout per day so each panel can size to its row count.
+    const perDay = days.map(day => {
+        const dayCourses = exp.filter(r => r.Day === day);
+        const { rows, roomToRow } = computeMergedRows(dayCourses, roomsBottomUp, mergeable);
+        return { day, dayCourses, rows, roomToRow, n: Math.max(rows.length, 1) };
+    });
+    const H = perDay.reduce((h, d) => h + marginT + d.n * rowPx + marginB + gap, 0) - gap + 10;
+
+    const plotW = W - marginL - marginR;
+    const xOf = t => marginL + (t - minT) / (maxT - minT) * plotW;
+    const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const f = v => Math.round(v * 100) / 100;
+    const text = (x, y, str, cls, extra = '') =>
+        `<text x="${f(x)}" y="${f(y)}" class="${cls}"${extra}>${esc(str)}</text>`;
+
+    const parts = [];
+    parts.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" font-family="Helvetica, Arial, sans-serif">`);
+    parts.push(`<style>
+text { fill: #000; dominant-baseline: central; }
+.title { font-size: 15px; font-weight: bold; text-anchor: middle; }
+.course { font-size: 8px; font-weight: bold; text-anchor: middle; }
+.sub { font-size: 7px; text-anchor: middle; }
+.ylab { font-size: 11px; text-anchor: end; }
+.xlab, .axis { font-size: 11px; text-anchor: middle; }
+.rowline { stroke: gray; stroke-width: 0.5; }
+.hourline { stroke: gray; stroke-width: 0.5; stroke-opacity: 0.3; }
+.frame { fill: none; stroke: #000; stroke-width: 1; }
+.box { stroke: #000; stroke-width: 1; }
+</style>`);
+    parts.push(`<rect width="${W}" height="${H}" fill="#fff"/>`);
+
+    let cursorY = 0;
+    perDay.forEach(({ day, dayCourses, rows, roomToRow, n }) => {
+        const top = cursorY + marginT;
+        const rowH = rowPx;
+        const plotH = n * rowH;
+        cursorY += marginT + plotH + marginB + gap;
+        // row index i (0 = bottom) -> y center
+        const yOf = i => top + plotH - (i + 0.5) * rowH;
+        const inMerged = new Set();
+        for (const s of rows) if (s.size > 1) for (const r of s) inMerged.add(r);
+
+        parts.push(`<g id="day-${day}">`);
+        parts.push(text(marginL + plotW / 2, top - 16, DAY_NAMES[day] ?? day, 'title'));
+
+        for (let i = 0; i <= n; i++) {
+            const y = f(top + plotH - i * rowH);
+            parts.push(`<line class="rowline" x1="${marginL}" x2="${marginL + plotW}" y1="${y}" y2="${y}"/>`);
+        }
+
+        for (const c of dayCourses) {
+            const i = roomToRow[c.Room];
+            const x = xOf(c.StartMin), w = xOf(c.EndMin) - x;
+            const y = yOf(i), h = rowH * 0.8;
+            const sub = inMerged.has(c.Room)
+                ? `${c.Room} (${c.Instructor}, ${c.Enrollment})`
+                : `(${c.Instructor}, ${c.Enrollment})`;
+            parts.push(`<g><title>${esc(`${c.Course}\n${c.Room}, ${c.Instructor}, ${c.Enrollment}\n${day} ${minutesToTime(c.StartMin)}-${minutesToTime(c.EndMin)}`)}</title>`);
+            parts.push(`<rect class="box" x="${f(x)}" y="${f(y - h / 2)}" width="${f(w)}" height="${f(h)}" fill="${courseColor(c.Course)}"/>`);
+            parts.push(text(x + w / 2, y - rowH * 0.2, c.Course, 'course'));
+            parts.push(text(x + w / 2, y + rowH * 0.2, sub, 'sub'));
+            parts.push(`</g>`);
+        }
+
+        for (let t = minT; t <= maxT; t += 60) {
+            const x = f(xOf(t));
+            parts.push(`<line class="hourline" x1="${x}" x2="${x}" y1="${f(top)}" y2="${f(top + plotH)}"/>`);
+        }
+        parts.push(`<rect class="frame" x="${marginL}" y="${f(top)}" width="${plotW}" height="${f(plotH)}"/>`);
+
+        rows.forEach((s, i) => {
+            const label = s.size === 1
+                ? `${[...s][0]} (${roomCapacity[[...s][0]] ?? '?'})`
+                : `Merged: ${s.size} rooms`;
+            parts.push(text(marginL - 8, yOf(i), label, 'ylab'));
+        });
+        parts.push(text(0, 0, 'Room (Capacity)', 'axis', ` transform="translate(14 ${f(top + plotH / 2)}) rotate(-90)"`));
+
+        for (let t = minT; t <= maxT; t += 60) parts.push(text(xOf(t), top + plotH + 12, minutesToTime(t), 'xlab'));
+        parts.push(text(marginL + plotW / 2, top + plotH + 30, 'Time', 'axis'));
+        parts.push(`</g>`);
+    });
+    parts.push('</svg>');
+    return { svg: parts.join('\n'), width: W, height: H };
+}
+
+// ---------- Wiring ----------
+const drop = document.getElementById('drop');
+const out = document.getElementById('out');
+const status = document.getElementById('status');
+const dlSvg = document.getElementById('downloadSvg');
+const dlPng = document.getElementById('downloadPng');
+let currentRender = null;
+let currentSchedule = null;
+
+function setStatus(msg, err) { status.textContent = msg; status.style.color = err ? '#b00' : ''; }
+
+function redraw() {
+    if (!currentSchedule) return;
+    currentRender = render(currentSchedule);
+    out.innerHTML = currentRender.svg;
+    out.hidden = false;
+    dlSvg.disabled = dlPng.disabled = false;
+}
+
+// Excel may store times as day fractions if the sheet was edited by hand.
+function cellToTimeString(v) {
+    if (typeof v === 'number') {
+        const mins = Math.round(v * 24 * 60) % (24 * 60);
+        return `${Math.floor(mins / 60)}:${String(mins % 60).padStart(2, '0')}`;
+    }
+    return String(v ?? '').trim();
+}
+
+function parseXLSX(buffer) {
+    const wb = XLSX.read(buffer, { type: 'array' });
+    const ws = wb.Sheets[wb.SheetNames.includes('schedule') ? 'schedule' : wb.SheetNames[0]];
+    const rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+    for (const r of rows) {
+        for (const k of Object.keys(r)) {
+            r[k] = (k === 'Start' || k === 'End') ? cellToTimeString(r[k]) : String(r[k]).trim();
+        }
+    }
+    return rows.filter(r => Object.values(r).some(v => v !== ''));
+}
+
+async function handleFile(file) {
+    let rows;
+    try {
+        if (/\.xlsx?$/i.test(file.name)) {
+            if (typeof XLSX === 'undefined') throw new Error('xlsx library did not load (offline?)');
+            rows = parseXLSX(await file.arrayBuffer());
+        } else {
+            rows = parseCSV(await file.text());
+        }
+    } catch (e) { setStatus(`Could not parse ${file.name}: ${e.message}`, true); return; }
+    const cols = Object.keys(rows[0] ?? {});
+    if (cols.includes('Room') && cols.includes('Days') && cols.includes('Start')) {
+        currentSchedule = rows;
+        setStatus(`Loaded ${rows.length} courses from ${file.name}.`);
+        redraw();
+    } else if (cols.includes('Room') && cols.includes('Capacity')) {
+        for (const r of rows) if (r.Room) roomCapacity[r.Room] = parseInt(r.Capacity, 10);
+        setStatus(`Loaded ${rows.length} room capacities from ${file.name}.`);
+        redraw();
+    } else {
+        setStatus(`${file.name} is not a schedule or rooms CSV (columns: ${cols.join(', ')}).`, true);
+    }
+}
+
+document.getElementById('schedFile').addEventListener('change', e => {
+    for (const f of e.target.files) handleFile(f);
+    e.target.value = '';
+});
+['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => { for (const f of e.dataTransfer.files) handleFile(f); });
+
+function downloadBlob(blob, name) {
+    const a = document.createElement('a');
+    a.download = name;
+    a.href = URL.createObjectURL(blob);
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+dlSvg.addEventListener('click', () => {
+    downloadBlob(new Blob([currentRender.svg], { type: 'image/svg+xml' }), 'schedule.svg');
+});
+
+dlPng.addEventListener('click', async () => {
+    const scale = 2;  // 2x for crisp text, similar to matplotlib dpi=150
+    const img = new Image();
+    const url = URL.createObjectURL(new Blob([currentRender.svg], { type: 'image/svg+xml' }));
+    try {
+        await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = url; });
+        const canvas = document.createElement('canvas');
+        canvas.width = currentRender.width * scale;
+        canvas.height = currentRender.height * scale;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(blob => downloadBlob(blob, 'schedule.png'), 'image/png');
+    } catch (e) {
+        setStatus(`PNG export failed: ${e.message || e}`, true);
+    } finally {
+        URL.revokeObjectURL(url);
+    }
+});
+</script>
+</body>
+</html>
