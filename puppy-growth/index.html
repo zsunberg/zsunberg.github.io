@@ -1,0 +1,111 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Puppy Growth Projection</title>
+<style>
+  :root { --bg:#fff; --fg:#1f2328; --muted:#57606a; --grid:#eaeef2; --pup:#c2410c; --car:#1f5fa8; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --grid:#262c36; --pup:#fb923c; --car:#6cb6ff; }
+  }
+  body { margin:0; padding:24px 16px 48px; background:var(--bg); color:var(--fg);
+         font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:17px; line-height:1.5; }
+  main { max-width:860px; margin:0 auto; }
+  h1 { margin:0 0 4px; font-size:1.9em; line-height:1.2; }
+  .sub { color:var(--muted); margin:0 0 20px; }
+  .stats { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 20px; }
+  .stat { flex:1 1 180px; border:1px solid var(--grid); border-radius:10px; padding:10px 14px; }
+  .stat b { display:block; font-size:1.4em; }
+  .stat span { color:var(--muted); font-size:.9em; }
+  .chart { position:relative; height:420px; }
+  .controls { margin:12px 0; color:var(--muted); font-size:.95em; }
+  .note { color:var(--muted); font-size:.9em; margin-top:20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>When will the puppy be a Subaru Outback?</h1>
+  <p class="sub">Exponential growth model: 25% weight gain per week, fit to the weigh-ins.</p>
+
+  <div class="stats">
+    <div class="stat"><b id="crossDate">–</b><span>Projected Outback-size date</span></div>
+    <div class="stat"><b id="crossWeeks">–</b><span>Weeks after the 10/31 weigh-in</span></div>
+    <div class="stat"><b>~3,800 lbs</b><span>Subaru Outback curb weight</span></div>
+  </div>
+
+  <div class="controls"><label><input type="checkbox" id="logToggle"> Log scale</label></div>
+  <div class="chart"><canvas id="c" aria-label="Puppy weight projection vs Subaru Outback weight"></canvas></div>
+
+  <p class="note">Weigh-ins: 12 lbs on Oct 24, 2026 and 15 lbs on Oct 31, 2026 (exactly +25%, so the model passes through both).
+  Model: weight = 15 &times; 1.25<sup>weeks since Oct 31</sup>. Results not endorsed by any veterinarian.</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(function () {
+  const DAY = 86400000;
+  const t0 = new Date(2026, 9, 31).getTime();       // Oct 31, 2026 (15 lbs)
+  const w0 = 15, rate = 1.25, outback = 3800;
+  const weight = t => w0 * Math.pow(rate, (t - t0) / (7 * DAY));
+  const crossWeeks = Math.log(outback / w0) / Math.log(rate);
+  const tCross = t0 + crossWeeks * 7 * DAY;
+
+  const fmt = t => new Date(t).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  document.getElementById('crossDate').textContent = fmt(tCross);
+  document.getElementById('crossWeeks').textContent = crossWeeks.toFixed(1);
+
+  const start = new Date(2026, 9, 24).getTime();
+  const end = tCross + 28 * DAY;
+  const model = [];
+  for (let t = start; t <= end; t += DAY) model.push({ x: t, y: weight(t) });
+
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const pup = css('--pup'), car = css('--car'), fg = css('--fg'), muted = css('--muted'), grid = css('--grid');
+
+  const chart = new Chart(document.getElementById('c'), {
+    type: 'line',
+    data: { datasets: [
+      { label: 'Projected puppy weight', data: model, borderColor: pup, borderWidth: 2.5, pointRadius: 0, tension: 0 },
+      { label: 'Weigh-ins', data: [{ x: start, y: 12 }, { x: t0, y: 15 }], showLine: false,
+        backgroundColor: pup, borderColor: css('--bg'), borderWidth: 2, pointRadius: 6 },
+      { label: 'Subaru Outback (~3,800 lbs)', data: [{ x: start, y: outback }, { x: end, y: outback }],
+        borderColor: car, borderWidth: 2, borderDash: [6, 4], pointRadius: 0 },
+      { label: 'Crossover', data: [{ x: tCross, y: outback }], showLine: false,
+        backgroundColor: car, borderColor: css('--bg'), borderWidth: 2, pointRadius: 8, pointStyle: 'rectRounded' }
+    ]},
+    options: {
+      maintainAspectRatio: false,
+      interaction: { mode: 'nearest', intersect: false },
+      scales: {
+        x: { type: 'linear', min: start, max: end, grid: { color: grid },
+             ticks: { color: muted, stepSize: 30 * DAY,
+                      callback: v => new Date(v).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) } },
+        y: { type: 'linear', min: 0, grid: { color: grid },
+             title: { display: true, text: 'Weight (lbs)', color: muted },
+             ticks: { color: muted, callback: v => Number(v).toLocaleString() } }
+      },
+      plugins: {
+        legend: { labels: { color: fg, usePointStyle: true } },
+        tooltip: { callbacks: {
+          title: items => fmt(items[0].parsed.x),
+          label: i => `${i.dataset.label}: ${Math.round(i.parsed.y).toLocaleString()} lbs`
+        } }
+      }
+    }
+  });
+
+  document.getElementById('logToggle').addEventListener('change', e => {
+    chart.options.scales.y.type = e.target.checked ? 'logarithmic' : 'linear';
+    chart.options.scales.y.min = e.target.checked ? 10 : 0;
+    chart.update();
+  });
+})();
+</script>
+</body>
+</html>
