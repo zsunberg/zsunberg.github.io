@@ -61,7 +61,7 @@ sitemap: false
   const axisStart = new Date(2026, 8, 1).getTime(); // Sep 1, 2026
   const end = new Date(2027, 4, 1).getTime();       // May 1, 2027
   const model = [];
-  for (let t = start; t <= end; t += DAY) model.push({ x: t, y: weight(t) });
+  for (let t = axisStart; t <= end; t += DAY) model.push({ x: t, y: weight(t) });
 
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const pup = css('--pup'), car = css('--car'), fg = css('--fg'), muted = css('--muted'), grid = css('--grid');
@@ -135,7 +135,8 @@ sitemap: false
 
   document.getElementById('logToggle').addEventListener('change', e => {
     chart.options.scales.y.type = e.target.checked ? 'logarithmic' : 'linear';
-    chart.options.scales.y.min = e.target.checked ? 10 : 0;
+    chart.options.scales.y.min = e.target.checked ? 1 : 0;
+    chart.options.scales.y.max = e.target.checked ? 10000 : undefined;
     chart.update();
   });
 })();
