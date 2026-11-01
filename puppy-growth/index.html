@@ -57,7 +57,8 @@ sitemap: false
   document.getElementById('crossDate').textContent = fmt(tCross);
   document.getElementById('crossWeeks').textContent = crossWeeks.toFixed(1);
 
-  const start = new Date(2026, 9, 24).getTime();
+  const start = new Date(2026, 9, 24).getTime();    // first weigh-in (12 lbs)
+  const axisStart = new Date(2026, 8, 1).getTime(); // Sep 1, 2026
   const end = new Date(2027, 4, 1).getTime();       // May 1, 2027
   const model = [];
   for (let t = start; t <= end; t += DAY) model.push({ x: t, y: weight(t) });
@@ -80,8 +81,8 @@ sitemap: false
         ctx.fillText(text, px + (align === 'left' ? -4 : align === 'right' ? 4 : 0), py - rise - 3);
       };
       // weigh-ins: staggered leader lines so labels don't collide
-      tag(x.getPixelForValue(start), y.getPixelForValue(12), 70, '12 lbs (Oct 24)', pup, 'left');
-      tag(x.getPixelForValue(t0), y.getPixelForValue(15), 40, '15 lbs (Oct 31)', pup, 'left');
+      tag(x.getPixelForValue(start), y.getPixelForValue(12), 70, '12 lbs (Oct 24)', pup, 'right');
+      tag(x.getPixelForValue(t0), y.getPixelForValue(15), 40, '15 lbs (Oct 31)', pup, 'right');
       // Outback line
       ctx.fillStyle = car; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.fillText('Subaru Outback \u2248 3,800 lbs', a.left + 8, y.getPixelForValue(outback) + 6);
@@ -100,7 +101,7 @@ sitemap: false
       { label: 'Projected puppy weight', data: model, borderColor: pup, borderWidth: 2.5, pointRadius: 0, tension: 0 },
       { label: 'Weigh-ins', data: [{ x: start, y: 12 }, { x: t0, y: 15 }], showLine: false,
         backgroundColor: pup, borderColor: css('--bg'), borderWidth: 2, pointRadius: 6 },
-      { label: 'Subaru Outback (~3,800 lbs)', data: [{ x: start, y: outback }, { x: end, y: outback }],
+      { label: 'Subaru Outback (~3,800 lbs)', data: [{ x: axisStart, y: outback }, { x: end, y: outback }],
         borderColor: car, borderWidth: 2, borderDash: [6, 4], pointRadius: 0 },
       { label: 'Crossover', data: [{ x: tCross, y: outback }], showLine: false,
         backgroundColor: car, borderColor: css('--bg'), borderWidth: 2, pointRadius: 8, pointStyle: 'rectRounded' }
@@ -110,10 +111,10 @@ sitemap: false
       animation: false,
       interaction: { mode: 'nearest', intersect: false },
       scales: {
-        x: { type: 'linear', min: start, max: end, grid: { color: grid },
+        x: { type: 'linear', min: axisStart, max: end, grid: { color: grid },
              afterBuildTicks: ax => {
                const ticks = [];
-               for (let m = 10; m <= 16; m++) ticks.push({ value: new Date(2026, m, 1).getTime() });
+               for (let m = 8; m <= 16; m++) ticks.push({ value: new Date(2026, m, 1).getTime() });
                ax.ticks = ticks;
              },
              ticks: { color: muted,
