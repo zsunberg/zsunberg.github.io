@@ -25,7 +25,6 @@ sitemap: false
   .stat span { color:var(--muted); font-size:.9em; }
   .chart { position:relative; height:420px; }
   .controls { margin:12px 0; color:var(--muted); font-size:.95em; }
-  .note { color:var(--muted); font-size:.9em; margin-top:20px; }
 </style>
 </head>
 <body>
@@ -42,8 +41,6 @@ sitemap: false
   <div class="controls"><label><input type="checkbox" id="logToggle"> Log scale</label></div>
   <div class="chart"><canvas id="c" aria-label="Puppy weight projection vs Subaru Outback weight"></canvas></div>
 
-  <p class="note">Weigh-ins: 12 lbs on Oct 24, 2026 and 15 lbs on Oct 31, 2026 (exactly +25%, so the model passes through both).
-  Model: weight = 15 &times; 1.25<sup>weeks since Oct 31</sup>. Results not endorsed by any veterinarian.</p>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -61,15 +58,44 @@ sitemap: false
   document.getElementById('crossWeeks').textContent = crossWeeks.toFixed(1);
 
   const start = new Date(2026, 9, 24).getTime();
-  const end = tCross + 28 * DAY;
+  const end = new Date(2027, 4, 1).getTime();       // May 1, 2027
   const model = [];
   for (let t = start; t <= end; t += DAY) model.push({ x: t, y: weight(t) });
 
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const pup = css('--pup'), car = css('--car'), fg = css('--fg'), muted = css('--muted'), grid = css('--grid');
 
+  const short = t => new Date(t).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const labels = {
+    id: 'labels',
+    afterDatasetsDraw(ch) {
+      const { ctx, scales: { x, y }, chartArea: a } = ch;
+      ctx.save();
+      ctx.font = '600 13px system-ui, -apple-system, "Segoe UI", sans-serif';
+      ctx.lineWidth = 1;
+      const tag = (px, py, rise, text, color, align) => {
+        ctx.strokeStyle = color; ctx.fillStyle = color;
+        ctx.beginPath(); ctx.moveTo(px, py - 8); ctx.lineTo(px, py - rise); ctx.stroke();
+        ctx.textAlign = align; ctx.textBaseline = 'bottom';
+        ctx.fillText(text, px + (align === 'left' ? -4 : align === 'right' ? 4 : 0), py - rise - 3);
+      };
+      // weigh-ins: staggered leader lines so labels don't collide
+      tag(x.getPixelForValue(start), y.getPixelForValue(12), 70, '12 lbs (Oct 24)', pup, 'left');
+      tag(x.getPixelForValue(t0), y.getPixelForValue(15), 40, '15 lbs (Oct 31)', pup, 'left');
+      // Outback line
+      ctx.fillStyle = car; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillText('Subaru Outback \u2248 3,800 lbs', a.left + 8, y.getPixelForValue(outback) + 6);
+      // crossover
+      const cx = x.getPixelForValue(tCross), cy = y.getPixelForValue(outback);
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText('Outback-sized: ' + short(tCross), cx - 14, cy - 18);
+      ctx.restore();
+    }
+  };
+
   const chart = new Chart(document.getElementById('c'), {
     type: 'line',
+    plugins: [labels],
     data: { datasets: [
       { label: 'Projected puppy weight', data: model, borderColor: pup, borderWidth: 2.5, pointRadius: 0, tension: 0 },
       { label: 'Weigh-ins', data: [{ x: start, y: 12 }, { x: t0, y: 15 }], showLine: false,
@@ -81,17 +107,23 @@ sitemap: false
     ]},
     options: {
       maintainAspectRatio: false,
+      animation: false,
       interaction: { mode: 'nearest', intersect: false },
       scales: {
         x: { type: 'linear', min: start, max: end, grid: { color: grid },
-             ticks: { color: muted, stepSize: 30 * DAY,
-                      callback: v => new Date(v).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) } },
+             afterBuildTicks: ax => {
+               const ticks = [];
+               for (let m = 10; m <= 16; m++) ticks.push({ value: new Date(2026, m, 1).getTime() });
+               ax.ticks = ticks;
+             },
+             ticks: { color: muted,
+                      callback: v => short(v) } },
         y: { type: 'linear', min: 0, grid: { color: grid },
              title: { display: true, text: 'Weight (lbs)', color: muted },
              ticks: { color: muted, callback: v => Number(v).toLocaleString() } }
       },
       plugins: {
-        legend: { labels: { color: fg, usePointStyle: true } },
+        legend: { display: false },
         tooltip: { callbacks: {
           title: items => fmt(items[0].parsed.x),
           label: i => `${i.dataset.label}: ${Math.round(i.parsed.y).toLocaleString()} lbs`
